@@ -27,8 +27,8 @@ export const PRODUCT_INFO: ProductInfo = {
 };
 
 export const BUSINESS_CONFIG = {
-  whatsappNumber: '237670123456', // Cameroon international format
-  displayPhone: '+237 670 123 456',
+  whatsappNumber: '237651406400', // Cameroon international format
+  displayPhone: '+237 651 406 400',
   email: 'hello@zunaschoice.cm',
   location: 'Douala & Yaoundé, Cameroon',
   productionSite: 'Bafoussam & West Region Agricultural Basin, Cameroon',
@@ -165,8 +165,8 @@ export const NUTRITION_TABLE: NutritionFact[] = [
   },
   {
     nutrient: { en: 'Micronutrients Fortification', fr: 'Fortification en Micronutriments' },
-    per100g: '10+ Essential Minerals & Vitamins',
-    per100gFr: '10+ vitamines et minéraux essentiels',
+    per100g: 'See product label',
+    per100gFr: 'Consultez l’étiquette du produit',
     perServing50g: '50g comparison portion',
     perServing50gFr: 'Portion de comparaison de 50g',
     dailyValueNote: { en: 'Zinc, Vitamin A, B-Complex, Vitamin C', fr: 'Zinc, Vitamine A, Complexe B, Vitamine C' },
@@ -182,8 +182,8 @@ export const FAQS_DATA: FAQItem[] = [
       fr: 'Quels ingrédients entrent dans la composition de Zuna\'s Choice ?',
     },
     answer: {
-      en: 'Zuna\'s Choice Baby Cereal (Weanimix) is crafted from three wholesome grains: locally sourced wheat, whole roasted soybeans, and milled rice. It contains no added sugars, no artificial preservatives, and no artificial colours.',
-      fr: 'La bouillie infantile Zuna\'s Choice (Weanimix) est élaborée à partir de trois céréales nobles : du blé localement sélectionné, du soja entier grillé et du riz moulu. Elle ne contient aucun sucre ajouté, ni colorant, ni conservateur artificiel.',
+      en: 'Zuna\'s Choice Baby Cereal (Weanimix) is crafted from three wholesome grains: locally sourced wheat, whole roasted soybeans, and milled rice. It is offered in a resealable 250g pouch for 1,500 FCFA.',
+      fr: 'La bouillie infantile Zuna\'s Choice (Weanimix) est élaborée à partir de trois céréales nobles : du blé localement sélectionné, du soja entier grillé et du riz moulu. Elle est proposée en sachet refermable de 250g à 1 500 FCFA.',
     },
   },
   {
@@ -242,8 +242,8 @@ export const FAQS_DATA: FAQItem[] = [
       fr: 'Comment conserver le paquet après ouverture ?',
     },
     answer: {
-      en: 'Store the unopened box in a cool, clean, and dry place away from direct sunlight. Once opened, fold the inner pouch tightly or transfer the cereal into an airtight container and consume within 3 to 4 weeks for maximum freshness.',
-      fr: 'Conservez le paquet fermé dans un endroit frais, sec et à l\'abri de la lumière directe. Après ouverture, refermez hermétiquement le sachet intérieur ou transvasez la farine dans un bocal hermétique et consommez-la dans les 3 à 4 semaines.',
+      en: 'Store the pouch in a cool, clean, dry place away from direct sunlight. Reseal it after use and follow the storage instructions and expiry date printed on the packaging.',
+      fr: 'Conservez le sachet dans un endroit frais, propre et sec, à l’abri du soleil. Refermez-le après utilisation et respectez les instructions de conservation et la date de péremption indiquées sur l’emballage.',
     },
   },
   {

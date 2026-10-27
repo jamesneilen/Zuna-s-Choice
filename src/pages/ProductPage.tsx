@@ -42,7 +42,7 @@ export const ProductPage: React.FC<ProductPageProps> = ({
   const dialogRef = useDialog(showLightbox);
 
   const galleryImages = [
-    { src: ASSETS.productBox, label: language === 'fr' ? 'Boîte 3D' : 'Box Front' },
+    { src: ASSETS.productBox, label: language === 'fr' ? 'Illustration' : 'Illustration' },
     { src: ASSETS.cerealBowl, label: language === 'fr' ? 'Bol de Céréale' : 'Cereal Bowl' },
     { src: ASSETS.threeGrains, label: language === 'fr' ? '3 Céréales' : 'Three Grains' },
     { src: ASSETS.motherBaby, label: language === 'fr' ? 'Repas de Bébé' : 'Baby Feeding' },
@@ -97,6 +97,10 @@ export const ProductPage: React.FC<ProductPageProps> = ({
               {PRODUCT_INFO.ageIndication}
             </div>
           </button>
+
+          <p className="text-xs text-[#263238]/80">
+            {language === 'fr' ? 'Illustration du produit. Le produit est conditionné en sachet refermable de 250g.' : 'Product illustration. Supplied in a resealable 250g pouch.'}
+          </p>
 
           {/* Gallery Thumbnails */}
           <div className="grid grid-cols-4 gap-2 sm:gap-3">

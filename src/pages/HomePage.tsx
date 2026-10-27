@@ -720,7 +720,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               <span className="text-xs font-bold text-[#263238] block mt-1">{t.nutritionSnippet.pill3}</span>
             </div>
             <div className="bg-white p-5 rounded-2xl text-center shadow-xs border border-[#60C3F2]/20">
-              <span className="font-display font-extrabold text-xl text-[#006688] block">10+</span>
+              <span className="font-display font-extrabold text-xl text-[#006688] block">{language === 'fr' ? 'Enrichi' : 'Fortified'}</span>
               <span className="text-xs font-bold text-[#263238] block mt-1">{t.nutritionSnippet.pill4}</span>
             </div>
           </div>

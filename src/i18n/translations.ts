@@ -13,7 +13,7 @@ export const translations = {
       headlinePart1: 'Wholesome Goodness for',
       headlinePart2: 'Every Little Beginning.',
       subtitle:
-        'Made with carefully selected wheat, soybeans and rice, Zuna\'s Choice brings locally produced, affordable baby cereal to growing families across Cameroon.',
+        "Made from locally sourced wheat, soybeans and rice, Zuna’s Choice is an affordable complementary cereal for infants from 6 months and young children in Cameroon.",
       exploreBtn: 'Explore Our Cereal',
       orderBtn: 'Order Now',
       highlight1: 'Locally Sourced Grains',
@@ -30,7 +30,7 @@ export const translations = {
         'Thoughtfully made for little ones, with balanced nutrition, daily convenience and family affordability in mind.',
       card1Title: 'Locally Sourced Ingredients',
       card1Desc:
-        'Grains cultivated and harvested through sustainable Cameroonian farming cooperatives, fostering local economic pride.',
+        "Locally sourced wheat, soybeans and rice create value for Cameroonian smallholder farmers through local cereal production.",
       card2Title: 'Thoughtful Nutrition',
       card2Desc:
         'A balanced three-grain synergy of wheat, soybeans and rice delivering slow carbohydrates, essential plant protein, and healthy fats.',
@@ -39,7 +39,7 @@ export const translations = {
         'Smooth texture that mixes easily with warm water and gently cooks in about 5 minutes, ideal for busy mothers and caregivers.',
       card4Title: 'Affordable for Families',
       card4Desc:
-        'Priced at just 1,500 FCFA for a generous 250g box so every child has access to wholesome, high-quality complementary nutrition.',
+        "A resealable 250g pouch costs 1,500 FCFA, keeping everyday complementary feeding within reach of family budgets.",
     },
     grains: {
       tag: 'Three Grains, One Thoughtful Blend',
@@ -58,13 +58,13 @@ export const translations = {
       title: 'Meet Their New Favourite Bowl.',
       subtitle:
         'The balanced Weanimix cereal that combines maternal love, pediatric nutrition, and local Cameroonian crops.',
-      perPack: 'per 250g box',
+      perPack: "per 250g resealable pouch",
       quantityLabel: 'Select Packs:',
       subtotalLabel: 'Subtotal:',
       orderWhatsApp: 'Order via WhatsApp',
       viewDetails: 'View Full Product Details',
-      feature1: '10+ Micronutrients Fortification',
-      feature2: 'No Added Sugar or Artificial Preservatives',
+      feature1: "Fortified complementary cereal",
+      feature2: "Resealable 250g Pouch",
       feature3: 'Smooth Texture for Easy Swallowing',
       feature4: 'Cooks in ~5 Minutes on Stove',
       fastDelivery: 'Fast delivery in Douala, Yaoundé & regional capitals',
@@ -93,7 +93,7 @@ export const translations = {
       copy1:
         'At Zuna\'s Choice, we believe nourishing the next generation can begin with the bountiful resources grown right here close to home in Cameroon.',
       copy2:
-        'By transforming locally sourced wheat, soybeans and rice into wholesome baby cereal, we\'re working every day to make complementary infant nutrition more accessible while generating sustainable value for Cameroonian smallholder farmers.',
+        "By sourcing, producing, packaging and distributing locally, we add value to Cameroonian wheat, soybeans and rice while supporting smallholder farmers and making complementary cereal more affordable.",
       cta: 'Read Our Full Story',
       stat1: '100% Cameroonian Sourced',
       stat2: '1,500 FCFA Accessible Price',
@@ -107,7 +107,7 @@ export const translations = {
       pill1: 'Plant-Based Protein',
       pill2: 'Essential Iron & Calcium',
       pill3: 'Natural Dietary Fibre',
-      pill4: '10+ Vital Micronutrients',
+      pill4: "Micronutrient Fortification",
       guidelineNotice:
         'Nutrition figures shown here are indicative and await confirmation against approved product labeling. Complementary feeding begins around six months alongside continued milk feeding.',
       viewTableBtn: 'See Full Nutritional Breakdown',
@@ -133,11 +133,11 @@ export const translations = {
     },
     productPage: {
       title: 'Zuna\'s Choice Baby Cereal — Weanimix (250g)',
-      subtitle: 'Wholesome infant cereal for babies 6+ months, made with Cameroonian wheat, soybeans, and rice.',
+      subtitle: "Complementary cereal for infants from 6 months and young children, made with Cameroonian wheat, soybeans and rice. Available in a resealable 250g pouch.",
       price: '1,500 FCFA',
       weight: '250g (Net Weight)',
       age: '6+ Months / Mois',
-      galleryTag: 'Official Packaging Gallery',
+      galleryTag: 'Product & Ingredient Gallery',
       zoomNotice: 'Click to zoom and view packaging details',
       orderBoxTitle: 'Place Direct Order',
       quantity: 'Quantity (Packs of 250g):',
@@ -146,16 +146,16 @@ export const translations = {
       whatsAppOrderCta: 'Order via WhatsApp Now',
       characteristicsTitle: 'Product Highlights',
       char1: 'Made with locally sourced Cameroonian wheat, soybeans, and rice',
-      char2: 'No refined cane sugar added; natural mild taste',
-      char3: 'Fortified with essential vitamins and minerals (Iron, Calcium, Vitamin A, Zinc)',
+      char2: "Resealable 250g pouch for everyday convenience",
+      char3: "Fortified with micronutrients; check the pack for the confirmed composition",
       char4: 'Smooth, comforting consistency suitable for early spoon-feeding',
       char5: 'Cooks in about 5 minutes; convenient for busy caregivers',
       storageTitle: 'Storage & Freshness Instructions',
       storageDesc:
-        'Store in a cool, clean, and dry pantry away from sunlight and moisture. After opening, fold the inner pouch tightly or transfer contents to a sterile airtight canister. Best consumed within 3–4 weeks of opening.',
+        "Keep the pouch in a cool, clean, dry place away from sunlight and moisture. Reseal it after each use and follow the storage instructions and expiry date on the packaging.",
       allergenTitle: 'Allergen Advisory',
       allergenDesc:
-        'Contains Wheat (Gluten) and Soybeans. Manufactured in a dedicated clean baby food facility following strict hygiene protocols.',
+        "Contains wheat (gluten) and soybeans. Check the product label for the full allergen declaration.",
       labelBadge: 'Product Information',
     },
     nutritionPage: {
@@ -175,27 +175,27 @@ export const translations = {
       whoNoticeDesc:
         'According to WHO and UNICEF guidelines, exclusive breastfeeding is recommended for the first 6 months of life. Complementary foods such as Zuna\'s Choice should be introduced at 6 months alongside continued on-demand breastfeeding up to 2 years of age or beyond.',
       calcTitle: 'Interactive Feeding Planner',
-      calcSubtitle: 'See how long a 250g box lasts for your baby\'s current routine.',
+      calcSubtitle: 'See how long a 250g pouch lasts for your baby\'s current routine.',
     },
     storyPage: {
       heroTitle: 'Rooted in Cameroon. Made for Growing Futures.',
       heroSubtitle:
-        'The journey of Zuna\'s Choice: how locally cultivated grains became Cameroon\'s nourishing complementary baby food.',
+        "Zuna’s Choice connects locally grown grains with affordable complementary food for infants and young children, creating value for smallholder farmers in Cameroon.",
       missionTitle: 'Our Mission',
       missionText:
-        'To make nutritious, wholesome, and affordable complementary baby cereal accessible to every Cameroonian family while creating sustainable economic livelihoods for local smallholder farming communities.',
+        "To make locally produced, affordable complementary cereal accessible to families while supporting Cameroonian smallholder farmers. The first 1,000 days are an important context for our mission; our cereal is introduced from 6 months alongside continued milk feeding.",
       visionTitle: 'Our Vision',
       visionText:
-        'A future where every child in Cameroon and Central Africa can flourish with clean, nutrient-dense early nutrition grown directly within their own home soil.',
+        "To support child nutrition through regional crops, reduce reliance on imported cereal and build a transparent local supply chain that creates value for farmers.",
       pillar1Title: 'Empowering Cameroonian Farmers',
       pillar1Desc:
-        'We buy wheat, soybeans, and rice directly from regional agricultural cooperatives in Cameroon, ensuring fair purchase prices and transparent supply chains.',
+        "We work with smallholder farmers supplying wheat, soybeans and rice, adding value through local transformation into baby cereal.",
       pillar2Title: 'Democratizing Child Nutrition',
       pillar2Desc:
         'High-quality infant cereal should never be a luxury. At 1,500 FCFA per pack, we keep our prices honest and accessible to everyday working households.',
-      pillar3Title: 'Strict Production Hygiene',
+      pillar3Title: "Convenience for Busy Families",
       pillar3Desc:
-        'From grain roasting to milling and hermetic packaging, every batch is processed under rigorous food safety and pediatric hygiene standards.',
+        "A resealable 250g pouch, English and French labeling and a cooking time of about 5 minutes help parents and caregivers fit cereal preparation into everyday routines.",
       quoteText:
         'When we support our own farmers, we don\'t just grow crops — we nurture healthier babies and build a self-reliant agricultural future for Cameroon.',
     },
@@ -209,7 +209,7 @@ export const translations = {
       email: 'Email Address *',
       emailPlaceholder: 'e.g. marie@example.cm',
       phone: 'Phone / WhatsApp Number *',
-      phonePlaceholder: 'e.g. +237 670 123 456',
+      phonePlaceholder: 'e.g. +237 6XX XXX XXX',
       inquiryType: 'Inquiry Category *',
       inquiryTypes: {
         product: 'Product Questions & Nutrition',
@@ -257,7 +257,7 @@ export const translations = {
     },
     calculator: {
       title: 'Baby Feeding & Supply Calculator',
-      subtitle: 'Calculate how long a 250g box of Zuna\'s Choice Weanimix will last based on your baby\'s age and feeding frequency.',
+      subtitle: "Estimate how long a 250g pouch lasts using an illustrative daily cereal amount for your child’s age. This is a supply estimate, not an individual feeding prescription.",
       ageLabel: 'Baby\'s Age:',
       ageOpt1: '6–8 Months (Early Diversification: 1 small bowl / ~25-30g daily)',
       ageOpt2: '9–11 Months (Active Weaning: 1–2 bowls / ~50g daily)',
@@ -298,7 +298,7 @@ export const translations = {
       headlinePart1: 'La Bonté Saine pour',
       headlinePart2: 'Chaque Petit Départ.',
       subtitle:
-        'Élaborée à partir de blé, de soja et de riz soigneusement sélectionnés, Zuna\'s Choice offre une bouillie infantile locale, nutritive et accessible à toutes les familles au Cameroun.',
+        "À base de blé, de soja et de riz locaux, Zuna’s Choice est une céréale de complément abordable pour les bébés dès 6 mois et les jeunes enfants au Cameroun.",
       exploreBtn: 'Découvrir la Céréale',
       orderBtn: 'Commander',
       highlight1: 'Céréales Récoltées Localement',
@@ -315,7 +315,7 @@ export const translations = {
         'Spécialement conçu pour les tout-petits, en alliant équilibre nutritionnel, rapidité de préparation et prix juste.',
       card1Title: 'Ingrédients d\'Origine Locale',
       card1Desc:
-        'Céréales cultivées par des coopératives agricoles camerounaises pour valoriser le terroir national et soutenir les cultivateurs.',
+        "Le blé, le soja et le riz locaux créent de la valeur pour les petits producteurs camerounais grâce à leur transformation en céréales infantiles.",
       card2Title: 'Nutrition Équilibrée',
       card2Desc:
         'L\'alliance des trois grains (blé, soja et riz) apporte glucides lents, protéines végétales complètes et acides gras essentiels.',
@@ -324,7 +324,7 @@ export const translations = {
         'Une farine fine qui se délaye instantanément dans l\'eau et cuit en 5 minutes chrono pour faciliter le quotidien des mamans.',
       card4Title: 'Accessible à Toutes les Familles',
       card4Desc:
-        'Seulement 1 500 FCFA pour un paquet généreux de 250g afin que chaque enfant bénéficie d\'une diversification saine sans compromis.',
+        "Un sachet refermable de 250g coûte 1 500 FCFA pour une alimentation de complément adaptée au budget des familles.",
     },
     grains: {
       tag: 'Trois Grains, Une Recette Harmonieuse',
@@ -343,13 +343,13 @@ export const translations = {
       title: 'Le Nouveau Bol Préféré de Bébé.',
       subtitle:
         'Le Weanimix qui rassemble l\'amour maternel, la rigueur nutritionnelle pédiatrique et la richesse de la terre camerounaise.',
-      perPack: 'par paquet de 250g',
+      perPack: "par sachet refermable de 250g",
       quantityLabel: 'Nombre de paquets :',
       subtotalLabel: 'Sous-total :',
       orderWhatsApp: 'Commander via WhatsApp',
       viewDetails: 'Fiche Produit Complète',
-      feature1: 'Fortifié avec plus de 10 micronutriments essentiels',
-      feature2: 'Sans sucre ajouté ni conservateur chimique',
+      feature1: "Céréales de complément enrichies",
+      feature2: "Sachet refermable de 250g",
       feature3: 'Texture veloutée facilitant la déglutition',
       feature4: 'Cuisson rapide en 5 minutes sur feu doux',
       fastDelivery: 'Livraison express à Douala, Yaoundé et villes régionales',
@@ -378,7 +378,7 @@ export const translations = {
       copy1:
         'Chez Zuna\'s Choice, nous sommes convaincus que bien nourrir les futures générations commence avec les ressources fertiles cultivées près de chez nous au Cameroun.',
       copy2:
-        'En transformant le blé, le soja et le riz de nos terroirs en une bouillie infantile de haute qualité, nous rendons la nutrition saine accessible à tous les foyers tout en créant de la valeur pour les agriculteurs camerounais.',
+        "En nous approvisionnant, en produisant, en conditionnant et en distribuant localement, nous valorisons le blé, le soja et le riz camerounais tout en soutenant les petits producteurs et en rendant les céréales de complément plus abordables.",
       cta: 'Découvrir Toute Notre Histoire',
       stat1: '100% Céréales du Cameroun',
       stat2: '1 500 FCFA Prix Accessible',
@@ -392,7 +392,7 @@ export const translations = {
       pill1: 'Protéines Végétales Nobles',
       pill2: 'Fer & Calcium Essentiels',
       pill3: 'Fibres Douces pour le Transit',
-      pill4: '10+ Vitamines & Minéraux',
+      pill4: "Enrichissement en micronutriments",
       guidelineNotice: 'Les valeurs présentées sont indicatives et doivent être confirmées sur l’étiquette approuvée. La diversification commence vers six mois, en complément du lait.',
       viewTableBtn: 'Consulter la Table Nutritionnelle Complète',
     },
@@ -417,7 +417,7 @@ export const translations = {
     },
     productPage: {
       title: 'Céréale Infantile Zuna\'s Choice — Weanimix (250g)',
-      subtitle: 'Bouillie infantile dès 6 mois, élaborée au Cameroun à base de blé, soja et riz locaux.',
+      subtitle: "Céréales de complément pour les bébés dès 6 mois et les jeunes enfants, à base de blé, de soja et de riz camerounais. Disponibles en sachet refermable de 250g.",
       price: '1 500 FCFA',
       weight: '250g (Poids Net)',
       age: 'Dès 6 Mois (6+ Months / Mois)',
@@ -430,16 +430,16 @@ export const translations = {
       whatsAppOrderCta: 'Commander sur WhatsApp Maintenant',
       characteristicsTitle: 'Points Forts du Produit',
       char1: 'Céréales et soja cultivés au Cameroun par des producteurs locaux',
-      char2: 'Sans sucre de canne raffiné ajouté ; saveur naturelle douce',
-      char3: 'Enrichi en fer, calcium, vitamine A et zinc pour une vitalité saine',
+      char2: "Sachet refermable de 250g pour un usage pratique au quotidien",
+      char3: "Enrichi en micronutriments ; consultez le sachet pour la composition confirmée",
       char4: 'Texture fine et soyeuse facilitant l\'apprentissage de la cuillère',
       char5: 'Cuisson rapide en 5 minutes ; idéal pour les parents occupés',
       storageTitle: 'Conseils de Conservation',
       storageDesc:
-        'Conserver dans un endroit sec, propre et à l\'abri de la chaleur et des insectes. Après ouverture, refermer soigneusement le sachet ou placer la farine dans un récipient étanche et consommer dans les 3 à 4 semaines.',
+        "Conservez le sachet dans un endroit frais, propre et sec, à l’abri du soleil et de l’humidité. Refermez-le après chaque utilisation et respectez les instructions de conservation et la date de péremption figurant sur l’emballage.",
       allergenTitle: 'Mention Allergènes',
       allergenDesc:
-        'Contient du Blé (Gluten) et du Soja. Préparé dans un atelier dédié à l\'alimentation infantile sous contrôles sanitaires rigoureux.',
+        "Contient du blé (gluten) et du soja. Consultez l’étiquette pour la déclaration complète des allergènes.",
       labelBadge: 'Informations Produit',
     },
     nutritionPage: {
@@ -464,22 +464,22 @@ export const translations = {
     storyPage: {
       heroTitle: 'Enraciné au Cameroun. Pensé pour l\'Avenir.',
       heroSubtitle:
-        'L\'aventure Zuna\'s Choice : comment nos céréales locales sont devenues la bouillie de référence des bébés camerounais.',
+        "Zuna’s Choice relie les cultures locales à une alimentation de complément abordable pour les bébés et les jeunes enfants, tout en créant de la valeur pour les petits producteurs du Cameroun.",
       missionTitle: 'Notre Mission',
       missionText:
-        'Rendre une bouillie infantile nutritive, saine et abordable accessible à toutes les familles camerounaises tout en offrant des débouchés équitables et durables aux petits exploitants agricoles locaux.',
+        "Rendre des céréales de complément locales et abordables accessibles aux familles tout en soutenant les petits producteurs camerounais. Les 1 000 premiers jours sont au cœur de notre mission ; nos céréales sont introduites dès 6 mois, en complément du lait.",
       visionTitle: 'Notre Vision',
       visionText:
-        'Un avenir où chaque enfant au Cameroun et en Afrique centrale grandit en pleine santé grâce à des aliments de qualité issus de ses propres terroirs.',
+        "Soutenir la nutrition des enfants grâce aux cultures régionales, réduire la dépendance aux céréales importées et bâtir une chaîne d’approvisionnement locale transparente qui valorise les agriculteurs.",
       pillar1Title: 'Soutien aux Agriculteurs Camerounais',
       pillar1Desc:
-        'Nous achetons directement le blé, le soja et le riz auprès de coopératives agricoles du Cameroun, assurant une rémunération juste.',
+        "Nous travaillons avec les petits producteurs de blé, de soja et de riz et valorisons leurs récoltes en les transformant localement en céréales infantiles.",
       pillar2Title: 'Démocratiser la Bonne Nutrition',
       pillar2Desc:
         'Une alimentation infantile de qualité ne doit pas être un luxe. À 1 500 FCFA le paquet, nous gardons un tarif juste pour le budget familial.',
-      pillar3Title: 'Exigence Sanitaire Maximale',
+      pillar3Title: "Pratique pour les familles actives",
       pillar3Desc:
-        'Du tri des grains au conditionnement hermétique, chaque étape répond à des standards stricts de sécurité sanitaire des aliments.',
+        "Un sachet refermable de 250g, un étiquetage en français et en anglais et une cuisson d’environ 5 minutes facilitent la préparation au quotidien pour les parents et les personnes qui s’occupent des enfants.",
       quoteText:
         'Quand nous valorisons nos propres récoltes, nous nourrissons bien plus que nos enfants : nous bâtissons la souveraineté alimentaire du Cameroun.',
     },
@@ -493,7 +493,7 @@ export const translations = {
       email: 'Adresse Email *',
       emailPlaceholder: 'ex. marie@exemple.cm',
       phone: 'Numéro Téléphone / WhatsApp *',
-      phonePlaceholder: 'ex. +237 670 123 456',
+      phonePlaceholder: 'ex. +237 6XX XXX XXX',
       inquiryType: 'Type de Demande *',
       inquiryTypes: {
         product: 'Questions Produit & Nutrition',
@@ -541,7 +541,7 @@ export const translations = {
     },
     calculator: {
       title: 'Calculateur de Consommation & Besoins',
-      subtitle: 'Estimez la durée d\'un ou plusieurs paquets de Zuna\'s Choice Weanimix selon l\'âge et l\'appétit de votre bébé.',
+      subtitle: "Estimez la durée d’un sachet de 250g à partir d’une quantité quotidienne indicative selon l’âge de votre enfant. Il s’agit d’une estimation de réserve, et non d’une prescription alimentaire individuelle.",
       ageLabel: 'Âge de Bébé :',
       ageOpt1: '6–8 Mois (Début de diversification : 1 petit bol / ~25-30g par jour)',
       ageOpt2: '9–11 Mois (Sevrage actif : 1 à 2 bols / ~50g par jour)',
