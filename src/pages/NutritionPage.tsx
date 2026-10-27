@@ -32,7 +32,7 @@ export const NutritionPage: React.FC<NutritionPageProps> = ({
 
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-16 space-y-8 md:space-y-16">
+    <div className="page-shell max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-16 space-y-8 md:space-y-16">
       {/* Breadcrumb */}
       <nav aria-label={language === 'fr' ? 'Fil d’Ariane' : 'Breadcrumb'} className="flex items-center gap-2 text-xs font-bold text-[#263238]/80">
         <span>{commonT.nav.home}</span>

@@ -62,7 +62,7 @@ export const ProductPage: React.FC<ProductPageProps> = ({
   const subtotal = quantity * PRODUCT_INFO.priceFcfa;
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-16 space-y-8 md:space-y-16">
+    <div className="page-shell max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-16 space-y-8 md:space-y-16">
       {/* Breadcrumb */}
       <nav aria-label={language === 'fr' ? 'Fil d’Ariane' : 'Breadcrumb'} className="flex items-center gap-2 text-xs font-bold text-[#263238]/80">
         <span>{commonT.nav.home}</span>
@@ -71,15 +71,15 @@ export const ProductPage: React.FC<ProductPageProps> = ({
       </nav>
 
       {/* Main Product Showcase: Sticky Gallery Left, Contiguous Purchase Module Right */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-12 items-start">
+      <div className="product-layout grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-12 items-start">
         {/* Left Column: Gallery */}
-        <div className="lg:col-span-7 space-y-4">
+        <div className="product-gallery lg:col-span-7 space-y-4">
           {/* Main Visual Frame */}
           <button
             type="button"
             aria-label={t.zoomNotice}
             onClick={() => setShowLightbox(true)}
-            className="relative rounded-3xl overflow-hidden bg-white border-2 border-[#60C3F2]/30 shadow-xl cursor-zoom-in group aspect-square flex items-center justify-center p-4 hover:border-[#60C3F2] transition-colors"
+            className="product-frame relative rounded-3xl overflow-hidden bg-white border-2 border-[#60C3F2]/30 shadow-xl cursor-zoom-in group aspect-square flex items-center justify-center p-4 hover:border-[#60C3F2] transition-colors"
           >
             <ResponsiveImage
               sizes="(min-width: 1024px) 700px, 100vw"
@@ -138,7 +138,7 @@ export const ProductPage: React.FC<ProductPageProps> = ({
         </div>
 
         {/* Right Column: Contiguous Purchase Module */}
-        <div className="lg:col-span-5 space-y-6 bg-white p-5 sm:p-10 rounded-3xl border border-[#EAF8FF] shadow-lg">
+        <div className="product-purchase lg:col-span-5 space-y-6 bg-white p-5 sm:p-10 rounded-3xl border border-[#EAF8FF] shadow-lg">
           <div className="space-y-2">
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#EAF8FF] rounded-full text-xs font-bold text-[#087C21]">
               <ShieldCheck className="w-3.5 h-3.5" />

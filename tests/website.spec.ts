@@ -16,7 +16,11 @@ for (const width of [320, 375, 768, 1280, 1440]) {
         expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
         await expect(page.locator('a[href="mailto:info@zunaschoice.cm"]').first()).toBeAttached();
         await expect(page.locator('a[href="mailto:hello@zunaschoice.cm"]')).toHaveCount(0);
+        if (width >= 1280) {
+          await expect(page.getByRole('navigation', { name: language === 'fr' ? 'Navigation principale' : 'Main navigation' })).toBeVisible();
+        }
         if (id === 'home') {
+          await expect(page.locator('main img[src$="/zuna-logo.webp"]')).toHaveCount(0);
           const caption = await page.getByText(language === 'fr' ? 'Suggestion de présentation — sachet refermable de 250g.' : 'Serving suggestion — resealable 250g pouch.', { exact: true }).boundingBox();
           const badge = await page.locator('main .absolute.-bottom-4').first().boundingBox();
           expect(caption && badge && caption.y >= badge.y + badge.height).toBeTruthy();

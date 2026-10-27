@@ -31,7 +31,7 @@ export const StoryPage: React.FC<StoryPageProps> = ({
   const commonT = translations[language];
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-16 space-y-10 md:space-y-20">
+    <div className="page-shell max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-16 space-y-10 md:space-y-20">
       {/* Breadcrumb */}
       <nav aria-label={language === 'fr' ? 'Fil d’Ariane' : 'Breadcrumb'} className="flex items-center gap-2 text-xs font-bold text-[#263238]/80">
         <span>{commonT.nav.home}</span>
@@ -40,7 +40,7 @@ export const StoryPage: React.FC<StoryPageProps> = ({
       </nav>
 
       {/* Hero Section */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+      <div className="story-hero grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
         <div className="lg:col-span-7 space-y-5">
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#EAF8FF] rounded-full text-xs font-bold text-[#087C21]">
             <ShieldCheck className="w-3.5 h-3.5" />

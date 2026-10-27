@@ -65,7 +65,7 @@ export const Header: React.FC<HeaderProps> = ({
           </button>
 
           {/* Zone 2: 4-5 Clean single-line text navigation links */}
-          <nav aria-label={language === 'fr' ? 'Navigation principale' : 'Main navigation'} className="hidden min-[90rem]:flex items-center gap-5">
+          <nav aria-label={language === 'fr' ? 'Navigation principale' : 'Main navigation'} className="hidden min-[75rem]:flex items-center gap-5">
             {navItems.map((item) => {
               const isActive = currentPage === item.id;
               return (
@@ -132,7 +132,7 @@ export const Header: React.FC<HeaderProps> = ({
               ref={menuRef}
               data-menu-trigger
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="min-[90rem]:hidden p-2.5 rounded-xl text-[#263238] hover:bg-[#EAF8FF] transition-colors focus-visible:outline-hidden"
+              className="min-[75rem]:hidden p-2.5 rounded-xl text-[#263238] hover:bg-[#EAF8FF] transition-colors focus-visible:outline-hidden"
               aria-label={language === 'fr' ? 'Ouvrir ou fermer le menu' : 'Toggle Navigation Menu'}
               aria-expanded={mobileMenuOpen}
               aria-controls="mobile-navigation"
@@ -145,7 +145,7 @@ export const Header: React.FC<HeaderProps> = ({
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <nav aria-label={language === 'fr' ? 'Navigation mobile' : 'Mobile navigation'} id="mobile-navigation" className="min-[90rem]:hidden max-h-[calc(100dvh-72px)] overflow-y-auto bg-white border-b border-[#EAF8FF] px-4 pt-2 pb-6 space-y-2 shadow-lg animate-in fade-in slide-in-from-top-2 duration-150">
+        <nav aria-label={language === 'fr' ? 'Navigation mobile' : 'Mobile navigation'} id="mobile-navigation" className="min-[75rem]:hidden max-h-[calc(100dvh-72px)] overflow-y-auto bg-white border-b border-[#EAF8FF] px-4 pt-2 pb-6 space-y-2 shadow-lg animate-in fade-in slide-in-from-top-2 duration-150">
           <div className="space-y-1 pt-2 pb-3">
             {navItems.map((item) => {
               const isActive = currentPage === item.id;

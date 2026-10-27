@@ -58,28 +58,23 @@ export const HomePage: React.FC<HomePageProps> = ({
   });
 
   return (
-    <div className="space-y-14 md:space-y-32 pb-16">
+    <div className="home-page space-y-14 md:space-y-32 pb-16">
       {/* =========================================================================
           SECTION 1 — HERO
           Two-column desktop layout, cheerful sky-blue aesthetic with gentle clouds
       ========================================================================= */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#60C3F2]/25 via-[#EAF8FF] to-[#F4FAFF] pt-6 md:pt-16 pb-10 md:pb-28">
+      <section className="home-hero relative overflow-hidden bg-gradient-to-b from-[#60C3F2]/25 via-[#EAF8FF] to-[#F4FAFF] pt-6 md:pt-16 pb-10 md:pb-28">
         {/* Soft SVG Background Clouds */}
         <div className="absolute top-6 left-10 w-44 h-16 bg-white/70 rounded-full blur-md animate-cloud-drift pointer-events-none" />
         <div className="absolute top-20 right-16 w-60 h-20 bg-white/60 rounded-full blur-lg animate-cloud-drift pointer-events-none" />
         <div className="absolute -bottom-8 left-1/3 w-72 h-24 bg-white/50 rounded-full blur-md pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-8 items-center">
+          <div className="desktop-hero-grid grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-8 items-center">
             {/* Left Column: Headline, Supporting Copy, CTAs, Highlights */}
-            <div className="contents lg:block lg:col-span-7 lg:space-y-6 text-left">
-              {/* Official Brand Logo & Cameroon Sourced Trust Marker */}
+            <div className="hero-copy contents lg:block lg:col-span-7 lg:space-y-6 text-left">
+              {/* Cameroon Sourced Trust Marker */}
               <div className="order-0 flex flex-wrap items-center gap-3">
-                <ResponsiveImage
-                  src={ASSETS.logo}
-                  alt={language === 'fr' ? "Zuna’s Choice — Céréales infantiles Weanimix" : "Zuna's Choice Baby Cereal Weanimix"}
-                  className="hidden sm:block h-10 sm:h-12 w-auto object-contain"
-                />
                 <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white/90 backdrop-blur-xs rounded-full border border-[#60C3F2]/40 shadow-xs text-[10px] sm:text-xs font-bold text-[#087C21]">
                   <ShieldCheck className="w-4 h-4 text-[#087C21]" />
                   <span>{t.hero.certifiedNotice}</span>
@@ -87,7 +82,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               </div>
 
               {/* Expressive Display Headline */}
-              <h1 tabIndex={-1} className="order-1 text-balance font-display font-extrabold text-[30px] sm:text-5xl lg:text-6xl text-[#810778] tracking-tight leading-[1.12]">
+              <h1 tabIndex={-1} className="hero-title order-1 text-balance font-display font-extrabold text-[30px] sm:text-5xl lg:text-6xl text-[#810778] tracking-tight leading-[1.12]">
                 <span>{t.hero.headlinePart1}</span>{' '}
                 <span className="text-[#087C21] block sm:inline">
                   {t.hero.headlinePart2}
@@ -150,11 +145,11 @@ export const HomePage: React.FC<HomePageProps> = ({
             </div>
 
             {/* Right Column: Serving Suggestion & Product Details */}
-            <div className="order-3 lg:order-none lg:col-span-5 relative flex justify-center py-3 lg:py-0">
+            <div className="hero-visual order-3 lg:order-none lg:col-span-5 relative flex justify-center py-3 lg:py-0">
               {/* Sunbeam Halo & Sky Circle */}
               <div className="absolute inset-0 bg-gradient-to-tr from-[#60C3F2]/30 to-[#810778]/10 rounded-full blur-2xl transform scale-90 -z-10" />
 
-              <div className="relative max-w-[230px] sm:max-w-md w-full animate-gentle-float">
+              <div className="hero-image-wrap relative max-w-[230px] sm:max-w-md w-full animate-gentle-float">
                 {/* Illustrative Serving Image */}
                 <div className="relative rounded-3xl p-3 bg-white/90 backdrop-blur-xs shadow-2xl border-2 border-white">
                   <ResponsiveImage
@@ -292,10 +287,11 @@ export const HomePage: React.FC<HomePageProps> = ({
             </button>
           </div>
 
+          <div className="ingredient-layout space-y-12 lg:space-y-0">
           {/* Artisanal Photo Banner */}
-          <div className="relative rounded-3xl overflow-hidden shadow-lg border border-[#EAF8FF] h-64 sm:h-80 md:h-96">
+          <div className="ingredient-photo relative rounded-3xl overflow-hidden shadow-lg border border-[#EAF8FF] h-64 sm:h-80 md:h-96">
             <ResponsiveImage
-              sizes="(min-width: 1280px) 1216px, 100vw"
+              sizes="(min-width: 1024px) 600px, 100vw"
               src={ASSETS.threeGrains}
               alt={language === 'fr' ? "Blé, soja et riz cultivés localement" : "Locally cultivated wheat, soybeans, and rice"}
               className="w-full h-full object-cover"
@@ -315,7 +311,7 @@ export const HomePage: React.FC<HomePageProps> = ({
           </div>
 
           {/* 3 Grain Detail Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="ingredient-cards grid grid-cols-1 md:grid-cols-3 gap-6">
             {INGREDIENTS_DATA.map((grain, idx) => {
               const bgColors = ['bg-[#F4FAFF]', 'bg-[#FFF9F2]', 'bg-[#F2FCF5]'];
               const borderColors = ['border-[#60C3F2]/40', 'border-[#F19A24]/40', 'border-[#087C21]/40'];
@@ -324,7 +320,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               return (
                 <div
                   key={grain.id}
-                  className={`p-7 rounded-3xl border ${bgColors[idx]} ${borderColors[idx]} space-y-4 flex flex-col justify-between`}
+                  className={`ingredient-card p-7 rounded-3xl border ${bgColors[idx]} ${borderColors[idx]} space-y-4 flex flex-col justify-between`}
                 >
                   <div className="space-y-3">
                     <span className={`text-xs font-black uppercase tracking-wider ${textColors[idx]}`}>
@@ -345,6 +341,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                 </div>
               );
             })}
+          </div>
           </div>
         </div>
       </section>

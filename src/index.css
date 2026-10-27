@@ -72,3 +72,37 @@ button:focus-visible, a:focus-visible, [tabindex]:focus-visible {
   button:has(> svg:only-child) { min-width: 44px; min-height: 44px; }
   footer { padding-bottom: 6rem; }
 }
+
+/* Desktop composition. The established mobile layout keeps its existing rules. */
+@media (min-width: 1024px) {
+  .home-page .font-display, .page-shell .font-display { font-weight: 600; }
+  .product-frame > img { object-fit: cover; border-radius: 1rem; }
+  .product-gallery .grid-cols-3 > button { aspect-ratio: auto; min-height: 6.5rem; padding: .75rem; }
+  .home-page > :not(:last-child) { margin-block-end: 5rem; }
+  .home-hero { padding-top: 3rem; padding-bottom: 3.5rem; }
+  .desktop-hero-grid { grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: 3.5rem; }
+  .hero-copy, .hero-visual { grid-column: auto; }
+  .hero-title { font-size: clamp(2.8rem, 3.7vw, 3.5rem); line-height: 1.1; max-width: 18ch; letter-spacing: -.025em; }
+  .hero-copy > p { max-width: 54ch; }
+  .hero-image-wrap { max-width: 25rem; animation: none; }
+  .hero-visual > div:first-child { opacity: .45; }
+  .ingredient-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 3rem; align-items: stretch; }
+  .ingredient-photo { height: 100%; min-height: 32rem; max-height: 42rem; }
+  .ingredient-cards { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
+  .ingredient-card { padding: 0 0 1.5rem; border: 0; border-bottom: 1px solid #dce8e6; border-radius: 0; background: transparent; }
+  .ingredient-card > div:last-child { display: none; }
+  .page-shell { max-width: 80rem; padding-top: 2rem; padding-bottom: 3rem; }
+  .page-shell > :not(:last-child) { margin-block-end: 2.25rem; }
+  .page-shell h1 { font-size: clamp(2.5rem, 3.2vw, 3rem); line-height: 1.12; }
+  .product-layout { grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); gap: 3rem; }
+  .product-gallery, .product-purchase { grid-column: auto; }
+  .product-gallery { position: sticky; top: 7rem; }
+  .product-frame { width: 100%; aspect-ratio: auto; height: clamp(23rem, 35vw, 30rem); }
+  .product-purchase { padding: 2rem; }
+  .product-purchase h1 { font-size: clamp(1.8rem, 2.4vw, 2.25rem); }
+  .story-hero { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 3rem; }
+  .story-hero > div { grid-column: auto; }
+  .contact-channels { position: sticky; top: 7rem; }
+  .home-page .shadow-lg, .home-page .shadow-xl, .home-page .shadow-2xl,
+  .page-shell .shadow-lg, .page-shell .shadow-xl, .page-shell .shadow-2xl { box-shadow: 0 8px 28px rgb(38 50 56 / .07); }
+}
