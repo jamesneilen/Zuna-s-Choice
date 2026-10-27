@@ -1,3 +1,4 @@
+import { ResponsiveImage } from '../components/ResponsiveImage';
 import { useDialog } from '../hooks/useDialog';
 import React, { useState, useEffect } from 'react';
 import { Language } from '../types';
@@ -64,7 +65,7 @@ export const ProductPage: React.FC<ProductPageProps> = ({
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-16 space-y-8 md:space-y-16">
       {/* Breadcrumb */}
-      <nav className="flex items-center gap-2 text-xs font-bold text-[#263238]/60">
+      <nav className="flex items-center gap-2 text-xs font-bold text-[#263238]/80">
         <span>{commonT.nav.home}</span>
         <ChevronRight className="w-3.5 h-3.5" />
         <span className="text-[#810778]">{commonT.nav.product}</span>
@@ -81,9 +82,9 @@ export const ProductPage: React.FC<ProductPageProps> = ({
             onClick={() => setShowLightbox(true)}
             className="relative rounded-3xl overflow-hidden bg-white border-2 border-[#60C3F2]/30 shadow-xl cursor-zoom-in group aspect-square flex items-center justify-center p-4 hover:border-[#60C3F2] transition-colors"
           >
-            <img
+            <ResponsiveImage
               src={selectedImage}
-              alt="Zuna's Choice Baby Cereal"
+              alt={language === 'fr' ? "Zuna’s Choice — Céréales infantiles" : "Zuna's Choice Baby Cereal"}
               className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
               loading="eager"
               referrerPolicy="no-referrer"
@@ -116,7 +117,8 @@ export const ProductPage: React.FC<ProductPageProps> = ({
                       : 'border-[#EAF8FF] hover:border-[#60C3F2]/60'
                   }`}
                 >
-                  <img
+                  <ResponsiveImage
+                    sizes="(min-width: 1024px) 160px, 25vw"
                     src={img.src}
                     alt={img.label}
                     className="w-full h-12 sm:h-16 object-contain rounded-lg shrink-0"
@@ -156,7 +158,7 @@ export const ProductPage: React.FC<ProductPageProps> = ({
                 {t.weight} · {PRODUCT_INFO.origin}
               </span>
             </div>
-            <span className="px-3 py-1 bg-[#F19A24] text-white rounded-full text-xs font-extrabold">
+            <span className="px-3 py-1 bg-[#A14C00] text-white rounded-full text-xs font-extrabold">
               {t.age}
             </span>
           </div>
@@ -172,7 +174,7 @@ export const ProductPage: React.FC<ProductPageProps> = ({
                   type="button"
                   onClick={() => setQuantity(Math.max(1, quantity - 1))}
                   className="w-8 h-8 rounded-full flex items-center justify-center hover:bg-white text-[#810778] transition-colors"
-                  aria-label="Decrease quantity"
+                  aria-label={language === 'fr' ? 'Réduire la quantité' : 'Decrease quantity'}
                 >
                   <Minus className="w-3.5 h-3.5" />
                 </button>
@@ -183,7 +185,7 @@ export const ProductPage: React.FC<ProductPageProps> = ({
                   type="button"
                   onClick={() => setQuantity(quantity + 1)}
                   className="w-8 h-8 rounded-full flex items-center justify-center hover:bg-white text-[#810778] transition-colors"
-                  aria-label="Increase quantity"
+                  aria-label={language === 'fr' ? 'Augmenter la quantité' : 'Increase quantity'}
                 >
                   <Plus className="w-3.5 h-3.5" />
                 </button>
@@ -258,7 +260,7 @@ export const ProductPage: React.FC<ProductPageProps> = ({
 
         {/* Allergen */}
         <div className="p-7 bg-[#FFF8F0] rounded-3xl border border-[#F19A24]/30 space-y-3">
-          <div className="flex items-center gap-2 text-[#F19A24] font-bold text-sm">
+          <div className="flex items-center gap-2 text-[#954900] font-bold text-sm">
             <AlertCircle className="w-5 h-5" />
             <h3 className="font-display font-bold text-lg text-[#263238]">
               {t.allergenTitle}
@@ -316,18 +318,18 @@ export const ProductPage: React.FC<ProductPageProps> = ({
             <button
               onClick={() => setShowLightbox(false)}
               className="fixed top-4 right-4 p-2 text-white hover:text-[#60C3F2] transition-colors rounded-full bg-white/10 hover:bg-white/20"
-              aria-label="Close Preview"
+              aria-label={language === 'fr' ? 'Fermer l’aperçu' : 'Close Preview'}
             >
               <X className="w-6 h-6" />
             </button>
-            <img
+            <ResponsiveImage
               src={selectedImage}
-              alt="Packaging inspection view"
+              alt={language === 'fr' ? "Aperçu de l’emballage" : "Packaging inspection view"}
               className="max-h-[80vh] w-auto object-contain rounded-2xl shadow-2xl bg-white p-2"
               referrerPolicy="no-referrer"
             />
             <p className="text-white/80 text-xs mt-3 text-center font-medium">
-              Zuna's Choice Baby Cereal Weanimix (250g) · 6+ Months / Mois · Made in Cameroon
+              {language === 'fr' ? "Zuna’s Choice — Céréales infantiles Weanimix (250g) · Dès 6 mois · Cameroun" : "Zuna’s Choice Baby Cereal Weanimix (250g) · 6+ Months · Cameroon"}
             </p>
           </div>
         </div>

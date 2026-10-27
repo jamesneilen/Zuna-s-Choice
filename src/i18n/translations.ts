@@ -103,13 +103,13 @@ export const translations = {
       tag: 'Nutrition Spotlight',
       title: 'Nutrition Worth Understanding.',
       subtitle:
-        'Transparent complementary nutrition with zero hidden additives and verified nutritional balance.',
+        'Explore the blend’s ingredients and indicative nutrition information.',
       pill1: 'Plant-Based Protein',
       pill2: 'Essential Iron & Calcium',
       pill3: 'Natural Dietary Fibre',
       pill4: '10+ Vital Micronutrients',
       guidelineNotice:
-        'Complementary feeding begins around six months of age to accompany continued age-appropriate milk feeding and a balanced, diversified diet.',
+        'Nutrition figures shown here are indicative and await confirmation against approved product labeling. Complementary feeding begins around six months alongside continued milk feeding.',
       viewTableBtn: 'See Full Nutritional Breakdown',
     },
     orderBanner: {
@@ -156,7 +156,7 @@ export const translations = {
       allergenTitle: 'Allergen Advisory',
       allergenDesc:
         'Contains Wheat (Gluten) and Soybeans. Manufactured in a dedicated clean baby food facility following strict hygiene protocols.',
-      labelBadge: 'Verified Cameroon Label Data',
+      labelBadge: 'Product Information',
     },
     nutritionPage: {
       heroTitle: 'Good Ingredients. Thoughtful Beginnings.',
@@ -166,7 +166,7 @@ export const translations = {
       threeGrainsIntro:
         'Weanimix is a time-honoured West and Central African complementary feeding formulation designed to optimize protein quality and energy density using local staple grains and legumes.',
       tableTitle: 'Nutritional Information Panel',
-      tableSubtitle: 'Standardized values per 100g dry cereal and recommended 50g infant portion.',
+      tableSubtitle: 'Indicative figures awaiting confirmation against approved product labeling. The 50g column is a comparison portion, not a feeding recommendation.',
       nutrientCol: 'Nutrient / Component',
       per100gCol: 'Per 100g Cereal',
       per50gCol: 'Per 50g Serving',
@@ -393,8 +393,7 @@ export const translations = {
       pill2: 'Fer & Calcium Essentiels',
       pill3: 'Fibres Douces pour le Transit',
       pill4: '10+ Vitamines & Minéraux',
-      guidelineNotice:
-        'L\'alimentation de complément commence dès 6 mois pour accompagner l\'allaitement continu et une alimentation variée et équilibrée.',
+      guidelineNotice: 'Les valeurs présentées sont indicatives et doivent être confirmées sur l’étiquette approuvée. La diversification commence vers six mois, en complément du lait.',
       viewTableBtn: 'Consulter la Table Nutritionnelle Complète',
     },
     orderBanner: {
@@ -441,7 +440,7 @@ export const translations = {
       allergenTitle: 'Mention Allergènes',
       allergenDesc:
         'Contient du Blé (Gluten) et du Soja. Préparé dans un atelier dédié à l\'alimentation infantile sous contrôles sanitaires rigoureux.',
-      labelBadge: 'Informations Étiquetage Certifié Cameroun',
+      labelBadge: 'Informations Produit',
     },
     nutritionPage: {
       heroTitle: 'De Bons Ingrédients. Des Départs Heureux.',
@@ -451,7 +450,7 @@ export const translations = {
       threeGrainsIntro:
         'Le Weanimix est une formulation d\'alimentation de complément réputée en Afrique de l\'Ouest et Centrale, conçue pour associer céréales et légumineuses afin d\'obtenir une excellente densité protéique et énergétique.',
       tableTitle: 'Tableau des Valeurs Nutritionnelles',
-      tableSubtitle: 'Valeurs indicatives pour 100g de céréale sèche et par portion recommandée de 50g.',
+      tableSubtitle: 'Valeurs indicatives à confirmer sur l’étiquette approuvée. La colonne de 50g sert à la comparaison, sans constituer une recommandation de portion.',
       nutrientCol: 'Nutriment / Composant',
       per100gCol: 'Pour 100g',
       per50gCol: 'Par Portion 50g',

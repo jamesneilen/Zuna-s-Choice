@@ -22,7 +22,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, language, onOpenOrde
             <div className="flex items-center">
               <img
                 src={ASSETS.logo}
-                alt="Zuna's Choice Baby Cereal"
+                alt={language === 'fr' ? "Zuna’s Choice — Céréales infantiles" : "Zuna's Choice Baby Cereal"}
                 className="h-14 w-auto object-contain"
               />
             </div>
@@ -122,12 +122,12 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, language, onOpenOrde
                 <span className="font-medium">{BUSINESS_CONFIG.email}</span>
               </a>
               <div className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-[#F19A24] shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-[#954900] shrink-0 mt-0.5" />
                 <span className="font-medium">{BUSINESS_CONFIG.location}</span>
               </div>
               <div className="flex items-start gap-2.5">
                 <Clock className="w-4 h-4 text-[#810778] shrink-0 mt-0.5" />
-                <span className="font-medium text-xs">{BUSINESS_CONFIG.hours}</span>
+                <span className="font-medium text-xs">{language === 'fr' ? 'Lun – Sam : 8 h – 18 h (WAT)' : BUSINESS_CONFIG.hours}</span>
               </div>
             </div>
           </div>
@@ -136,10 +136,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, language, onOpenOrde
           <div className="bg-[#EAF8FF] p-6 rounded-3xl border border-[#60C3F2]/40 space-y-4">
             <div className="flex items-center gap-2 text-[#087C21] font-bold text-sm">
               <MessageCircle className="w-4 h-4" />
-              <span>Fast Order Dispatch</span>
+              <span>{language === 'fr' ? "Commandes sur WhatsApp" : "WhatsApp Orders"}</span>
             </div>
             <p className="text-xs text-[#263238]/90 leading-relaxed">
-              Order fresh 250g packs directly via WhatsApp. Fast delivery across Douala, Yaoundé, and partner towns.
+              {language === 'fr' ? "Commandez vos paquets de 250g sur WhatsApp. Notre équipe confirmera les options et les frais de livraison." : "Order 250g packs via WhatsApp. Our team will confirm delivery options and charges."}
             </p>
             <button
               onClick={onOpenOrder}
@@ -152,13 +152,13 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, language, onOpenOrde
 
         {/* Disclaimer & Bottom Bar */}
         <div className="pt-8 space-y-4">
-          <p className="text-xs text-[#263238]/60 leading-relaxed text-center max-w-4xl mx-auto">
+          <p className="text-xs text-[#263238]/80 leading-relaxed text-center max-w-4xl mx-auto">
             {t.footer.disclaimer}
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-between text-xs text-[#263238]/60 pt-4 border-t border-[#EAF8FF]">
+          <div className="flex flex-col sm:flex-row items-center justify-between text-xs text-[#263238]/80 pt-4 border-t border-[#EAF8FF]">
             <p>© {new Date().getFullYear()} Zuna's Choice. {t.footer.rights}</p>
             <p className="flex items-center gap-1 mt-2 sm:mt-0 font-medium text-[#810778]">
-              <span>Made with love for Cameroonian families</span>
+              <span>{language === 'fr' ? "Créé avec amour pour les familles camerounaises" : "Made with love for Cameroonian families"}</span>
               <Heart className="w-3.5 h-3.5 text-[#810778] fill-current" />
             </p>
           </div>

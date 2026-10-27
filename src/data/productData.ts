@@ -1,12 +1,12 @@
-import productBox from '../assets/images/zunas_product_box_1793057432923.jpg';
-import motherBaby from '../assets/images/african_mother_baby_1793057433007.jpg';
-import threeGrains from '../assets/images/three_grains_harvest_1793057434040.jpg';
-import cameroonFarms from '../assets/images/cameroon_farm_hills_1793057436210.jpg';
-import cerealBowl from '../assets/images/cereal_bowl_spoon_1793057435599.jpg';
+import productBox from '../assets/images/zunas_product_box_1793057432923-960.webp';
+import motherBaby from '../assets/images/african_mother_baby_1793057433007-960.webp';
+import threeGrains from '../assets/images/three_grains_harvest_1793057434040-960.webp';
+import cameroonFarms from '../assets/images/cameroon_farm_hills_1793057436210-960.webp';
+import cerealBowl from '../assets/images/cereal_bowl_spoon_1793057435599-960.webp';
 import { FAQItem, NutritionFact, ProductInfo } from '../types';
 
 export const ASSETS = {
-  logo: '/assets/aistudio/zuna_logo_ae6bd088.svg',
+  logo: '/assets/zuna-logo.webp',
   productBox,
   motherBaby,
   threeGrains,
@@ -134,7 +134,9 @@ export const NUTRITION_TABLE: NutritionFact[] = [
   {
     nutrient: { en: 'Of which Natural Sugars', fr: 'Dont Sucres Naturels' },
     per100g: '1.8 g (No added sugar)',
-    perServing50g: '0.9 g (Sans sucre ajouté)',
+    per100gFr: '1,8 g (Sans sucre ajouté)',
+    perServing50g: '0.9 g (No added sugar)',
+    perServing50gFr: '0,9 g (Sans sucre ajouté)',
     dailyValueNote: { en: 'Zero refined or added cane sugar', fr: 'Zéro sucre de canne raffiné ou ajouté' },
   },
   {
@@ -164,7 +166,9 @@ export const NUTRITION_TABLE: NutritionFact[] = [
   {
     nutrient: { en: 'Micronutrients Fortification', fr: 'Fortification en Micronutriments' },
     per100g: '10+ Essential Minerals & Vitamins',
-    perServing50g: 'Balanced child portion',
+    per100gFr: '10+ vitamines et minéraux essentiels',
+    perServing50g: '50g comparison portion',
+    perServing50gFr: 'Portion de comparaison de 50g',
     dailyValueNote: { en: 'Zinc, Vitamin A, B-Complex, Vitamin C', fr: 'Zinc, Vitamine A, Complexe B, Vitamine C' },
   },
 ];

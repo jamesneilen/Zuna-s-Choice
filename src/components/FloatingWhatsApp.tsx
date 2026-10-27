@@ -17,7 +17,7 @@ export const FloatingWhatsApp: React.FC<FloatingWhatsAppProps> = ({ onOpenOrder,
 
       <button
         onClick={onOpenOrder}
-        aria-label="Order Zuna's Choice via WhatsApp"
+        aria-label={language === 'fr' ? 'Commander Zuna’s Choice sur WhatsApp' : "Order Zuna's Choice via WhatsApp"}
         className="relative w-14 h-14 rounded-full bg-[#087C21] hover:bg-[#06611a] text-white shadow-xl hover:shadow-2xl flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 cursor-pointer focus-visible:outline-hidden"
       >
         {/* Gentle radar ring */}

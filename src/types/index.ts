@@ -33,7 +33,9 @@ export interface NutritionFact {
     fr: string;
   };
   per100g: string;
+  per100gFr?: string;
   perServing50g: string;
+  perServing50gFr?: string;
   dailyValueNote?: {
     en: string;
     fr: string;

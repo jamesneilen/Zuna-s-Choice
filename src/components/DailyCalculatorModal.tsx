@@ -70,8 +70,8 @@ export const DailyCalculatorModal: React.FC<DailyCalculatorModalProps> = ({
       >
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 p-2 rounded-full text-[#263238]/60 hover:text-[#810778] hover:bg-[#EAF8FF] transition-colors"
-          aria-label="Close Calculator"
+          className="absolute top-5 right-5 p-2 rounded-full text-[#263238]/80 hover:text-[#810778] hover:bg-[#EAF8FF] transition-colors"
+          aria-label={t.close}
         >
           <X className="w-5 h-5" />
         </button>

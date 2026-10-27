@@ -1,3 +1,4 @@
+import { translations } from './i18n/translations';
 import React, { useState, useEffect } from 'react';
 import { Language, PageId } from './types';
 import { Header } from './components/Header';
@@ -13,7 +14,10 @@ import { DailyCalculatorModal } from './components/DailyCalculatorModal';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<PageId>('home');
-  const [language, setLanguage] = useState<Language>('en');
+  const [language, setLanguage] = useState<Language>(() => {
+    try { return localStorage.getItem('zuna-language') === 'fr' ? 'fr' : 'en'; }
+    catch { return 'en'; }
+  });
   const [isOrderModalOpen, setIsOrderModalOpen] = useState(false);
   const [orderQuantity, setOrderQuantity] = useState(2);
   const [isCalculatorOpen, setIsCalculatorOpen] = useState(false);
@@ -37,7 +41,39 @@ export default function App() {
 
   useEffect(() => {
     document.documentElement.lang = language;
+    try { localStorage.setItem('zuna-language', language); } catch { /* Storage may be disabled. */ }
   }, [language]);
+
+  useEffect(() => {
+    const t = translations[language];
+    const descriptions = {
+      home: t.hero.subtitle, product: t.productPage.subtitle,
+      nutrition: t.nutritionPage.heroSubtitle, story: t.storyPage.heroSubtitle,
+      contact: t.contactPage.heroSubtitle,
+    };
+    const title = `${t.nav[currentPage]} | Zuna's Choice`;
+    document.title = title;
+    const setMeta = (attribute: string, key: string, content: string) => {
+      let element = document.head.querySelector<HTMLMetaElement>(`meta[${attribute}="${key}"]`);
+      if (!element) { element = document.createElement('meta'); element.setAttribute(attribute, key); document.head.appendChild(element); }
+      element.content = content;
+    };
+    setMeta('name', 'description', descriptions[currentPage]);
+    setMeta('property', 'og:title', title);
+    setMeta('property', 'og:description', descriptions[currentPage]);
+    setMeta('property', 'og:locale', language === 'fr' ? 'fr_CM' : 'en_CM');
+    setMeta('property', 'og:image', new URL('/assets/share.jpg', window.location.origin).href);
+    setMeta('name', 'twitter:title', title);
+    setMeta('name', 'twitter:description', descriptions[currentPage]);
+    setMeta('name', 'twitter:image', new URL('/assets/share.jpg', window.location.origin).href);
+  }, [currentPage, language]);
+
+  const handleCloseOrder = () => {
+    setIsOrderModalOpen(false);
+    if (window.location.hash === '#order') {
+      history.replaceState(null, '', `${window.location.pathname}${window.location.search}${currentPage === 'home' ? '' : `#${currentPage}`}`);
+    }
+  };
 
   const handleNavigate = (page: PageId) => {
     setCurrentPage(page);
@@ -117,7 +153,7 @@ export default function App() {
       {/* WhatsApp Order Modal */}
       <WhatsAppOrderModal
         isOpen={isOrderModalOpen}
-        onClose={() => setIsOrderModalOpen(false)}
+        onClose={handleCloseOrder}
         initialQuantity={orderQuantity}
         language={language}
       />

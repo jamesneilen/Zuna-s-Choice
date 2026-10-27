@@ -25,12 +25,18 @@ export const WhatsAppOrderModal: React.FC<WhatsAppOrderModalProps> = ({
   const [notes, setNotes] = useState('');
   const [copied, setCopied] = useState(false);
   const [copyError, setCopyError] = useState(false);
+  const [validationError, setValidationError] = useState(false);
 
   const dialogRef = useDialog(isOpen);
 
   const t = translations[language].orderModal;
 
   useEffect(() => {
+    if (isOpen) {
+      setValidationError(false);
+      setCopyError(false);
+      setCopied(false);
+    }
     if (initialQuantity > 0) {
       setQuantity(initialQuantity);
     }
@@ -59,7 +65,7 @@ export const WhatsAppOrderModal: React.FC<WhatsAppOrderModalProps> = ({
 
 Je souhaite passer une commande.
 
-Produit : ${PRODUCT_INFO.name} ${PRODUCT_INFO.subname} (${PRODUCT_INFO.weightGrams}g)
+Produit : ${PRODUCT_INFO.name} Céréales infantiles — Weanimix (${PRODUCT_INFO.weightGrams}g)
 Quantité : ${quantity} paquet${quantity > 1 ? 's' : ''}
 Sous-total : ${formattedSubtotal}
 Nom du client : ${customerName.trim() || '[Non précisé]'}
@@ -83,6 +89,12 @@ Please confirm availability, delivery charges and payment options.
 Thank you!`;
 
   const handleLaunchWhatsApp = () => {
+    if (!customerName.trim() || !deliveryLocation.trim()) {
+      setValidationError(true);
+      dialogRef.current?.querySelector<HTMLInputElement>(!customerName.trim() ? '#field-WhatsAppOrderModal-1' : '#field-WhatsAppOrderModal-2')?.focus();
+      return;
+    }
+    setValidationError(false);
     const encodedText = encodeURIComponent(generatedMessage);
     const whatsappUrl = `https://wa.me/${BUSINESS_CONFIG.whatsappNumber}?text=${encodedText}`;
     window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
@@ -118,18 +130,18 @@ Thank you!`;
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 p-2 rounded-full text-[#263238]/60 hover:text-[#810778] hover:bg-[#EAF8FF] transition-colors"
-          aria-label="Close Modal"
+          className="absolute top-5 right-5 p-2 rounded-full text-[#263238]/80 hover:text-[#810778] hover:bg-[#EAF8FF] transition-colors"
+          aria-label={language === 'fr' ? 'Fermer la commande' : 'Close Modal'}
         >
           <X className="w-5 h-5" />
         </button>
 
         {/* Header */}
         <div className="space-y-1.5 pr-8">
-          <div className="flex items-center justify-between">
+          <div className="flex flex-wrap items-center justify-between gap-2">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#EAF8FF] rounded-full text-xs font-bold text-[#087C21]">
               <MessageCircle className="w-3.5 h-3.5" />
-              <span>Official WhatsApp Order</span>
+              <span>{language === 'fr' ? 'Commande WhatsApp' : 'WhatsApp Order'}</span>
             </div>
             <img
               src={ASSETS.logo}
@@ -150,14 +162,14 @@ Thank you!`;
           <div className="flex items-center justify-between">
             <div>
               <p className="font-display font-bold text-base text-[#263238]">
-                {PRODUCT_INFO.name} — {PRODUCT_INFO.subname}
+                {PRODUCT_INFO.name} — {language === 'fr' ? 'Céréales infantiles — Weanimix' : PRODUCT_INFO.subname}
               </p>
               <p className="text-xs text-[#263238]/70">
                 {PRODUCT_INFO.weightGrams}g · {t.pricePerPack}
               </p>
             </div>
             <span className="text-xs font-bold px-2.5 py-1 bg-[#60C3F2]/20 text-[#006688] rounded-full">
-              6+ Months
+              {language === 'fr' ? '6+ Mois' : '6+ Months'}
             </span>
           </div>
 
@@ -172,7 +184,7 @@ Thank you!`;
                   type="button"
                   onClick={() => setQuantity(Math.max(1, quantity - 1))}
                   className="w-7 h-7 flex items-center justify-center rounded-full hover:bg-[#EAF8FF] text-[#810778] transition-colors"
-                  aria-label="Decrease Quantity"
+                  aria-label={language === 'fr' ? 'Réduire la quantité' : 'Decrease Quantity'}
                 >
                   <Minus className="w-3.5 h-3.5" />
                 </button>
@@ -183,7 +195,7 @@ Thank you!`;
                   type="button"
                   onClick={() => setQuantity(quantity + 1)}
                   className="w-7 h-7 flex items-center justify-center rounded-full hover:bg-[#EAF8FF] text-[#810778] transition-colors"
-                  aria-label="Increase Quantity"
+                  aria-label={language === 'fr' ? 'Augmenter la quantité' : 'Increase Quantity'}
                 >
                   <Plus className="w-3.5 h-3.5" />
                 </button>
@@ -201,13 +213,18 @@ Thank you!`;
           </div>
         </div>
 
+        {validationError && (
+          <p id="order-validation" role="alert" className="text-sm text-red-800">
+            {language === 'fr' ? 'Indiquez votre nom et le lieu de livraison avant de continuer.' : 'Enter your name and delivery location before continuing.'}
+          </p>
+        )}
         {/* Customer Details Form */}
         <div className="space-y-3.5">
           <div>
             <label htmlFor="field-WhatsAppOrderModal-1" className="block text-xs font-bold text-[#263238] mb-1">
               {t.nameLabel}
             </label>
-            <input id="field-WhatsAppOrderModal-1"
+            <input id="field-WhatsAppOrderModal-1" required aria-invalid={validationError && !customerName.trim()} aria-describedby={validationError ? "order-validation" : undefined}
               type="text"
               value={customerName}
               onChange={(e) => setCustomerName(e.target.value)}
@@ -220,7 +237,7 @@ Thank you!`;
             <label htmlFor="field-WhatsAppOrderModal-2" className="block text-xs font-bold text-[#263238] mb-1">
               {t.locationLabel}
             </label>
-            <input id="field-WhatsAppOrderModal-2"
+            <input id="field-WhatsAppOrderModal-2" required aria-invalid={validationError && !deliveryLocation.trim()} aria-describedby={validationError ? "order-validation" : undefined}
               type="text"
               value={deliveryLocation}
               onChange={(e) => setDeliveryLocation(e.target.value)}
@@ -288,7 +305,7 @@ Thank you!`;
               {language === 'fr' ? 'Copie impossible. Sélectionnez et copiez le message ci-dessous.' : 'Unable to copy. Select and copy the message below.'}
             </p>
           )}
-          <pre className="p-3 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-700 font-mono whitespace-pre-wrap leading-relaxed max-h-32 overflow-y-auto">
+          <pre tabIndex={0} aria-label={t.whatsappPreview} className="p-3 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-700 font-mono whitespace-pre-wrap leading-relaxed max-h-32 overflow-y-auto">
             {generatedMessage}
           </pre>
         </div>
@@ -304,7 +321,7 @@ Thank you!`;
             <span>{t.orderBtn}</span>
           </button>
 
-          <p className="text-[11px] text-[#263238]/60 text-center leading-relaxed">
+          <p className="text-[11px] text-[#263238]/80 text-center leading-relaxed">
             {t.disclaimer}
           </p>
         </div>

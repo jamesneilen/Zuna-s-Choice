@@ -45,11 +45,11 @@ export const Header: React.FC<HeaderProps> = ({
           <button
             onClick={() => handleNavClick('home')}
             className="flex items-center gap-2.5 text-left group shrink-0 focus-visible:outline-hidden cursor-pointer"
-            aria-label="Zuna's Choice Home"
+            aria-label={language === 'fr' ? 'Accueil Zuna’s Choice' : "Zuna's Choice Home"}
           >
             <img
               src={ASSETS.logo}
-              alt="Zuna's Choice Baby Cereal Weanimix"
+              alt={language === 'fr' ? "Zuna’s Choice — Céréales infantiles Weanimix" : "Zuna's Choice Baby Cereal Weanimix"}
               className="h-10 sm:h-12 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
             />
           </button>
@@ -118,7 +118,7 @@ export const Header: React.FC<HeaderProps> = ({
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="xl:hidden p-2.5 rounded-xl text-[#263238] hover:bg-[#EAF8FF] transition-colors focus-visible:outline-hidden"
-              aria-label="Toggle Navigation Menu"
+              aria-label={language === 'fr' ? 'Ouvrir ou fermer le menu' : 'Toggle Navigation Menu'}
               aria-expanded={mobileMenuOpen}
               aria-controls="mobile-navigation"
             >

@@ -86,7 +86,7 @@ ${message}`;
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-16 space-y-8 md:space-y-16">
       {/* Breadcrumb */}
-      <nav className="flex items-center gap-2 text-xs font-bold text-[#263238]/60">
+      <nav className="flex items-center gap-2 text-xs font-bold text-[#263238]/80">
         <span>{commonT.nav.home}</span>
         <ChevronRight className="w-3.5 h-3.5" />
         <span className="text-[#810778]">{commonT.nav.contact}</span>
@@ -95,7 +95,7 @@ ${message}`;
       {/* Header */}
       <div className="max-w-3xl space-y-3">
         <span className="text-xs font-bold text-[#087C21] uppercase tracking-wider">
-          Customer Care & Partnerships
+          {language === 'fr' ? 'Service client et partenariats' : 'Customer Care & Partnerships'}
         </span>
         <h1 className="font-display font-extrabold text-3xl sm:text-5xl text-[#810778] tracking-tight">
           {t.heroTitle}
@@ -264,8 +264,8 @@ ${message}`;
                   >
                     {BUSINESS_CONFIG.displayPhone}
                   </a>
-                  <p className="text-xs text-[#263238]/60 mt-0.5">
-                    Fast response within minutes
+                  <p className="text-xs text-[#263238]/80 mt-0.5">
+                    {language === 'fr' ? 'Contactez notre équipe sur WhatsApp' : 'Contact our team on WhatsApp'}
                   </p>
                 </div>
               </div>
@@ -288,7 +288,7 @@ ${message}`;
               </div>
 
               <div className="flex items-start gap-3">
-                <div className="w-10 h-10 rounded-xl bg-[#F19A24] text-white flex items-center justify-center shrink-0 shadow-xs">
+                <div className="w-10 h-10 rounded-xl bg-[#A14C00] text-white flex items-center justify-center shrink-0 shadow-xs">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
@@ -298,8 +298,8 @@ ${message}`;
                   <p className="font-bold text-sm text-[#263238]">
                     {BUSINESS_CONFIG.location}
                   </p>
-                  <p className="text-xs text-[#263238]/60">
-                    Production & Milling: {BUSINESS_CONFIG.productionSite}
+                  <p className="text-xs text-[#263238]/80">
+                    {language === 'fr' ? 'Production et mouture :' : 'Production & Milling:'} {BUSINESS_CONFIG.productionSite}
                   </p>
                 </div>
               </div>
@@ -313,7 +313,7 @@ ${message}`;
                     {t.hoursLabel}
                   </span>
                   <p className="font-bold text-xs text-[#263238]">
-                    {BUSINESS_CONFIG.hours}
+                    {language === 'fr' ? 'Lun – Sam : 8 h – 18 h (WAT)' : BUSINESS_CONFIG.hours}
                   </p>
                 </div>
               </div>

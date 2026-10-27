@@ -1,3 +1,4 @@
+import { ResponsiveImage } from '../components/ResponsiveImage';
 import React, { useState } from 'react';
 import { Language, PageId } from '../types';
 import { translations } from '../i18n/translations';
@@ -74,9 +75,9 @@ export const HomePage: React.FC<HomePageProps> = ({
             <div className="contents lg:block lg:col-span-7 lg:space-y-6 text-left">
               {/* Official Brand Logo & Cameroon Sourced Trust Marker */}
               <div className="order-0 flex flex-wrap items-center gap-3">
-                <img
+                <ResponsiveImage
                   src={ASSETS.logo}
-                  alt="Zuna's Choice Baby Cereal Weanimix"
+                  alt={language === 'fr' ? "Zuna’s Choice — Céréales infantiles Weanimix" : "Zuna's Choice Baby Cereal Weanimix"}
                   className="hidden sm:block h-10 sm:h-12 w-auto object-contain"
                 />
                 <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white/90 backdrop-blur-xs rounded-full border border-[#60C3F2]/40 shadow-xs text-[10px] sm:text-xs font-bold text-[#087C21]">
@@ -138,7 +139,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                 </div>
 
                 <div className="flex items-center gap-2.5">
-                  <div className="w-8 h-8 rounded-full bg-[#EAF8FF] flex items-center justify-center text-[#F19A24] shrink-0 border border-[#60C3F2]/30">
+                  <div className="w-8 h-8 rounded-full bg-[#EAF8FF] flex items-center justify-center text-[#954900] shrink-0 border border-[#60C3F2]/30">
                     <Clock className="w-4 h-4" />
                   </div>
                   <span className="text-xs font-bold text-[#263238]">
@@ -156,16 +157,16 @@ export const HomePage: React.FC<HomePageProps> = ({
               <div className="relative max-w-[230px] sm:max-w-md w-full animate-gentle-float">
                 {/* 3D Box Packaging Image */}
                 <div className="relative rounded-3xl p-3 bg-white/90 backdrop-blur-xs shadow-2xl border-2 border-white">
-                  <img
+                  <ResponsiveImage
                     src={ASSETS.productBox}
-                    alt="Zuna's Choice Baby Cereal Weanimix Box Packaging"
+                    alt={language === 'fr' ? "Boîte de céréales infantiles Weanimix Zuna’s Choice" : "Zuna's Choice Baby Cereal Weanimix Box Packaging"}
                     className="w-full h-auto object-cover rounded-2xl shadow-inner select-none"
                     loading="eager"
                     referrerPolicy="no-referrer"
                   />
 
                   {/* Floating Price & Weight Badge */}
-                  <div className="absolute -bottom-4 -left-3 sm:-left-6 bg-[#F19A24] text-white px-4 py-2.5 rounded-2xl shadow-xl border-2 border-white flex items-center gap-2">
+                  <div className="absolute -bottom-4 -left-3 sm:-left-6 bg-[#A14C00] text-white px-4 py-2.5 rounded-2xl shadow-xl border-2 border-white flex items-center gap-2">
                     <Sparkles className="w-4 h-4 fill-current text-white" />
                     <div>
                       <span className="block text-[11px] font-bold uppercase tracking-wider text-white/90">
@@ -234,7 +235,7 @@ export const HomePage: React.FC<HomePageProps> = ({
 
           {/* Card 3: Quick & Convenient */}
           <div className="p-7 bg-[#F4FAFF] rounded-3xl border border-[#60C3F2]/30 shadow-xs hover:shadow-md transition-all duration-300 hover:-translate-y-1 space-y-4">
-            <div className="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-[#F19A24] shadow-xs">
+            <div className="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-[#954900] shadow-xs">
               <Clock className="w-6 h-6" />
             </div>
             <h3 className="font-display font-bold text-lg text-[#263238]">
@@ -290,9 +291,9 @@ export const HomePage: React.FC<HomePageProps> = ({
 
           {/* Artisanal Photo Banner */}
           <div className="relative rounded-3xl overflow-hidden shadow-lg border border-[#EAF8FF] h-64 sm:h-80 md:h-96">
-            <img
+            <ResponsiveImage
               src={ASSETS.threeGrains}
-              alt="Locally cultivated wheat, soybeans, and rice"
+              alt={language === 'fr' ? "Blé, soja et riz cultivés localement" : "Locally cultivated wheat, soybeans, and rice"}
               className="w-full h-full object-cover"
               loading="lazy"
               referrerPolicy="no-referrer"
@@ -300,10 +301,10 @@ export const HomePage: React.FC<HomePageProps> = ({
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex items-end p-6 sm:p-8">
               <div className="text-white max-w-xl">
                 <span className="text-xs font-bold uppercase tracking-wider text-[#60C3F2]">
-                  Authentic Cameroonian Harvest
+                  {language === 'fr' ? 'Récoltes camerounaises' : 'Cameroonian Harvest'}
                 </span>
                 <p className="text-base sm:text-lg font-bold mt-1 text-white/95">
-                  Grown in fertile volcanic soils and harvested by local farming cooperatives.
+                  {language === 'fr' ? "Cultivées sur des sols fertiles et récoltées par des coopératives locales." : "Grown in fertile soils and harvested by local farming cooperatives."}
                 </p>
               </div>
             </div>
@@ -314,7 +315,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             {INGREDIENTS_DATA.map((grain, idx) => {
               const bgColors = ['bg-[#F4FAFF]', 'bg-[#FFF9F2]', 'bg-[#F2FCF5]'];
               const borderColors = ['border-[#60C3F2]/40', 'border-[#F19A24]/40', 'border-[#087C21]/40'];
-              const textColors = ['text-[#006688]', 'text-[#F19A24]', 'text-[#087C21]'];
+              const textColors = ['text-[#006688]', 'text-[#954900]', 'text-[#087C21]'];
 
               return (
                 <div
@@ -355,9 +356,9 @@ export const HomePage: React.FC<HomePageProps> = ({
             <div className="lg:col-span-5 flex justify-center">
               <div className="relative max-w-xs sm:max-w-sm w-full">
                 <div className="bg-white rounded-3xl p-4 shadow-xl border border-[#60C3F2]/30">
-                  <img
+                  <ResponsiveImage
                     src={ASSETS.productBox}
-                    alt="Zuna's Choice Baby Cereal"
+                    alt={language === 'fr' ? "Zuna’s Choice — Céréales infantiles" : "Zuna's Choice Baby Cereal"}
                     className="w-full h-auto object-cover rounded-2xl select-none"
                     loading="lazy"
                     referrerPolicy="no-referrer"
@@ -420,7 +421,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                     <button
                       onClick={() => setSpotlightQty(Math.max(1, spotlightQty - 1))}
                       className="w-8 h-8 rounded-full flex items-center justify-center hover:bg-[#60C3F2]/20 text-[#810778] font-bold"
-                      aria-label="Decrease quantity"
+                      aria-label={language === 'fr' ? 'Réduire la quantité' : 'Decrease quantity'}
                     >
                       -
                     </button>
@@ -430,7 +431,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                     <button
                       onClick={() => setSpotlightQty(spotlightQty + 1)}
                       className="w-8 h-8 rounded-full flex items-center justify-center hover:bg-[#60C3F2]/20 text-[#810778] font-bold"
-                      aria-label="Increase quantity"
+                      aria-label={language === 'fr' ? 'Augmenter la quantité' : 'Increase quantity'}
                     >
                       +
                     </button>
@@ -465,7 +466,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                 </button>
               </div>
 
-              <p className="text-xs text-[#263238]/60 font-medium">
+              <p className="text-xs text-[#263238]/80 font-medium">
                 {t.spotlight.fastDelivery}
               </p>
             </div>
@@ -479,7 +480,7 @@ export const HomePage: React.FC<HomePageProps> = ({
       ========================================================================= */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         <div className="text-center max-w-3xl mx-auto space-y-3">
-          <span className="text-xs font-bold text-[#F19A24] uppercase tracking-wider">
+          <span className="text-xs font-bold text-[#954900] uppercase tracking-wider">
             {t.prep.tag}
           </span>
           <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-[#810778] tracking-tight">
@@ -566,7 +567,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                 <div
                   className={`w-10 h-10 rounded-2xl flex items-center justify-center font-display font-black text-lg shrink-0 ${
                     activePrepStep === 3
-                      ? 'bg-[#F19A24] text-white shadow-xs'
+                      ? 'bg-[#A14C00] text-white shadow-xs'
                       : 'bg-white text-[#263238] border border-[#bec8cf]/40'
                   }`}
                 >
@@ -593,9 +594,9 @@ export const HomePage: React.FC<HomePageProps> = ({
           {/* Right: Visual Baby Cereal Bowl Image */}
           <div className="lg:col-span-5 flex justify-center">
             <div className="relative rounded-3xl overflow-hidden shadow-xl border-4 border-white max-w-sm w-full">
-              <img
+              <ResponsiveImage
                 src={ASSETS.cerealBowl}
-                alt="Nutritious warm baby cereal porridge bowl with wooden spoon"
+                alt={language === 'fr' ? "Bol de bouillie et cuillère en bois" : "Nutritious warm baby cereal porridge bowl with wooden spoon"}
                 className="w-full h-80 sm:h-96 object-cover"
                 loading="lazy"
                 referrerPolicy="no-referrer"
@@ -611,7 +612,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                   {activePrepStep === 2 && (language === 'fr' ? 'Mélange fluide sans grumeaux' : 'Stir continuously for lump-free texture')}
                   {activePrepStep === 3 && (language === 'fr' ? 'Texture soyeuse facile à avaler' : 'Silky smooth & gentle on infant tummies')}
                 </span>
-                <Sparkles className="w-4 h-4 text-[#F19A24]" />
+                <Sparkles className="w-4 h-4 text-[#954900]" />
               </div>
             </div>
           </div>
@@ -628,9 +629,9 @@ export const HomePage: React.FC<HomePageProps> = ({
             {/* Left: Farm landscape photograph */}
             <div className="lg:col-span-6 relative">
               <div className="rounded-3xl overflow-hidden shadow-xl border-4 border-white">
-                <img
+                <ResponsiveImage
                   src={ASSETS.cameroonFarms}
-                  alt="Fertile agricultural farm fields and rolling green hills in Cameroon"
+                  alt={language === 'fr' ? "Champs et collines verdoyantes au Cameroun" : "Fertile agricultural farm fields and rolling green hills in Cameroon"}
                   className="w-full h-80 sm:h-96 object-cover"
                   loading="lazy"
                   referrerPolicy="no-referrer"
@@ -639,10 +640,10 @@ export const HomePage: React.FC<HomePageProps> = ({
               {/* Floating trust card */}
               <div className="absolute -bottom-5 -right-3 sm:right-6 bg-white p-4 rounded-2xl shadow-lg border border-[#EAF8FF] max-w-xs text-xs">
                 <span className="text-[#087C21] font-bold block mb-1">
-                  100% Cameroonian Harvest
+                  {language === 'fr' ? 'Récoltes camerounaises' : 'Cameroonian Harvest'}
                 </span>
                 <span className="text-[#263238]/80 font-medium">
-                  Direct partnership with smallholder farmers in Cameroon.
+                  {language === 'fr' ? "En partenariat avec les petits producteurs camerounais." : "Direct partnership with smallholder farmers in Cameroon."}
                 </span>
               </div>
             </div>
@@ -664,15 +665,15 @@ export const HomePage: React.FC<HomePageProps> = ({
               <div className="grid grid-cols-3 gap-3 pt-4 border-t border-[#EAF8FF] text-center">
                 <div className="p-3 bg-[#EAF8FF] rounded-2xl">
                   <span className="font-display font-extrabold text-sm text-[#087C21] block">100%</span>
-                  <span className="text-[11px] font-semibold text-[#263238]/70">Local Grain</span>
+                  <span className="text-[11px] font-semibold text-[#263238]/70">{language === 'fr' ? 'Céréales locales' : 'Local Grain'}</span>
                 </div>
                 <div className="p-3 bg-[#EAF8FF] rounded-2xl">
                   <span className="font-display font-extrabold text-sm text-[#810778] block">1,500 F</span>
-                  <span className="text-[11px] font-semibold text-[#263238]/70">Fair Price</span>
+                  <span className="text-[11px] font-semibold text-[#263238]/70">{language === 'fr' ? 'Prix accessible' : 'Fair Price'}</span>
                 </div>
                 <div className="p-3 bg-[#EAF8FF] rounded-2xl">
-                  <span className="font-display font-extrabold text-sm text-[#F19A24] block">6+ Mo</span>
-                  <span className="text-[11px] font-semibold text-[#263238]/70">Safe Weaning</span>
+                  <span className="font-display font-extrabold text-sm text-[#954900] block">6+ Mo</span>
+                  <span className="text-[11px] font-semibold text-[#263238]/70">{language === 'fr' ? 'Diversification' : 'Complementary Feeding'}</span>
                 </div>
               </div>
 
@@ -711,11 +712,11 @@ export const HomePage: React.FC<HomePageProps> = ({
               <span className="text-xs font-bold text-[#263238] block mt-1">{t.nutritionSnippet.pill1}</span>
             </div>
             <div className="bg-white p-5 rounded-2xl text-center shadow-xs border border-[#60C3F2]/20">
-              <span className="font-display font-extrabold text-xl text-[#810778] block">Iron & Ca</span>
+              <span className="font-display font-extrabold text-xl text-[#810778] block">{language === 'fr' ? 'Fer et Ca' : 'Iron & Ca'}</span>
               <span className="text-xs font-bold text-[#263238] block mt-1">{t.nutritionSnippet.pill2}</span>
             </div>
             <div className="bg-white p-5 rounded-2xl text-center shadow-xs border border-[#60C3F2]/20">
-              <span className="font-display font-extrabold text-xl text-[#F19A24] block">6.2g</span>
+              <span className="font-display font-extrabold text-xl text-[#954900] block">6.2g</span>
               <span className="text-xs font-bold text-[#263238] block mt-1">{t.nutritionSnippet.pill3}</span>
             </div>
             <div className="bg-white p-5 rounded-2xl text-center shadow-xs border border-[#60C3F2]/20">
@@ -750,7 +751,7 @@ export const HomePage: React.FC<HomePageProps> = ({
           SECTION 8 — ORDER ZUNA'S CHOICE PROMO BANNER
       ========================================================================= */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative overflow-hidden bg-gradient-to-r from-[#60C3F2] via-[#51b6e6] to-[#087C21] rounded-3xl p-5 sm:p-14 text-white shadow-xl">
+        <div className="relative overflow-hidden bg-gradient-to-r from-[#075B78] via-[#086675] to-[#06611a] rounded-3xl p-5 sm:p-14 text-white shadow-xl">
           {/* Decorative Clouds */}
           <div className="absolute top-0 right-10 w-48 h-14 bg-white/20 rounded-full blur-md" />
           <div className="absolute bottom-0 left-10 w-64 h-16 bg-white/20 rounded-full blur-lg" />

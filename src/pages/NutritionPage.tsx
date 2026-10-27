@@ -1,3 +1,4 @@
+import { ResponsiveImage } from '../components/ResponsiveImage';
 import React, { useState } from 'react';
 import { Language } from '../types';
 import { translations } from '../i18n/translations';
@@ -34,7 +35,7 @@ export const NutritionPage: React.FC<NutritionPageProps> = ({
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-16 space-y-8 md:space-y-16">
       {/* Breadcrumb */}
-      <nav className="flex items-center gap-2 text-xs font-bold text-[#263238]/60">
+      <nav className="flex items-center gap-2 text-xs font-bold text-[#263238]/80">
         <span>{commonT.nav.home}</span>
         <ChevronRight className="w-3.5 h-3.5" />
         <span className="text-[#810778]">{commonT.nav.nutrition}</span>
@@ -44,7 +45,7 @@ export const NutritionPage: React.FC<NutritionPageProps> = ({
       <div className="max-w-3xl space-y-4">
         <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#EAF8FF] rounded-full text-xs font-bold text-[#087C21]">
           <ShieldCheck className="w-3.5 h-3.5" />
-          <span>Cameroonian Pediatric Nutrition</span>
+          <span>{language === 'fr' ? 'Nutrition infantile au Cameroun' : 'Infant Nutrition in Cameroon'}</span>
         </div>
         <h1 className="font-display font-extrabold text-3xl sm:text-5xl text-[#810778] tracking-tight">
           {t.heroTitle}
@@ -71,7 +72,7 @@ export const NutritionPage: React.FC<NutritionPageProps> = ({
               <span className="px-3 py-1 bg-[#F4FAFF] text-[#006688] rounded-full text-xs font-bold border border-[#60C3F2]/30">
                 Wheat (Glucides complexes)
               </span>
-              <span className="px-3 py-1 bg-[#FFF9F2] text-[#F19A24] rounded-full text-xs font-bold border border-[#F19A24]/30">
+              <span className="px-3 py-1 bg-[#FFF9F2] text-[#954900] rounded-full text-xs font-bold border border-[#F19A24]/30">
                 Soybeans (Protéines complètes)
               </span>
               <span className="px-3 py-1 bg-[#F2FCF5] text-[#087C21] rounded-full text-xs font-bold border border-[#087C21]/30">
@@ -81,9 +82,9 @@ export const NutritionPage: React.FC<NutritionPageProps> = ({
           </div>
 
           <div className="lg:col-span-5 rounded-2xl overflow-hidden shadow-md">
-            <img
+            <ResponsiveImage
               src={ASSETS.threeGrains}
-              alt="Artisanal bowls of wheat, soybeans, and rice"
+              alt={language === 'fr' ? "Bols de blé, de soja et de riz" : "Artisanal bowls of wheat, soybeans, and rice"}
               className="w-full h-64 object-cover"
               loading="lazy"
               referrerPolicy="no-referrer"
@@ -151,7 +152,7 @@ export const NutritionPage: React.FC<NutritionPageProps> = ({
         </div>
 
         {/* Responsive Table */}
-        <div className="overflow-x-auto rounded-2xl border border-[#EAF8FF]">
+        <div tabIndex={0} role="region" aria-label={t.tableTitle} className="overflow-x-auto rounded-2xl border border-[#EAF8FF]">
           <table className="w-full text-left border-collapse text-xs sm:text-sm">
             <thead>
               <tr className="bg-[#EAF8FF] text-[#263238] font-display font-bold">
@@ -173,12 +174,12 @@ export const NutritionPage: React.FC<NutritionPageProps> = ({
                   </td>
                   {(portionFilter === 'both' || portionFilter === '100g') && (
                     <td className="py-3.5 px-4 sm:px-6 text-right font-mono font-bold text-[#087C21] tabular-nums whitespace-nowrap">
-                      {row.per100g}
+                      {language === 'fr' ? (row.per100gFr || row.per100g) : row.per100g}
                     </td>
                   )}
                   {(portionFilter === 'both' || portionFilter === '50g') && (
                     <td className="py-3.5 px-4 sm:px-6 text-right font-mono font-bold text-[#810778] tabular-nums whitespace-nowrap">
-                      {row.perServing50g}
+                      {language === 'fr' ? (row.perServing50gFr || row.perServing50g) : row.perServing50g}
                     </td>
                   )}
                   <td className="py-3.5 px-4 sm:px-6 text-xs text-[#263238]/70 hidden md:table-cell">
@@ -190,14 +191,14 @@ export const NutritionPage: React.FC<NutritionPageProps> = ({
           </table>
         </div>
 
-        <p className="text-xs text-[#263238]/60 italic">
-          * Note: Values represent typical nutritional characteristics of the blend formulated for 6+ months infant complementary feeding.
+        <p className="text-xs text-[#263238]/80 italic">
+          {language === 'fr' ? 'Vérifiez les valeurs et les instructions sur l’étiquette approuvée du produit avant utilisation.' : 'Check values and preparation instructions against approved product labeling before use.'}
         </p>
       </div>
 
       {/* WHO / UNICEF Responsible Complementary Feeding Guidelines */}
       <div className="p-5 sm:p-10 bg-[#FFF8F0] rounded-3xl border border-[#F19A24]/30 space-y-4">
-        <div className="flex items-center gap-2.5 text-[#F19A24]">
+        <div className="flex items-center gap-2.5 text-[#954900]">
           <Info className="w-5 h-5" />
           <h3 className="font-display font-extrabold text-xl text-[#263238]">
             {t.whoNoticeTitle}
@@ -209,15 +210,15 @@ export const NutritionPage: React.FC<NutritionPageProps> = ({
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-[#F19A24]/20 text-xs font-bold text-[#263238]">
           <div className="p-3 bg-white rounded-xl flex items-center gap-2">
             <CheckCircle2 className="w-4 h-4 text-[#087C21] shrink-0" />
-            <span>Start at 6 Completed Months</span>
+            <span>{language === 'fr' ? 'Commencer à 6 mois révolus' : 'Start at 6 Completed Months'}</span>
           </div>
           <div className="p-3 bg-white rounded-xl flex items-center gap-2">
             <CheckCircle2 className="w-4 h-4 text-[#087C21] shrink-0" />
-            <span>Continue Frequent Breastfeeding</span>
+            <span>{language === 'fr' ? 'Poursuivre l’allaitement fréquent' : 'Continue Frequent Breastfeeding'}</span>
           </div>
           <div className="p-3 bg-white rounded-xl flex items-center gap-2">
             <CheckCircle2 className="w-4 h-4 text-[#087C21] shrink-0" />
-            <span>Progress Texture with Age</span>
+            <span>{language === 'fr' ? 'Adapter la texture à l’âge' : 'Progress Texture with Age'}</span>
           </div>
         </div>
       </div>
@@ -238,7 +239,7 @@ export const NutritionPage: React.FC<NutritionPageProps> = ({
             className="px-6 py-3.5 bg-[#810778] hover:bg-[#680560] text-white font-extrabold text-sm rounded-full shadow-md transition-all cursor-pointer flex items-center gap-2"
           >
             <Calculator className="w-4 h-4" />
-            <span>Launch Planner</span>
+            <span>{language === 'fr' ? 'Ouvrir le calculateur' : 'Launch Planner'}</span>
           </button>
           <button
             onClick={onOpenOrder}
