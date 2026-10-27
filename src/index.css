@@ -51,3 +51,24 @@
 .animate-cloud-drift {
   animation: cloud-drift 12s ease-in-out infinite;
 }
+
+/* Visible keyboard focus, including controls that suppress the default outline. */
+button:focus-visible, a:focus-visible, [tabindex]:focus-visible {
+  outline: 3px solid #810778;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (max-width: 639px) {
+  input, select, textarea { font-size: 16px !important; }
+  button { touch-action: manipulation; }
+  button:has(> svg:only-child) { min-width: 44px; min-height: 44px; }
+  footer { padding-bottom: 6rem; }
+}

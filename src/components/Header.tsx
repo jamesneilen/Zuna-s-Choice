@@ -40,7 +40,7 @@ export const Header: React.FC<HeaderProps> = ({
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-[#EAF8FF] shadow-xs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Bar 3-Zone Contract: Brand — 5 Nav Links — Primary Action + Lang */}
-        <div className="flex items-center justify-between gap-8 h-20">
+        <div className="flex items-center justify-between gap-2 sm:gap-4 h-[72px] sm:h-20">
           {/* Zone 1: Official Brand Logo & Wordmark */}
           <button
             onClick={() => handleNavClick('home')}
@@ -50,12 +50,12 @@ export const Header: React.FC<HeaderProps> = ({
             <img
               src={ASSETS.logo}
               alt="Zuna's Choice Baby Cereal Weanimix"
-              className="h-12 sm:h-14 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
+              className="h-10 sm:h-12 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
             />
           </button>
 
           {/* Zone 2: 4-5 Clean single-line text navigation links */}
-          <nav className="hidden lg:flex items-center gap-7">
+          <nav className="hidden xl:flex items-center gap-5">
             {navItems.map((item) => {
               const isActive = currentPage === item.id;
               return (
@@ -78,13 +78,13 @@ export const Header: React.FC<HeaderProps> = ({
           </nav>
 
           {/* Zone 3: Primary action + Language Switcher */}
-          <div className="flex items-center gap-3 shrink-0">
+          <div className="flex items-center gap-1 sm:gap-3 shrink-0">
             {/* Language Switcher */}
             <div className="flex items-center bg-[#EAF8FF] p-1 rounded-full border border-[#60C3F2]/40 text-xs font-bold">
               <button
                 onClick={() => onLanguageChange('en')}
                 aria-label="Switch to English"
-                className={`px-2.5 py-1 rounded-full transition-all duration-150 ${
+                className={`px-2.5 py-2 rounded-full transition-all duration-150 ${
                   language === 'en'
                     ? 'bg-[#810778] text-white shadow-xs'
                     : 'text-[#263238] hover:text-[#810778]'
@@ -95,7 +95,7 @@ export const Header: React.FC<HeaderProps> = ({
               <button
                 onClick={() => onLanguageChange('fr')}
                 aria-label="Passer au Français"
-                className={`px-2.5 py-1 rounded-full transition-all duration-150 ${
+                className={`px-2.5 py-2 rounded-full transition-all duration-150 ${
                   language === 'fr'
                     ? 'bg-[#810778] text-white shadow-xs'
                     : 'text-[#263238] hover:text-[#810778]'
@@ -117,9 +117,10 @@ export const Header: React.FC<HeaderProps> = ({
             {/* Mobile Menu Trigger */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2.5 rounded-xl text-[#263238] hover:bg-[#EAF8FF] transition-colors focus-visible:outline-hidden"
+              className="xl:hidden p-2.5 rounded-xl text-[#263238] hover:bg-[#EAF8FF] transition-colors focus-visible:outline-hidden"
               aria-label="Toggle Navigation Menu"
               aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-navigation"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -129,7 +130,7 @@ export const Header: React.FC<HeaderProps> = ({
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-white border-b border-[#EAF8FF] px-4 pt-2 pb-6 space-y-2 shadow-lg animate-in fade-in slide-in-from-top-2 duration-150">
+        <div id="mobile-navigation" className="xl:hidden max-h-[calc(100dvh-72px)] overflow-y-auto bg-white border-b border-[#EAF8FF] px-4 pt-2 pb-6 space-y-2 shadow-lg animate-in fade-in slide-in-from-top-2 duration-150">
           <div className="space-y-1 pt-2 pb-3">
             {navItems.map((item) => {
               const isActive = currentPage === item.id;

@@ -30,7 +30,7 @@ export const StoryPage: React.FC<StoryPageProps> = ({
   const commonT = translations[language];
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16 space-y-20">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-16 space-y-10 md:space-y-20">
       {/* Breadcrumb */}
       <nav className="flex items-center gap-2 text-xs font-bold text-[#263238]/60">
         <span>{commonT.nav.home}</span>
@@ -45,23 +45,23 @@ export const StoryPage: React.FC<StoryPageProps> = ({
             <ShieldCheck className="w-3.5 h-3.5" />
             <span>Cameroon Agricultural Roots</span>
           </div>
-          <h1 className="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl text-[#810778] tracking-tight leading-[1.12]">
+          <h1 className="font-display font-extrabold text-3xl sm:text-5xl lg:text-6xl text-[#810778] tracking-tight leading-[1.12]">
             {t.heroTitle}
           </h1>
           <p className="text-base sm:text-lg text-[#263238]/85 leading-relaxed font-normal max-w-xl">
             {t.heroSubtitle}
           </p>
-          <div className="flex items-center gap-4 pt-2">
+          <div className="grid grid-cols-1 sm:flex sm:flex-wrap items-center gap-3 pt-2">
             <button
               onClick={onNavigateProduct}
-              className="px-6 py-3.5 bg-white hover:bg-[#EAF8FF] text-[#810778] border-2 border-[#60C3F2] font-extrabold text-sm rounded-full transition-all cursor-pointer flex items-center gap-2"
+              className="px-6 py-3.5 bg-white hover:bg-[#EAF8FF] text-[#810778] border-2 border-[#60C3F2] font-extrabold text-sm rounded-full transition-all cursor-pointer flex items-center justify-center gap-2"
             >
               <span>{commonT.hero.exploreBtn}</span>
               <ArrowRight className="w-4 h-4" />
             </button>
             <button
               onClick={onOpenOrder}
-              className="px-6 py-3.5 bg-[#087C21] hover:bg-[#06611a] text-white font-extrabold text-sm rounded-full shadow-md transition-all cursor-pointer flex items-center gap-2"
+              className="px-6 py-3.5 bg-[#087C21] hover:bg-[#06611a] text-white font-extrabold text-sm rounded-full shadow-md transition-all cursor-pointer flex items-center justify-center gap-2"
             >
               <ShoppingBag className="w-4 h-4" />
               <span>{commonT.nav.orderNow}</span>
@@ -84,7 +84,7 @@ export const StoryPage: React.FC<StoryPageProps> = ({
 
       {/* Mission & Vision Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div className="p-8 sm:p-10 bg-gradient-to-br from-[#EAF8FF] to-white rounded-3xl border border-[#60C3F2]/40 shadow-xs space-y-4">
+        <div className="p-5 sm:p-10 bg-gradient-to-br from-[#EAF8FF] to-white rounded-3xl border border-[#60C3F2]/40 shadow-xs space-y-4">
           <div className="w-12 h-12 rounded-2xl bg-[#087C21] text-white flex items-center justify-center shadow-xs">
             <Heart className="w-6 h-6" />
           </div>
@@ -96,7 +96,7 @@ export const StoryPage: React.FC<StoryPageProps> = ({
           </p>
         </div>
 
-        <div className="p-8 sm:p-10 bg-gradient-to-br from-[#FFF8F0] to-white rounded-3xl border border-[#F19A24]/40 shadow-xs space-y-4">
+        <div className="p-5 sm:p-10 bg-gradient-to-br from-[#FFF8F0] to-white rounded-3xl border border-[#F19A24]/40 shadow-xs space-y-4">
           <div className="w-12 h-12 rounded-2xl bg-[#810778] text-white flex items-center justify-center shadow-xs">
             <Sparkles className="w-6 h-6" />
           </div>
@@ -121,7 +121,7 @@ export const StoryPage: React.FC<StoryPageProps> = ({
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="p-8 bg-white rounded-3xl border border-[#EAF8FF] shadow-xs space-y-4">
+          <div className="p-5 sm:p-8 bg-white rounded-3xl border border-[#EAF8FF] shadow-xs space-y-4">
             <div className="w-10 h-10 rounded-xl bg-[#EAF8FF] text-[#087C21] flex items-center justify-center font-bold">
               <Wheat className="w-5 h-5" />
             </div>
@@ -133,7 +133,7 @@ export const StoryPage: React.FC<StoryPageProps> = ({
             </p>
           </div>
 
-          <div className="p-8 bg-white rounded-3xl border border-[#EAF8FF] shadow-xs space-y-4">
+          <div className="p-5 sm:p-8 bg-white rounded-3xl border border-[#EAF8FF] shadow-xs space-y-4">
             <div className="w-10 h-10 rounded-xl bg-[#FFF9F2] text-[#F19A24] flex items-center justify-center font-bold">
               <Award className="w-5 h-5" />
             </div>
@@ -145,7 +145,7 @@ export const StoryPage: React.FC<StoryPageProps> = ({
             </p>
           </div>
 
-          <div className="p-8 bg-white rounded-3xl border border-[#EAF8FF] shadow-xs space-y-4">
+          <div className="p-5 sm:p-8 bg-white rounded-3xl border border-[#EAF8FF] shadow-xs space-y-4">
             <div className="w-10 h-10 rounded-xl bg-[#F4FAFF] text-[#810778] flex items-center justify-center font-bold">
               <ShieldCheck className="w-5 h-5" />
             </div>

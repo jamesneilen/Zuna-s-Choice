@@ -22,8 +22,9 @@ export default function App() {
   useEffect(() => {
     const handleHashChange = () => {
       const rawHash = window.location.hash.replace('#', '');
-      if (rawHash === 'home' || rawHash === 'product' || rawHash === 'nutrition' || rawHash === 'story' || rawHash === 'contact') {
-        setCurrentPage(rawHash);
+      if (rawHash === '' || rawHash === 'home' || rawHash === 'product' || rawHash === 'nutrition' || rawHash === 'story' || rawHash === 'contact') {
+        setCurrentPage(rawHash || 'home');
+        setIsOrderModalOpen(false);
       } else if (rawHash === 'order') {
         setIsOrderModalOpen(true);
       }
@@ -33,6 +34,10 @@ export default function App() {
     window.addEventListener('hashchange', handleHashChange);
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
+
+  useEffect(() => {
+    document.documentElement.lang = language;
+  }, [language]);
 
   const handleNavigate = (page: PageId) => {
     setCurrentPage(page);

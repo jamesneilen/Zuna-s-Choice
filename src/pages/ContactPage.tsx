@@ -26,10 +26,9 @@ export const ContactPage: React.FC<ContactPageProps> = ({ language }) => {
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
-  const [inquiryType, setInquiryType] = useState('product');
+  const [inquiryType, setInquiryType] = useState<keyof typeof t.inquiryTypes>('product');
   const [message, setMessage] = useState('');
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -56,12 +55,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ language }) => {
       return;
     }
 
-    setIsSubmitting(true);
-    // Simulate real submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSubmitted(true);
-    }, 800);
+    setIsSubmitted(true);
   };
 
   const handleForwardToWhatsApp = () => {
@@ -72,7 +66,7 @@ Message de contact :
 Nom : ${fullName}
 Email : ${email}
 Téléphone : ${phone || 'N/A'}
-Type de demande : ${inquiryType}
+Type de demande : ${t.inquiryTypes[inquiryType]}
 Message :
 ${message}`
       : `Hello Zuna's Choice!
@@ -81,7 +75,7 @@ Contact Inquiry:
 Name: ${fullName}
 Email: ${email}
 Phone: ${phone || 'N/A'}
-Inquiry Type: ${inquiryType}
+Inquiry Type: ${t.inquiryTypes[inquiryType]}
 Message:
 ${message}`;
 
@@ -90,7 +84,7 @@ ${message}`;
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16 space-y-16">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-16 space-y-8 md:space-y-16">
       {/* Breadcrumb */}
       <nav className="flex items-center gap-2 text-xs font-bold text-[#263238]/60">
         <span>{commonT.nav.home}</span>
@@ -103,7 +97,7 @@ ${message}`;
         <span className="text-xs font-bold text-[#087C21] uppercase tracking-wider">
           Customer Care & Partnerships
         </span>
-        <h1 className="font-display font-extrabold text-4xl sm:text-5xl text-[#810778] tracking-tight">
+        <h1 className="font-display font-extrabold text-3xl sm:text-5xl text-[#810778] tracking-tight">
           {t.heroTitle}
         </h1>
         <p className="text-base sm:text-lg text-[#263238]/85 font-normal">
@@ -111,9 +105,9 @@ ${message}`;
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-12 items-start">
         {/* Left Column: Contact Form */}
-        <div className="lg:col-span-7 bg-white p-8 sm:p-10 rounded-3xl border border-[#EAF8FF] shadow-lg">
+        <div className="lg:col-span-7 bg-white p-5 sm:p-10 rounded-3xl border border-[#EAF8FF] shadow-lg">
           {isSubmitted ? (
             <div className="p-8 text-center space-y-5 animate-in fade-in">
               <div className="w-16 h-16 rounded-full bg-[#087C21]/10 text-[#087C21] flex items-center justify-center mx-auto">
@@ -138,11 +132,10 @@ ${message}`;
                   type="button"
                   onClick={() => {
                     setIsSubmitted(false);
-                    setMessage('');
                   }}
                   className="px-5 py-3 text-xs font-bold text-[#810778] hover:bg-[#EAF8FF] rounded-full transition-colors cursor-pointer"
                 >
-                  Send another message
+                  {language === 'fr' ? 'Modifier le message' : 'Edit message'}
                 </button>
               </div>
             </div>
@@ -161,10 +154,10 @@ ${message}`;
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-bold text-[#263238] mb-1">
+                  <label htmlFor="field-ContactPage-1" className="block text-xs font-bold text-[#263238] mb-1">
                     {t.fullName}
                   </label>
-                  <input
+                  <input id="field-ContactPage-1"
                     type="text"
                     required
                     value={fullName}
@@ -175,10 +168,10 @@ ${message}`;
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-[#263238] mb-1">
+                  <label htmlFor="field-ContactPage-2" className="block text-xs font-bold text-[#263238] mb-1">
                     {t.email}
                   </label>
-                  <input
+                  <input id="field-ContactPage-2"
                     type="email"
                     required
                     value={email}
@@ -191,10 +184,10 @@ ${message}`;
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-bold text-[#263238] mb-1">
+                  <label htmlFor="field-ContactPage-3" className="block text-xs font-bold text-[#263238] mb-1">
                     {t.phone}
                   </label>
-                  <input
+                  <input id="field-ContactPage-3"
                     type="tel"
                     required
                     value={phone}
@@ -205,12 +198,12 @@ ${message}`;
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-[#263238] mb-1">
+                  <label htmlFor="field-ContactPage-4" className="block text-xs font-bold text-[#263238] mb-1">
                     {t.inquiryType}
                   </label>
-                  <select
+                  <select id="field-ContactPage-4"
                     value={inquiryType}
-                    onChange={(e) => setInquiryType(e.target.value)}
+                    onChange={(e) => setInquiryType(e.target.value as keyof typeof t.inquiryTypes)}
                     className="w-full px-4 py-2.5 bg-white rounded-xl border border-[#bec8cf]/60 text-sm focus:outline-hidden focus:border-[#60C3F2] focus:ring-2 focus:ring-[#60C3F2]/20 transition-all"
                   >
                     <option value="product">{t.inquiryTypes.product}</option>
@@ -223,10 +216,10 @@ ${message}`;
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-[#263238] mb-1">
+                <label htmlFor="field-ContactPage-5" className="block text-xs font-bold text-[#263238] mb-1">
                   {t.message}
                 </label>
-                <textarea
+                <textarea id="field-ContactPage-5"
                   rows={4}
                   required
                   value={message}
@@ -238,11 +231,10 @@ ${message}`;
 
               <button
                 type="submit"
-                disabled={isSubmitting}
                 className="w-full py-3.5 px-6 bg-[#087C21] hover:bg-[#06611a] disabled:opacity-60 text-white font-extrabold text-sm rounded-full shadow-md transition-all cursor-pointer flex items-center justify-center gap-2"
               >
                 <Send className="w-4 h-4" />
-                <span>{isSubmitting ? t.sendingBtn : t.sendBtn}</span>
+                <span>{t.sendBtn}</span>
               </button>
             </form>
           )}

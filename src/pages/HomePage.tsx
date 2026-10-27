@@ -57,36 +57,36 @@ export const HomePage: React.FC<HomePageProps> = ({
   });
 
   return (
-    <div className="space-y-24 md:space-y-32 pb-16">
+    <div className="space-y-14 md:space-y-32 pb-16">
       {/* =========================================================================
           SECTION 1 — HERO
           Two-column desktop layout, cheerful sky-blue aesthetic with gentle clouds
       ========================================================================= */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#60C3F2]/25 via-[#EAF8FF] to-[#F4FAFF] pt-12 md:pt-16 pb-20 md:pb-28">
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#60C3F2]/25 via-[#EAF8FF] to-[#F4FAFF] pt-6 md:pt-16 pb-10 md:pb-28">
         {/* Soft SVG Background Clouds */}
         <div className="absolute top-6 left-10 w-44 h-16 bg-white/70 rounded-full blur-md animate-cloud-drift pointer-events-none" />
         <div className="absolute top-20 right-16 w-60 h-20 bg-white/60 rounded-full blur-lg animate-cloud-drift pointer-events-none" />
         <div className="absolute -bottom-8 left-1/3 w-72 h-24 bg-white/50 rounded-full blur-md pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-8 items-center">
             {/* Left Column: Headline, Supporting Copy, CTAs, Highlights */}
-            <div className="lg:col-span-7 space-y-6 text-left">
+            <div className="contents lg:block lg:col-span-7 lg:space-y-6 text-left">
               {/* Official Brand Logo & Cameroon Sourced Trust Marker */}
-              <div className="flex flex-wrap items-center gap-4">
+              <div className="order-0 flex flex-wrap items-center gap-3">
                 <img
                   src={ASSETS.logo}
                   alt="Zuna's Choice Baby Cereal Weanimix"
-                  className="h-12 sm:h-14 w-auto object-contain"
+                  className="hidden sm:block h-10 sm:h-12 w-auto object-contain"
                 />
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white/90 backdrop-blur-xs rounded-full border border-[#60C3F2]/40 shadow-xs text-xs font-bold text-[#087C21]">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white/90 backdrop-blur-xs rounded-full border border-[#60C3F2]/40 shadow-xs text-[10px] sm:text-xs font-bold text-[#087C21]">
                   <ShieldCheck className="w-4 h-4 text-[#087C21]" />
                   <span>{t.hero.certifiedNotice}</span>
                 </div>
               </div>
 
               {/* Expressive Display Headline */}
-              <h1 className="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl text-[#810778] tracking-tight leading-[1.12]">
+              <h1 className="order-1 text-balance font-display font-extrabold text-[30px] sm:text-5xl lg:text-6xl text-[#810778] tracking-tight leading-[1.12]">
                 <span>{t.hero.headlinePart1}</span>{' '}
                 <span className="text-[#087C21] block sm:inline">
                   {t.hero.headlinePart2}
@@ -94,15 +94,15 @@ export const HomePage: React.FC<HomePageProps> = ({
               </h1>
 
               {/* Supporting Copy */}
-              <p className="text-base sm:text-lg text-[#263238]/90 max-w-2xl leading-relaxed font-normal">
+              <p className="order-2 text-sm sm:text-lg text-[#263238]/90 max-w-2xl leading-relaxed font-normal">
                 {t.hero.subtitle}
               </p>
 
               {/* CTA Buttons */}
-              <div className="flex flex-wrap items-center gap-4 pt-2">
+              <div className="order-4 grid grid-cols-1 sm:flex sm:flex-wrap items-center gap-3 pt-2">
                 <button
                   onClick={() => onNavigate('product')}
-                  className="px-7 py-3.5 bg-white hover:bg-[#EAF8FF] text-[#810778] border-2 border-[#60C3F2] font-extrabold text-sm sm:text-base rounded-full shadow-xs hover:shadow-md transition-all duration-200 hover:scale-[1.02] cursor-pointer flex items-center gap-2"
+                  className="px-7 py-3.5 bg-white hover:bg-[#EAF8FF] text-[#810778] border-2 border-[#60C3F2] font-extrabold text-sm sm:text-base rounded-full shadow-xs hover:shadow-md transition-all duration-200 hover:scale-[1.02] cursor-pointer flex items-center justify-center gap-2"
                 >
                   <span>{t.hero.exploreBtn}</span>
                   <ArrowRight className="w-4 h-4" />
@@ -110,7 +110,7 @@ export const HomePage: React.FC<HomePageProps> = ({
 
                 <button
                   onClick={() => onOpenOrder()}
-                  className="px-7 py-3.5 bg-[#087C21] hover:bg-[#06611a] text-white font-extrabold text-sm sm:text-base rounded-full shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-[1.02] active:scale-98 cursor-pointer flex items-center gap-2"
+                  className="px-7 py-3.5 bg-[#087C21] hover:bg-[#06611a] text-white font-extrabold text-sm sm:text-base rounded-full shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-[1.02] active:scale-98 cursor-pointer flex items-center justify-center gap-2"
                 >
                   <ShoppingBag className="w-4 h-4" />
                   <span>{t.hero.orderBtn} (1,500 FCFA)</span>
@@ -118,7 +118,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               </div>
 
               {/* 3 Short Product Highlights */}
-              <div className="pt-6 border-t border-[#60C3F2]/30 grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <div className="order-5 pt-4 lg:pt-6 border-t border-[#60C3F2]/30 grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <div className="flex items-center gap-2.5">
                   <div className="w-8 h-8 rounded-full bg-[#EAF8FF] flex items-center justify-center text-[#087C21] shrink-0 border border-[#60C3F2]/30">
                     <Wheat className="w-4 h-4" />
@@ -149,11 +149,11 @@ export const HomePage: React.FC<HomePageProps> = ({
             </div>
 
             {/* Right Column: 3D Product Box Photograph & Floating Elements */}
-            <div className="lg:col-span-5 relative flex justify-center">
+            <div className="order-3 lg:order-none lg:col-span-5 relative flex justify-center py-3 lg:py-0">
               {/* Sunbeam Halo & Sky Circle */}
               <div className="absolute inset-0 bg-gradient-to-tr from-[#60C3F2]/30 to-[#810778]/10 rounded-full blur-2xl transform scale-90 -z-10" />
 
-              <div className="relative max-w-sm sm:max-w-md w-full animate-gentle-float">
+              <div className="relative max-w-[230px] sm:max-w-md w-full animate-gentle-float">
                 {/* 3D Box Packaging Image */}
                 <div className="relative rounded-3xl p-3 bg-white/90 backdrop-blur-xs shadow-2xl border-2 border-white">
                   <img
@@ -349,7 +349,7 @@ export const HomePage: React.FC<HomePageProps> = ({
           Interactive quantity stepper, subtotal, and direct WhatsApp ordering
       ========================================================================= */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-gradient-to-br from-[#EAF8FF] via-white to-[#F4FAFF] rounded-3xl border-2 border-[#60C3F2]/30 p-8 sm:p-12 shadow-xl">
+        <div className="bg-gradient-to-br from-[#EAF8FF] via-white to-[#F4FAFF] rounded-3xl border-2 border-[#60C3F2]/30 p-5 sm:p-12 shadow-xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             {/* Left: Product Image */}
             <div className="lg:col-span-5 flex justify-center">
@@ -692,7 +692,7 @@ export const HomePage: React.FC<HomePageProps> = ({
           SECTION 7 — NUTRITION SPOTLIGHT & FEEDING CALCULATOR
       ========================================================================= */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-[#EAF8FF] rounded-3xl p-8 sm:p-12 border border-[#60C3F2]/40 space-y-8">
+        <div className="bg-[#EAF8FF] rounded-3xl p-5 sm:p-12 border border-[#60C3F2]/40 space-y-8">
           <div className="text-center max-w-3xl mx-auto space-y-3">
             <span className="text-xs font-bold text-[#810778] uppercase tracking-wider">
               {t.nutritionSnippet.tag}
@@ -750,7 +750,7 @@ export const HomePage: React.FC<HomePageProps> = ({
           SECTION 8 — ORDER ZUNA'S CHOICE PROMO BANNER
       ========================================================================= */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative overflow-hidden bg-gradient-to-r from-[#60C3F2] via-[#51b6e6] to-[#087C21] rounded-3xl p-8 sm:p-14 text-white shadow-xl">
+        <div className="relative overflow-hidden bg-gradient-to-r from-[#60C3F2] via-[#51b6e6] to-[#087C21] rounded-3xl p-5 sm:p-14 text-white shadow-xl">
           {/* Decorative Clouds */}
           <div className="absolute top-0 right-10 w-48 h-14 bg-white/20 rounded-full blur-md" />
           <div className="absolute bottom-0 left-10 w-64 h-16 bg-white/20 rounded-full blur-lg" />
@@ -803,6 +803,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             <Search className="absolute left-4 top-3.5 w-5 h-5 text-[#263238]/40" />
             <input
               type="text"
+              aria-label={t.faq.searchPlaceholder}
               value={searchFaq}
               onChange={(e) => setSearchFaq(e.target.value)}
               placeholder={t.faq.searchPlaceholder}
@@ -856,6 +857,11 @@ export const HomePage: React.FC<HomePageProps> = ({
 
         {/* Accordion List */}
         <div className="space-y-3">
+          {filteredFaqs.length === 0 && (
+            <p role="status" className="p-5 text-center text-sm text-[#263238]">
+              {language === 'fr' ? 'Aucun résultat. Essayez un autre terme ou une autre catégorie.' : 'No matching questions. Try another search or category.'}
+            </p>
+          )}
           {filteredFaqs.map((faq) => {
             const isOpen = openFaqId === faq.id;
             return (
@@ -865,6 +871,8 @@ export const HomePage: React.FC<HomePageProps> = ({
               >
                 <button
                   type="button"
+                  aria-expanded={isOpen}
+                  aria-controls={`faq-${faq.id}`}
                   onClick={() => setOpenFaqId(isOpen ? null : faq.id)}
                   className="w-full p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F4FAFF] transition-colors"
                 >
@@ -878,7 +886,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                   />
                 </button>
                 {isOpen && (
-                  <div className="px-5 pb-5 pt-1 text-sm text-[#263238]/85 leading-relaxed border-t border-[#EAF8FF] font-medium bg-[#FAFDFF]">
+                  <div id={`faq-${faq.id}`} className="px-5 pb-5 pt-1 text-sm text-[#263238]/85 leading-relaxed border-t border-[#EAF8FF] font-medium bg-[#FAFDFF]">
                     {faq.answer[language]}
                   </div>
                 )}

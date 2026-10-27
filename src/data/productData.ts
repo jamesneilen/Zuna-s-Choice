@@ -1,12 +1,17 @@
+import productBox from '../assets/images/zunas_product_box_1793057432923.jpg';
+import motherBaby from '../assets/images/african_mother_baby_1793057433007.jpg';
+import threeGrains from '../assets/images/three_grains_harvest_1793057434040.jpg';
+import cameroonFarms from '../assets/images/cameroon_farm_hills_1793057436210.jpg';
+import cerealBowl from '../assets/images/cereal_bowl_spoon_1793057435599.jpg';
 import { FAQItem, NutritionFact, ProductInfo } from '../types';
 
 export const ASSETS = {
   logo: '/assets/aistudio/zuna_logo_ae6bd088.svg',
-  productBox: '/src/assets/images/zunas_product_box_1793057432923.jpg',
-  motherBaby: '/src/assets/images/african_mother_baby_1793057433007.jpg',
-  threeGrains: '/src/assets/images/three_grains_harvest_1793057434040.jpg',
-  cameroonFarms: '/src/assets/images/cameroon_farm_hills_1793057436210.jpg',
-  cerealBowl: '/src/assets/images/cereal_bowl_spoon_1793057435599.jpg',
+  productBox,
+  motherBaby,
+  threeGrains,
+  cameroonFarms,
+  cerealBowl,
 };
 
 export const PRODUCT_INFO: ProductInfo = {

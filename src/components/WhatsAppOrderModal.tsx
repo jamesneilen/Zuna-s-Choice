@@ -1,3 +1,4 @@
+import { useDialog } from '../hooks/useDialog';
 import React, { useState, useEffect } from 'react';
 import { Language } from '../types';
 import { translations } from '../i18n/translations';
@@ -23,6 +24,9 @@ export const WhatsAppOrderModal: React.FC<WhatsAppOrderModalProps> = ({
   const [phone, setPhone] = useState('');
   const [notes, setNotes] = useState('');
   const [copied, setCopied] = useState(false);
+  const [copyError, setCopyError] = useState(false);
+
+  const dialogRef = useDialog(isOpen);
 
   const t = translations[language].orderModal;
 
@@ -34,13 +38,11 @@ export const WhatsAppOrderModal: React.FC<WhatsAppOrderModalProps> = ({
 
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = 'hidden';
       const handleKeyDown = (e: KeyboardEvent) => {
         if (e.key === 'Escape') onClose();
       };
       window.addEventListener('keydown', handleKeyDown);
       return () => {
-        document.body.style.overflow = '';
         window.removeEventListener('keydown', handleKeyDown);
       };
     }
@@ -86,10 +88,16 @@ Thank you!`;
     window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
   };
 
-  const handleCopy = () => {
-    navigator.clipboard.writeText(generatedMessage);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2500);
+  const handleCopy = async () => {
+    setCopyError(false);
+    setCopied(false);
+    try {
+      await navigator.clipboard.writeText(generatedMessage);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2500);
+    } catch {
+      setCopyError(true);
+    }
   };
 
   return (
@@ -101,6 +109,9 @@ Thank you!`;
     >
       <div
         className="relative bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-[#60C3F2]/30 space-y-6 max-h-[92vh] overflow-y-auto"
+        ref={dialogRef}
+        tabIndex={-1}
+        aria-labelledby="WhatsAppOrderModal-title"
         role="dialog"
         aria-modal="true"
       >
@@ -126,7 +137,7 @@ Thank you!`;
               className="h-8 w-auto object-contain"
             />
           </div>
-          <h3 className="font-display font-extrabold text-2xl text-[#810778] tracking-tight">
+          <h3 id="WhatsAppOrderModal-title" className="font-display font-extrabold text-2xl text-[#810778] tracking-tight">
             {t.title}
           </h3>
           <p className="text-xs sm:text-sm text-[#263238]/80 font-medium">
@@ -193,10 +204,10 @@ Thank you!`;
         {/* Customer Details Form */}
         <div className="space-y-3.5">
           <div>
-            <label className="block text-xs font-bold text-[#263238] mb-1">
+            <label htmlFor="field-WhatsAppOrderModal-1" className="block text-xs font-bold text-[#263238] mb-1">
               {t.nameLabel}
             </label>
-            <input
+            <input id="field-WhatsAppOrderModal-1"
               type="text"
               value={customerName}
               onChange={(e) => setCustomerName(e.target.value)}
@@ -206,10 +217,10 @@ Thank you!`;
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-[#263238] mb-1">
+            <label htmlFor="field-WhatsAppOrderModal-2" className="block text-xs font-bold text-[#263238] mb-1">
               {t.locationLabel}
             </label>
-            <input
+            <input id="field-WhatsAppOrderModal-2"
               type="text"
               value={deliveryLocation}
               onChange={(e) => setDeliveryLocation(e.target.value)}
@@ -233,10 +244,10 @@ Thank you!`;
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs font-bold text-[#263238] mb-1">
+              <label htmlFor="field-WhatsAppOrderModal-3" className="block text-xs font-bold text-[#263238] mb-1">
                 {t.phoneLabel}
               </label>
-              <input
+              <input id="field-WhatsAppOrderModal-3"
                 type="tel"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
@@ -245,10 +256,10 @@ Thank you!`;
               />
             </div>
             <div>
-              <label className="block text-xs font-bold text-[#263238] mb-1">
+              <label htmlFor="field-WhatsAppOrderModal-4" className="block text-xs font-bold text-[#263238] mb-1">
                 {t.notesLabel}
               </label>
-              <input
+              <input id="field-WhatsAppOrderModal-4"
                 type="text"
                 value={notes}
                 onChange={(e) => setNotes(e.target.value)}
@@ -272,6 +283,11 @@ Thank you!`;
               <span>{copied ? t.copied : t.copyBtn}</span>
             </button>
           </div>
+          {copyError && (
+            <p role="alert" className="text-xs text-red-700">
+              {language === 'fr' ? 'Copie impossible. Sélectionnez et copiez le message ci-dessous.' : 'Unable to copy. Select and copy the message below.'}
+            </p>
+          )}
           <pre className="p-3 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-700 font-mono whitespace-pre-wrap leading-relaxed max-h-32 overflow-y-auto">
             {generatedMessage}
           </pre>

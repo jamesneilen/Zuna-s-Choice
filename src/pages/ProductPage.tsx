@@ -1,3 +1,4 @@
+import { useDialog } from '../hooks/useDialog';
 import React, { useState, useEffect } from 'react';
 import { Language } from '../types';
 import { translations } from '../i18n/translations';
@@ -37,6 +38,8 @@ export const ProductPage: React.FC<ProductPageProps> = ({
   const [selectedImage, setSelectedImage] = useState<string>(ASSETS.productBox);
   const [showLightbox, setShowLightbox] = useState(false);
 
+  const dialogRef = useDialog(showLightbox);
+
   const galleryImages = [
     { src: ASSETS.productBox, label: language === 'fr' ? 'Boîte 3D' : 'Box Front' },
     { src: ASSETS.cerealBowl, label: language === 'fr' ? 'Bol de Céréale' : 'Cereal Bowl' },
@@ -46,13 +49,11 @@ export const ProductPage: React.FC<ProductPageProps> = ({
 
   useEffect(() => {
     if (showLightbox) {
-      document.body.style.overflow = 'hidden';
       const handleKeyDown = (e: KeyboardEvent) => {
         if (e.key === 'Escape') setShowLightbox(false);
       };
       window.addEventListener('keydown', handleKeyDown);
       return () => {
-        document.body.style.overflow = '';
         window.removeEventListener('keydown', handleKeyDown);
       };
     }
@@ -61,7 +62,7 @@ export const ProductPage: React.FC<ProductPageProps> = ({
   const subtotal = quantity * PRODUCT_INFO.priceFcfa;
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16 space-y-16">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-16 space-y-8 md:space-y-16">
       {/* Breadcrumb */}
       <nav className="flex items-center gap-2 text-xs font-bold text-[#263238]/60">
         <span>{commonT.nav.home}</span>
@@ -70,11 +71,13 @@ export const ProductPage: React.FC<ProductPageProps> = ({
       </nav>
 
       {/* Main Product Showcase: Sticky Gallery Left, Contiguous Purchase Module Right */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-12 items-start">
         {/* Left Column: Gallery */}
         <div className="lg:col-span-7 space-y-4">
           {/* Main Visual Frame */}
-          <div
+          <button
+            type="button"
+            aria-label={t.zoomNotice}
             onClick={() => setShowLightbox(true)}
             className="relative rounded-3xl overflow-hidden bg-white border-2 border-[#60C3F2]/30 shadow-xl cursor-zoom-in group aspect-square flex items-center justify-center p-4 hover:border-[#60C3F2] transition-colors"
           >
@@ -85,21 +88,23 @@ export const ProductPage: React.FC<ProductPageProps> = ({
               loading="eager"
               referrerPolicy="no-referrer"
             />
-            <div className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-xs px-3.5 py-2 rounded-full text-xs font-bold text-[#263238] shadow-md flex items-center gap-1.5 pointer-events-none group-hover:bg-[#810778] group-hover:text-white transition-colors">
+            <div className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-xs px-3 py-2 rounded-full text-[10px] sm:text-xs font-bold text-[#263238] shadow-md flex items-center gap-1.5 pointer-events-none group-hover:bg-[#810778] group-hover:text-white transition-colors">
               <ZoomIn className="w-3.5 h-3.5" />
               <span>{t.zoomNotice}</span>
             </div>
             <div className="absolute top-4 left-4 bg-[#087C21] text-white px-3 py-1 rounded-full text-xs font-extrabold shadow-xs">
               {PRODUCT_INFO.ageIndication}
             </div>
-          </div>
+          </button>
 
           {/* Gallery Thumbnails */}
-          <div className="grid grid-cols-4 gap-3">
+          <div className="grid grid-cols-4 gap-2 sm:gap-3">
             {galleryImages.map((img, i) => {
               const active = selectedImage === img.src;
               return (
                 <button
+                  aria-label={img.label}
+                  aria-pressed={active}
                   key={i}
                   type="button"
                   onClick={() => {
@@ -114,10 +119,10 @@ export const ProductPage: React.FC<ProductPageProps> = ({
                   <img
                     src={img.src}
                     alt={img.label}
-                    className="w-full h-14 sm:h-16 object-contain rounded-lg"
+                    className="w-full h-12 sm:h-16 object-contain rounded-lg shrink-0"
                     referrerPolicy="no-referrer"
                   />
-                  <span className="text-[10px] font-bold text-[#263238] mt-1 truncate">
+                  <span className="w-full text-center text-[9px] sm:text-[10px] font-bold text-[#263238] mt-1 truncate">
                     {img.label}
                   </span>
                 </button>
@@ -127,7 +132,7 @@ export const ProductPage: React.FC<ProductPageProps> = ({
         </div>
 
         {/* Right Column: Contiguous Purchase Module */}
-        <div className="lg:col-span-5 space-y-6 bg-white p-8 sm:p-10 rounded-3xl border border-[#EAF8FF] shadow-lg">
+        <div className="lg:col-span-5 space-y-6 bg-white p-5 sm:p-10 rounded-3xl border border-[#EAF8FF] shadow-lg">
           <div className="space-y-2">
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#EAF8FF] rounded-full text-xs font-bold text-[#087C21]">
               <ShieldCheck className="w-3.5 h-3.5" />
@@ -266,7 +271,7 @@ export const ProductPage: React.FC<ProductPageProps> = ({
       </div>
 
       {/* Nutrition Summary Strip */}
-      <div className="bg-white rounded-3xl p-8 border border-[#EAF8FF] shadow-xs space-y-6">
+      <div className="bg-white rounded-3xl p-5 sm:p-8 border border-[#EAF8FF] shadow-xs space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
             <h3 className="font-display font-extrabold text-2xl text-[#810778]">
@@ -301,13 +306,16 @@ export const ProductPage: React.FC<ProductPageProps> = ({
             if (e.target === e.currentTarget) setShowLightbox(false);
           }}
           className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 sm:p-8 animate-in fade-in duration-200"
+          ref={dialogRef}
+          tabIndex={-1}
+          aria-label={t.zoomNotice}
           role="dialog"
           aria-modal="true"
         >
           <div className="relative max-w-4xl max-h-[90vh] w-full flex flex-col items-center">
             <button
               onClick={() => setShowLightbox(false)}
-              className="absolute -top-12 right-0 p-2 text-white hover:text-[#60C3F2] transition-colors rounded-full bg-white/10 hover:bg-white/20"
+              className="fixed top-4 right-4 p-2 text-white hover:text-[#60C3F2] transition-colors rounded-full bg-white/10 hover:bg-white/20"
               aria-label="Close Preview"
             >
               <X className="w-6 h-6" />

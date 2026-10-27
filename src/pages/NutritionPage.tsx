@@ -32,7 +32,7 @@ export const NutritionPage: React.FC<NutritionPageProps> = ({
   const [portionFilter, setPortionFilter] = useState<'both' | '100g' | '50g'>('both');
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16 space-y-16">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-16 space-y-8 md:space-y-16">
       {/* Breadcrumb */}
       <nav className="flex items-center gap-2 text-xs font-bold text-[#263238]/60">
         <span>{commonT.nav.home}</span>
@@ -46,7 +46,7 @@ export const NutritionPage: React.FC<NutritionPageProps> = ({
           <ShieldCheck className="w-3.5 h-3.5" />
           <span>Cameroonian Pediatric Nutrition</span>
         </div>
-        <h1 className="font-display font-extrabold text-4xl sm:text-5xl text-[#810778] tracking-tight">
+        <h1 className="font-display font-extrabold text-3xl sm:text-5xl text-[#810778] tracking-tight">
           {t.heroTitle}
         </h1>
         <p className="text-base sm:text-lg text-[#263238]/85 leading-relaxed font-normal">
@@ -55,7 +55,7 @@ export const NutritionPage: React.FC<NutritionPageProps> = ({
       </div>
 
       {/* Tri-Grain Synergy Banner */}
-      <div className="bg-white rounded-3xl p-8 sm:p-12 border border-[#EAF8FF] shadow-lg space-y-8">
+      <div className="bg-white rounded-3xl p-5 sm:p-12 border border-[#EAF8FF] shadow-lg space-y-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-7 space-y-4">
             <span className="text-xs font-bold text-[#087C21] uppercase tracking-wider">
@@ -110,7 +110,7 @@ export const NutritionPage: React.FC<NutritionPageProps> = ({
       </div>
 
       {/* Nutritional Table Section */}
-      <div className="bg-white rounded-3xl p-8 sm:p-12 border border-[#EAF8FF] shadow-lg space-y-6">
+      <div className="bg-white rounded-3xl p-5 sm:p-12 border border-[#EAF8FF] shadow-lg space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
             <h2 className="font-display font-extrabold text-2xl sm:text-3xl text-[#810778]">
@@ -129,7 +129,7 @@ export const NutritionPage: React.FC<NutritionPageProps> = ({
                 portionFilter === 'both' ? 'bg-[#810778] text-white shadow-xs' : 'text-[#263238]'
               }`}
             >
-              All Columns
+              {language === 'fr' ? 'Tout' : 'All Columns'}
             </button>
             <button
               onClick={() => setPortionFilter('100g')}
@@ -137,7 +137,7 @@ export const NutritionPage: React.FC<NutritionPageProps> = ({
                 portionFilter === '100g' ? 'bg-[#810778] text-white shadow-xs' : 'text-[#263238]'
               }`}
             >
-              Per 100g
+              {language === 'fr' ? 'Pour 100g' : 'Per 100g'}
             </button>
             <button
               onClick={() => setPortionFilter('50g')}
@@ -145,7 +145,7 @@ export const NutritionPage: React.FC<NutritionPageProps> = ({
                 portionFilter === '50g' ? 'bg-[#810778] text-white shadow-xs' : 'text-[#263238]'
               }`}
             >
-              Per 50g Bowl
+              {language === 'fr' ? 'Bol de 50g' : 'Per 50g Bowl'}
             </button>
           </div>
         </div>
@@ -196,7 +196,7 @@ export const NutritionPage: React.FC<NutritionPageProps> = ({
       </div>
 
       {/* WHO / UNICEF Responsible Complementary Feeding Guidelines */}
-      <div className="p-8 sm:p-10 bg-[#FFF8F0] rounded-3xl border border-[#F19A24]/30 space-y-4">
+      <div className="p-5 sm:p-10 bg-[#FFF8F0] rounded-3xl border border-[#F19A24]/30 space-y-4">
         <div className="flex items-center gap-2.5 text-[#F19A24]">
           <Info className="w-5 h-5" />
           <h3 className="font-display font-extrabold text-xl text-[#263238]">
@@ -223,7 +223,7 @@ export const NutritionPage: React.FC<NutritionPageProps> = ({
       </div>
 
       {/* Calculator Banner */}
-      <div className="p-8 sm:p-10 bg-gradient-to-r from-[#EAF8FF] to-[#F4FAFF] rounded-3xl border border-[#60C3F2]/40 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div className="p-5 sm:p-10 bg-gradient-to-r from-[#EAF8FF] to-[#F4FAFF] rounded-3xl border border-[#60C3F2]/40 flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="space-y-1 max-w-xl">
           <h3 className="font-display font-extrabold text-2xl text-[#810778]">
             {t.calcTitle}
