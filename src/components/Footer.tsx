@@ -4,6 +4,7 @@ import { Language, PageId } from '../types';
 import { translations } from '../i18n/translations';
 import { ASSETS, BUSINESS_CONFIG, PRODUCT_INFO } from '../data/productData';
 import { MessageCircle, Mail, MapPin, Clock, Heart, ShieldCheck } from 'lucide-react';
+import { SocialLinks } from './SocialLinks';
 
 interface FooterProps {
   onNavigate: (page: PageId) => void;
@@ -34,6 +35,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, language, onOpenOrde
               <ShieldCheck className="w-3.5 h-3.5" />
               <span>{t.footer.cameroonBadge}</span>
             </div>
+            <SocialLinks language={language} />
           </div>
 
           {/* Column 2: Quick Links */}

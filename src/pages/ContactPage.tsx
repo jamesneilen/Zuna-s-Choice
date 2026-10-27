@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Language } from '../types';
 import { translations } from '../i18n/translations';
 import { BUSINESS_CONFIG } from '../data/productData';
+import { SocialLinks } from '../components/SocialLinks';
 import {
   MessageCircle,
   Mail,
@@ -258,6 +259,9 @@ ${message}`;
 
         {/* Right Column: Direct Channels & Hours */}
         <div className="contact-channels lg:col-span-5 space-y-6">
+          <div className="bg-white p-8 rounded-3xl border border-[#60C3F2]/40">
+            <SocialLinks language={language} />
+          </div>
           <div className="bg-[#EAF8FF] p-8 rounded-3xl border border-[#60C3F2]/40 space-y-6">
             <h3 className="font-display font-extrabold text-xl text-[#810778]">
               {t.directContactTitle}

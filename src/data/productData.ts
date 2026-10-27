@@ -33,9 +33,18 @@ export const BUSINESS_CONFIG = {
   location: 'Douala & Yaoundé, Cameroon',
   productionSite: 'Bafoussam & West Region Agricultural Basin, Cameroon',
   hours: 'Mon – Sat: 8:00 AM – 6:00 PM (WAT)',
-  facebookUrl: 'https://facebook.com/zunaschoice',
-  instagramUrl: 'https://instagram.com/zunaschoice',
+  facebookUrl: 'https://web.facebook.com/zunaschoice/',
+  instagramUrl: 'https://www.instagram.com/zunaschoice',
+  tiktokUrl: 'https://tiktok.com/@zunaschoice',
+  linkedinUrl: 'https://www.linkedin.com/company/zuna-s-choice',
 };
+
+export const SOCIAL_LINKS = [
+  { name: 'TikTok', url: BUSINESS_CONFIG.tiktokUrl },
+  { name: 'Instagram', url: BUSINESS_CONFIG.instagramUrl },
+  { name: 'LinkedIn', url: BUSINESS_CONFIG.linkedinUrl },
+  { name: 'Facebook', url: BUSINESS_CONFIG.facebookUrl },
+];
 
 export const CAMEROON_CITIES = [
   'Douala (Littoral)',
