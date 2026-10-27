@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-sky-blue: #60C3F2;
+    --color-brand-purple: #810778;
+    --color-natural-green: #087C21;
+    --color-warm-orange: #F19A24;
+    --color-light-sky: #EAF8FF;
+    --color-dark-charcoal: #263238;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+.font-display {
+  font-family: 'Fredoka', 'Nunito Sans', system-ui, sans-serif;
+}
+
+.font-body {
+  font-family: 'Nunito Sans', system-ui, sans-serif;
+}
+
+@keyframes gentle-float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+}
+
+@keyframes cloud-drift {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(18px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-gentle-float {
+  animation: gentle-float 6s ease-in-out infinite;
+}
+
+.animate-cloud-drift {
+  animation: cloud-drift 12s ease-in-out infinite;
+}

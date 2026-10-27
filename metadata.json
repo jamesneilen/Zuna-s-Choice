@@ -1,0 +1,6 @@
+{
+  "name": "Zuna's Choice — Nutritious Cameroonian Baby Cereal",
+  "description": "Little Tummies. Bright Futures. Affordable, nutritious baby cereal (Weanimix) made with locally sourced wheat, soybeans, and rice in Cameroon.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
