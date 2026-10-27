@@ -30,7 +30,9 @@ export function useDialog(isOpen: boolean) {
     return () => {
       document.removeEventListener('keydown', handleTab);
       document.body.style.overflow = previousOverflow;
-      if (previousFocus?.isConnected) previousFocus.focus({ preventScroll: true });
+      const fallback = Array.from(document.querySelectorAll<HTMLElement>('[data-menu-trigger], main h1')).find(el => el.getClientRects().length > 0);
+      const target = previousFocus?.isConnected && previousFocus !== document.body ? previousFocus : fallback;
+      target?.focus({ preventScroll: true });
     };
   }, [isOpen]);
   return ref;

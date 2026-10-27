@@ -29,7 +29,7 @@ export const PRODUCT_INFO: ProductInfo = {
 export const BUSINESS_CONFIG = {
   whatsappNumber: '237651406400', // Cameroon international format
   displayPhone: '+237 651 406 400',
-  email: 'hello@zunaschoice.cm',
+  email: 'info@zunaschoice.cm',
   location: 'Douala & Yaoundé, Cameroon',
   productionSite: 'Bafoussam & West Region Agricultural Basin, Cameroon',
   hours: 'Mon – Sat: 8:00 AM – 6:00 PM (WAT)',
@@ -109,67 +109,6 @@ export const INGREDIENTS_DATA = [
       en: 'Tummy Comfort & Silky Texture',
       fr: 'Douceur Digestive & Onctuosité',
     },
-  },
-];
-
-export const NUTRITION_TABLE: NutritionFact[] = [
-  {
-    nutrient: { en: 'Energy / Calories', fr: 'Énergie / Calories' },
-    per100g: '395 kcal (1665 kJ)',
-    perServing50g: '198 kcal (832 kJ)',
-    dailyValueNote: { en: 'Wholesome fuel for growth', fr: 'Énergie saine de croissance' },
-  },
-  {
-    nutrient: { en: 'Total Protein', fr: 'Protéines Totales' },
-    per100g: '14.8 g',
-    perServing50g: '7.4 g',
-    dailyValueNote: { en: 'High biological value from soy & wheat', fr: 'Haute valeur biologique (soja & blé)' },
-  },
-  {
-    nutrient: { en: 'Total Carbohydrates', fr: 'Glucides Totaux' },
-    per100g: '68.5 g',
-    perServing50g: '34.2 g',
-    dailyValueNote: { en: 'Slow-release complex carbs', fr: 'Glucides complexes à diffusion lente' },
-  },
-  {
-    nutrient: { en: 'Of which Natural Sugars', fr: 'Dont Sucres Naturels' },
-    per100g: '1.8 g (No added sugar)',
-    per100gFr: '1,8 g (Sans sucre ajouté)',
-    perServing50g: '0.9 g (No added sugar)',
-    perServing50gFr: '0,9 g (Sans sucre ajouté)',
-    dailyValueNote: { en: 'Zero refined or added cane sugar', fr: 'Zéro sucre de canne raffiné ou ajouté' },
-  },
-  {
-    nutrient: { en: 'Dietary Fibre', fr: 'Fibres Alimentaires' },
-    per100g: '6.2 g',
-    perServing50g: '3.1 g',
-    dailyValueNote: { en: 'Supports healthy infant gut flora', fr: 'Favorise le microbiote intestinal' },
-  },
-  {
-    nutrient: { en: 'Total Fat', fr: 'Lipides Totaux' },
-    per100g: '5.9 g',
-    perServing50g: '3.0 g',
-    dailyValueNote: { en: 'Healthy plant fats from soybean', fr: 'Acides gras végétaux essentiels' },
-  },
-  {
-    nutrient: { en: 'Calcium', fr: 'Calcium' },
-    per100g: '240 mg',
-    perServing50g: '120 mg',
-    dailyValueNote: { en: 'Strong bones and developing teeth', fr: 'Dents saines et ossature solide' },
-  },
-  {
-    nutrient: { en: 'Iron (Fer)', fr: 'Fer' },
-    per100g: '8.5 mg',
-    perServing50g: '4.25 mg',
-    dailyValueNote: { en: 'Crucial complementary nutrient from 6mo', fr: 'Élément clé de la diversification dès 6 mois' },
-  },
-  {
-    nutrient: { en: 'Micronutrients Fortification', fr: 'Fortification en Micronutriments' },
-    per100g: 'See product label',
-    per100gFr: 'Consultez l’étiquette du produit',
-    perServing50g: '50g comparison portion',
-    perServing50gFr: 'Portion de comparaison de 50g',
-    dailyValueNote: { en: 'Zinc, Vitamin A, B-Complex, Vitamin C', fr: 'Zinc, Vitamine A, Complexe B, Vitamine C' },
   },
 ];
 

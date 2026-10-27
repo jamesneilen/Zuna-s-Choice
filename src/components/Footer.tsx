@@ -1,3 +1,4 @@
+import { PageLink } from './PageLink';
 import React from 'react';
 import { Language, PageId } from '../types';
 import { translations } from '../i18n/translations';
@@ -37,86 +38,46 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, language, onOpenOrde
 
           {/* Column 2: Quick Links */}
           <div className="space-y-4">
-            <h4 className="font-display font-bold text-base text-[#810778]">
+            <h2 className="font-display font-bold text-base text-[#810778]">
               {t.footer.quickLinks}
-            </h4>
+            </h2>
             <ul className="space-y-2.5 text-sm font-semibold">
               <li>
-                <button
-                  onClick={() => {
-                    onNavigate('home');
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                  }}
-                  className="hover:text-[#087C21] transition-colors cursor-pointer text-[#263238]/80"
-                >
-                  {t.nav.home}
-                </button>
+                <PageLink page="home" language={language} onNavigate={onNavigate} className="hover:text-[#087C21] transition-colors cursor-pointer text-[#263238]/80 inline-flex items-center min-h-11">{t.nav.home}</PageLink>
               </li>
               <li>
-                <button
-                  onClick={() => {
-                    onNavigate('product');
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                  }}
-                  className="hover:text-[#087C21] transition-colors cursor-pointer text-[#263238]/80"
-                >
-                  {t.nav.product}
-                </button>
+                <PageLink page="product" language={language} onNavigate={onNavigate} className="hover:text-[#087C21] transition-colors cursor-pointer text-[#263238]/80 inline-flex items-center min-h-11">{t.nav.product}</PageLink>
               </li>
               <li>
-                <button
-                  onClick={() => {
-                    onNavigate('nutrition');
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                  }}
-                  className="hover:text-[#087C21] transition-colors cursor-pointer text-[#263238]/80"
-                >
-                  {t.nav.nutrition}
-                </button>
+                <PageLink page="nutrition" language={language} onNavigate={onNavigate} className="hover:text-[#087C21] transition-colors cursor-pointer text-[#263238]/80 inline-flex items-center min-h-11">{t.nav.nutrition}</PageLink>
               </li>
               <li>
-                <button
-                  onClick={() => {
-                    onNavigate('story');
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                  }}
-                  className="hover:text-[#087C21] transition-colors cursor-pointer text-[#263238]/80"
-                >
-                  {t.nav.story}
-                </button>
+                <PageLink page="story" language={language} onNavigate={onNavigate} className="hover:text-[#087C21] transition-colors cursor-pointer text-[#263238]/80 inline-flex items-center min-h-11">{t.nav.story}</PageLink>
               </li>
               <li>
-                <button
-                  onClick={() => {
-                    onNavigate('contact');
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                  }}
-                  className="hover:text-[#087C21] transition-colors cursor-pointer text-[#263238]/80"
-                >
-                  {t.nav.contact}
-                </button>
+                <PageLink page="contact" language={language} onNavigate={onNavigate} className="hover:text-[#087C21] transition-colors cursor-pointer text-[#263238]/80 inline-flex items-center min-h-11">{t.nav.contact}</PageLink>
               </li>
             </ul>
           </div>
 
           {/* Column 3: Contact Channels */}
           <div className="space-y-4">
-            <h4 className="font-display font-bold text-base text-[#810778]">
+            <h2 className="font-display font-bold text-base text-[#810778]">
               {t.footer.contactInfo}
-            </h4>
+            </h2>
             <div className="space-y-3 text-sm text-[#263238]/80">
               <a
                 href={`https://wa.me/${BUSINESS_CONFIG.whatsappNumber}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-start gap-2.5 hover:text-[#087C21] transition-colors"
+                className="flex min-h-11 items-center gap-2.5 hover:text-[#087C21] transition-colors"
               >
                 <MessageCircle className="w-4 h-4 text-[#087C21] shrink-0 mt-0.5" />
                 <span className="font-medium">WhatsApp: {BUSINESS_CONFIG.displayPhone}</span>
               </a>
               <a
                 href={`mailto:${BUSINESS_CONFIG.email}`}
-                className="flex items-start gap-2.5 hover:text-[#087C21] transition-colors"
+                className="flex min-h-11 items-center gap-2.5 hover:text-[#087C21] transition-colors"
               >
                 <Mail className="w-4 h-4 text-[#60C3F2] shrink-0 mt-0.5" />
                 <span className="font-medium">{BUSINESS_CONFIG.email}</span>

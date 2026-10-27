@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import { PageLink } from './PageLink';
+import React, { useState, useEffect, useRef } from 'react';
 import { Language, PageId } from '../types';
 import { translations } from '../i18n/translations';
 import { ASSETS, PRODUCT_INFO } from '../data/productData';
@@ -20,6 +21,15 @@ export const Header: React.FC<HeaderProps> = ({
   onOpenOrder,
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLButtonElement>(null);
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+    const dismiss = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') { setMobileMenuOpen(false); menuRef.current?.focus(); }
+    };
+    document.addEventListener('keydown', dismiss);
+    return () => document.removeEventListener('keydown', dismiss);
+  }, [mobileMenuOpen]);
   const t = translations[language];
 
   const navItems: { id: PageId; label: string }[] = [
@@ -40,7 +50,7 @@ export const Header: React.FC<HeaderProps> = ({
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-[#EAF8FF] shadow-xs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Bar 3-Zone Contract: Brand — 5 Nav Links — Primary Action + Lang */}
-        <div className="flex items-center justify-between gap-2 sm:gap-4 h-[72px] sm:h-20">
+        <div className="flex flex-wrap items-center justify-between gap-2 sm:gap-4 min-h-[72px] sm:min-h-20 py-2">
           {/* Zone 1: Official Brand Logo & Wordmark */}
           <button
             onClick={() => handleNavClick('home')}
@@ -50,19 +60,22 @@ export const Header: React.FC<HeaderProps> = ({
             <img
               src={ASSETS.logo}
               alt={language === 'fr' ? "Zuna’s Choice — Céréales infantiles Weanimix" : "Zuna's Choice Baby Cereal Weanimix"}
-              className="h-10 sm:h-12 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
+              className="h-10 sm:h-12 max-w-[42vw] w-auto object-contain transition-transform duration-200 group-hover:scale-105"
             />
           </button>
 
           {/* Zone 2: 4-5 Clean single-line text navigation links */}
-          <nav className="hidden xl:flex items-center gap-5">
+          <nav aria-label={language === 'fr' ? 'Navigation principale' : 'Main navigation'} className="hidden min-[90rem]:flex items-center gap-5">
             {navItems.map((item) => {
               const isActive = currentPage === item.id;
               return (
-                <button
+                <PageLink
+                  page={item.id}
+                  language={language}
+                  aria-current={isActive ? 'page' : undefined}
                   key={item.id}
-                  onClick={() => handleNavClick(item.id)}
-                  className={`relative py-1 text-[15px] font-bold tracking-tight whitespace-nowrap transition-colors duration-150 cursor-pointer ${
+                  onNavigate={handleNavClick}
+                  className={`relative inline-flex items-center min-h-11 py-1 text-[15px] font-bold tracking-tight whitespace-nowrap transition-colors duration-150 cursor-pointer ${
                     isActive
                       ? 'text-[#810778]'
                       : 'text-[#263238]/80 hover:text-[#087C21]'
@@ -72,13 +85,13 @@ export const Header: React.FC<HeaderProps> = ({
                   {isActive && (
                     <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#810778] rounded-full" />
                   )}
-                </button>
+                </PageLink>
               );
             })}
           </nav>
 
           {/* Zone 3: Primary action + Language Switcher */}
-          <div className="flex items-center gap-1 sm:gap-3 shrink-0">
+          <div className="flex flex-wrap max-w-full items-center gap-1 sm:gap-3 shrink-0">
             {/* Language Switcher */}
             <div className="flex items-center bg-[#EAF8FF] p-1 rounded-full border border-[#60C3F2]/40 text-xs font-bold">
               <button
@@ -116,8 +129,10 @@ export const Header: React.FC<HeaderProps> = ({
 
             {/* Mobile Menu Trigger */}
             <button
+              ref={menuRef}
+              data-menu-trigger
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="xl:hidden p-2.5 rounded-xl text-[#263238] hover:bg-[#EAF8FF] transition-colors focus-visible:outline-hidden"
+              className="min-[90rem]:hidden p-2.5 rounded-xl text-[#263238] hover:bg-[#EAF8FF] transition-colors focus-visible:outline-hidden"
               aria-label={language === 'fr' ? 'Ouvrir ou fermer le menu' : 'Toggle Navigation Menu'}
               aria-expanded={mobileMenuOpen}
               aria-controls="mobile-navigation"
@@ -130,22 +145,25 @@ export const Header: React.FC<HeaderProps> = ({
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div id="mobile-navigation" className="xl:hidden max-h-[calc(100dvh-72px)] overflow-y-auto bg-white border-b border-[#EAF8FF] px-4 pt-2 pb-6 space-y-2 shadow-lg animate-in fade-in slide-in-from-top-2 duration-150">
+        <nav aria-label={language === 'fr' ? 'Navigation mobile' : 'Mobile navigation'} id="mobile-navigation" className="min-[90rem]:hidden max-h-[calc(100dvh-72px)] overflow-y-auto bg-white border-b border-[#EAF8FF] px-4 pt-2 pb-6 space-y-2 shadow-lg animate-in fade-in slide-in-from-top-2 duration-150">
           <div className="space-y-1 pt-2 pb-3">
             {navItems.map((item) => {
               const isActive = currentPage === item.id;
               return (
-                <button
+                <PageLink
+                  page={item.id}
+                  language={language}
+                  aria-current={isActive ? 'page' : undefined}
                   key={item.id}
-                  onClick={() => handleNavClick(item.id)}
-                  className={`w-full text-left px-4 py-3 rounded-2xl text-base font-bold transition-colors ${
+                  onNavigate={handleNavClick}
+                  className={`block w-full text-left px-4 py-3 rounded-2xl text-base font-bold transition-colors ${
                     isActive
                       ? 'bg-[#EAF8FF] text-[#810778]'
                       : 'text-[#263238] hover:bg-[#F4FAFF]'
                   }`}
                 >
                   {item.label}
-                </button>
+                </PageLink>
               );
             })}
           </div>
@@ -162,7 +180,7 @@ export const Header: React.FC<HeaderProps> = ({
               <span>{t.nav.orderNow} (1,500 FCFA)</span>
             </button>
           </div>
-        </div>
+        </nav>
       )}
     </header>
   );

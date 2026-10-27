@@ -1,8 +1,8 @@
 import { ResponsiveImage } from '../components/ResponsiveImage';
-import React, { useState } from 'react';
+import React from 'react';
 import { Language } from '../types';
 import { translations } from '../i18n/translations';
-import { ASSETS, INGREDIENTS_DATA, NUTRITION_TABLE } from '../data/productData';
+import { ASSETS, INGREDIENTS_DATA } from '../data/productData';
 import {
   ShieldCheck,
   Wheat,
@@ -30,12 +30,11 @@ export const NutritionPage: React.FC<NutritionPageProps> = ({
   const t = translations[language].nutritionPage;
   const commonT = translations[language];
 
-  const [portionFilter, setPortionFilter] = useState<'both' | '100g' | '50g'>('both');
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-16 space-y-8 md:space-y-16">
       {/* Breadcrumb */}
-      <nav className="flex items-center gap-2 text-xs font-bold text-[#263238]/80">
+      <nav aria-label={language === 'fr' ? 'Fil d’Ariane' : 'Breadcrumb'} className="flex items-center gap-2 text-xs font-bold text-[#263238]/80">
         <span>{commonT.nav.home}</span>
         <ChevronRight className="w-3.5 h-3.5" />
         <span className="text-[#810778]">{commonT.nav.nutrition}</span>
@@ -47,7 +46,7 @@ export const NutritionPage: React.FC<NutritionPageProps> = ({
           <ShieldCheck className="w-3.5 h-3.5" />
           <span>{language === 'fr' ? 'Nutrition infantile au Cameroun' : 'Infant Nutrition in Cameroon'}</span>
         </div>
-        <h1 className="font-display font-extrabold text-3xl sm:text-5xl text-[#810778] tracking-tight">
+        <h1 tabIndex={-1} className="font-display font-extrabold text-3xl sm:text-5xl text-[#810778] tracking-tight">
           {t.heroTitle}
         </h1>
         <p className="text-base sm:text-lg text-[#263238]/85 leading-relaxed font-normal">
@@ -63,26 +62,27 @@ export const NutritionPage: React.FC<NutritionPageProps> = ({
               {t.threeGrainsTitle}
             </span>
             <h2 className="font-display font-extrabold text-2xl sm:text-3xl text-[#263238]">
-              The Power of the Weanimix Formulation
+              {t.threeGrainsTitle}
             </h2>
             <p className="text-sm sm:text-base text-[#263238]/80 leading-relaxed font-medium">
               {t.threeGrainsIntro}
             </p>
             <div className="pt-2 flex flex-wrap gap-3">
               <span className="px-3 py-1 bg-[#F4FAFF] text-[#006688] rounded-full text-xs font-bold border border-[#60C3F2]/30">
-                Wheat (Glucides complexes)
+                {language === 'fr' ? 'Blé — glucides et fibres' : 'Wheat — carbohydrates & fibre'}
               </span>
               <span className="px-3 py-1 bg-[#FFF9F2] text-[#954900] rounded-full text-xs font-bold border border-[#F19A24]/30">
-                Soybeans (Protéines complètes)
+                {language === 'fr' ? 'Soja — protéines végétales' : 'Soybeans — plant protein'}
               </span>
               <span className="px-3 py-1 bg-[#F2FCF5] text-[#087C21] rounded-full text-xs font-bold border border-[#087C21]/30">
-                Rice (Douceur digestive)
+                {language === 'fr' ? 'Riz — glucides' : 'Rice — carbohydrates'}
               </span>
             </div>
           </div>
 
           <div className="lg:col-span-5 rounded-2xl overflow-hidden shadow-md">
             <ResponsiveImage
+              sizes="(min-width: 1024px) 480px, 100vw"
               src={ASSETS.threeGrains}
               alt={language === 'fr' ? "Bols de blé, de soja et de riz" : "Artisanal bowls of wheat, soybeans, and rice"}
               className="w-full h-64 object-cover"
@@ -110,91 +110,11 @@ export const NutritionPage: React.FC<NutritionPageProps> = ({
         </div>
       </div>
 
-      {/* Nutritional Table Section */}
-      <div className="bg-white rounded-3xl p-5 sm:p-12 border border-[#EAF8FF] shadow-lg space-y-6">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-          <div>
-            <h2 className="font-display font-extrabold text-2xl sm:text-3xl text-[#810778]">
-              {t.tableTitle}
-            </h2>
-            <p className="text-sm text-[#263238]/70 mt-1 font-medium">
-              {t.tableSubtitle}
-            </p>
-          </div>
-
-          {/* Portion filter tabs */}
-          <div className="flex items-center bg-[#EAF8FF] p-1 rounded-full border border-[#60C3F2]/40 text-xs font-bold self-start sm:self-auto">
-            <button
-              onClick={() => setPortionFilter('both')}
-              className={`px-3 py-1.5 rounded-full transition-all ${
-                portionFilter === 'both' ? 'bg-[#810778] text-white shadow-xs' : 'text-[#263238]'
-              }`}
-            >
-              {language === 'fr' ? 'Tout' : 'All Columns'}
-            </button>
-            <button
-              onClick={() => setPortionFilter('100g')}
-              className={`px-3 py-1.5 rounded-full transition-all ${
-                portionFilter === '100g' ? 'bg-[#810778] text-white shadow-xs' : 'text-[#263238]'
-              }`}
-            >
-              {language === 'fr' ? 'Pour 100g' : 'Per 100g'}
-            </button>
-            <button
-              onClick={() => setPortionFilter('50g')}
-              className={`px-3 py-1.5 rounded-full transition-all ${
-                portionFilter === '50g' ? 'bg-[#810778] text-white shadow-xs' : 'text-[#263238]'
-              }`}
-            >
-              {language === 'fr' ? 'Bol de 50g' : 'Per 50g Bowl'}
-            </button>
-          </div>
-        </div>
-
-        {/* Responsive Table */}
-        <div tabIndex={0} role="region" aria-label={t.tableTitle} className="overflow-x-auto rounded-2xl border border-[#EAF8FF]">
-          <table className="w-full text-left border-collapse text-xs sm:text-sm">
-            <thead>
-              <tr className="bg-[#EAF8FF] text-[#263238] font-display font-bold">
-                <th className="py-3.5 px-4 sm:px-6">{t.nutrientCol}</th>
-                {(portionFilter === 'both' || portionFilter === '100g') && (
-                  <th className="py-3.5 px-4 sm:px-6 text-right tabular-nums">{t.per100gCol}</th>
-                )}
-                {(portionFilter === 'both' || portionFilter === '50g') && (
-                  <th className="py-3.5 px-4 sm:px-6 text-right tabular-nums">{t.per50gCol}</th>
-                )}
-                <th className="py-3.5 px-4 sm:px-6 hidden md:table-cell">{t.noteCol}</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-[#EAF8FF] font-medium">
-              {NUTRITION_TABLE.map((row, idx) => (
-                <tr key={idx} className="hover:bg-[#F4FAFF] transition-colors">
-                  <td className="py-3.5 px-4 sm:px-6 font-bold text-[#263238]">
-                    {row.nutrient[language]}
-                  </td>
-                  {(portionFilter === 'both' || portionFilter === '100g') && (
-                    <td className="py-3.5 px-4 sm:px-6 text-right font-mono font-bold text-[#087C21] tabular-nums whitespace-nowrap">
-                      {language === 'fr' ? (row.per100gFr || row.per100g) : row.per100g}
-                    </td>
-                  )}
-                  {(portionFilter === 'both' || portionFilter === '50g') && (
-                    <td className="py-3.5 px-4 sm:px-6 text-right font-mono font-bold text-[#810778] tabular-nums whitespace-nowrap">
-                      {language === 'fr' ? (row.perServing50gFr || row.perServing50g) : row.perServing50g}
-                    </td>
-                  )}
-                  <td className="py-3.5 px-4 sm:px-6 text-xs text-[#263238]/70 hidden md:table-cell">
-                    {row.dailyValueNote ? row.dailyValueNote[language] : '—'}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-
-        <p className="text-xs text-[#263238]/80 italic">
-          {language === 'fr' ? 'Vérifiez les valeurs et les instructions sur l’étiquette approuvée du produit avant utilisation.' : 'Check values and preparation instructions against approved product labeling before use.'}
-        </p>
-      </div>
+      <section className="bg-white rounded-3xl p-5 sm:p-12 border border-[#EAF8FF] space-y-4" aria-labelledby="nutrition-details">
+        <h2 id="nutrition-details" className="font-display font-bold text-2xl text-[#810778]">{t.tableTitle}</h2>
+        <p className="text-sm text-[#263238]">{t.tableSubtitle}</p>
+        <p className="text-sm text-[#263238]">{language === 'fr' ? 'Pour les allergènes, la composition complète et les valeurs nutritionnelles confirmées, consultez l’étiquette du produit ou contactez notre équipe.' : 'For allergens, full composition and confirmed nutrition values, check the product label or contact our team.'}</p>
+      </section>
 
       {/* WHO / UNICEF Responsible Complementary Feeding Guidelines */}
       <div className="p-5 sm:p-10 bg-[#FFF8F0] rounded-3xl border border-[#F19A24]/30 space-y-4">

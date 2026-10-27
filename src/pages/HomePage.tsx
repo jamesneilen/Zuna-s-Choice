@@ -87,7 +87,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               </div>
 
               {/* Expressive Display Headline */}
-              <h1 className="order-1 text-balance font-display font-extrabold text-[30px] sm:text-5xl lg:text-6xl text-[#810778] tracking-tight leading-[1.12]">
+              <h1 tabIndex={-1} className="order-1 text-balance font-display font-extrabold text-[30px] sm:text-5xl lg:text-6xl text-[#810778] tracking-tight leading-[1.12]">
                 <span>{t.hero.headlinePart1}</span>{' '}
                 <span className="text-[#087C21] block sm:inline">
                   {t.hero.headlinePart2}
@@ -149,20 +149,22 @@ export const HomePage: React.FC<HomePageProps> = ({
               </div>
             </div>
 
-            {/* Right Column: 3D Product Box Photograph & Floating Elements */}
+            {/* Right Column: Serving Suggestion & Product Details */}
             <div className="order-3 lg:order-none lg:col-span-5 relative flex justify-center py-3 lg:py-0">
               {/* Sunbeam Halo & Sky Circle */}
               <div className="absolute inset-0 bg-gradient-to-tr from-[#60C3F2]/30 to-[#810778]/10 rounded-full blur-2xl transform scale-90 -z-10" />
 
               <div className="relative max-w-[230px] sm:max-w-md w-full animate-gentle-float">
-                {/* 3D Box Packaging Image */}
+                {/* Illustrative Serving Image */}
                 <div className="relative rounded-3xl p-3 bg-white/90 backdrop-blur-xs shadow-2xl border-2 border-white">
                   <ResponsiveImage
-                    src={ASSETS.productBox}
-                    alt={language === 'fr' ? "Boîte de céréales infantiles Weanimix Zuna’s Choice" : "Zuna's Choice Baby Cereal Weanimix Box Packaging"}
+                    src={ASSETS.cerealBowl}
+                    alt={language === 'fr' ? "Suggestion de présentation de bouillie" : "Cereal serving suggestion"}
                     className="w-full h-auto object-cover rounded-2xl shadow-inner select-none"
                     loading="eager"
                     referrerPolicy="no-referrer"
+                    fetchPriority="high"
+                    sizes="(min-width: 1024px) 440px, (min-width: 640px) 440px, 230px"
                   />
 
                   {/* Floating Price & Weight Badge */}
@@ -183,6 +185,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                     6+ Months / Mois
                   </div>
                 </div>
+                  <p className="mt-8 text-center text-xs text-[#263238]">{language === 'fr' ? 'Suggestion de présentation — sachet refermable de 250g.' : 'Serving suggestion — resealable 250g pouch.'}</p>
               </div>
             </div>
           </div>
@@ -292,6 +295,7 @@ export const HomePage: React.FC<HomePageProps> = ({
           {/* Artisanal Photo Banner */}
           <div className="relative rounded-3xl overflow-hidden shadow-lg border border-[#EAF8FF] h-64 sm:h-80 md:h-96">
             <ResponsiveImage
+              sizes="(min-width: 1280px) 1216px, 100vw"
               src={ASSETS.threeGrains}
               alt={language === 'fr' ? "Blé, soja et riz cultivés localement" : "Locally cultivated wheat, soybeans, and rice"}
               className="w-full h-full object-cover"
@@ -357,8 +361,8 @@ export const HomePage: React.FC<HomePageProps> = ({
               <div className="relative max-w-xs sm:max-w-sm w-full">
                 <div className="bg-white rounded-3xl p-4 shadow-xl border border-[#60C3F2]/30">
                   <ResponsiveImage
-                    src={ASSETS.productBox}
-                    alt={language === 'fr' ? "Zuna’s Choice — Céréales infantiles" : "Zuna's Choice Baby Cereal"}
+                    src={ASSETS.cerealBowl}
+                    alt={language === 'fr' ? "Suggestion de présentation de bouillie" : "Cereal serving suggestion"}
                     className="w-full h-auto object-cover rounded-2xl select-none"
                     loading="lazy"
                     referrerPolicy="no-referrer"
@@ -595,6 +599,7 @@ export const HomePage: React.FC<HomePageProps> = ({
           <div className="lg:col-span-5 flex justify-center">
             <div className="relative rounded-3xl overflow-hidden shadow-xl border-4 border-white max-w-sm w-full">
               <ResponsiveImage
+                sizes="(min-width: 1024px) 600px, 100vw"
                 src={ASSETS.cerealBowl}
                 alt={language === 'fr' ? "Bol de bouillie et cuillère en bois" : "Nutritious warm baby cereal porridge bowl with wooden spoon"}
                 className="w-full h-80 sm:h-96 object-cover"
@@ -630,6 +635,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             <div className="lg:col-span-6 relative">
               <div className="rounded-3xl overflow-hidden shadow-xl border-4 border-white">
                 <ResponsiveImage
+                  sizes="(min-width: 1024px) 600px, 100vw"
                   src={ASSETS.cameroonFarms}
                   alt={language === 'fr' ? "Champs et collines verdoyantes au Cameroun" : "Fertile agricultural farm fields and rolling green hills in Cameroon"}
                   className="w-full h-80 sm:h-96 object-cover"
@@ -706,25 +712,6 @@ export const HomePage: React.FC<HomePageProps> = ({
             </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-            <div className="bg-white p-5 rounded-2xl text-center shadow-xs border border-[#60C3F2]/20">
-              <span className="font-display font-extrabold text-xl text-[#087C21] block">14.8g</span>
-              <span className="text-xs font-bold text-[#263238] block mt-1">{t.nutritionSnippet.pill1}</span>
-            </div>
-            <div className="bg-white p-5 rounded-2xl text-center shadow-xs border border-[#60C3F2]/20">
-              <span className="font-display font-extrabold text-xl text-[#810778] block">{language === 'fr' ? 'Fer et Ca' : 'Iron & Ca'}</span>
-              <span className="text-xs font-bold text-[#263238] block mt-1">{t.nutritionSnippet.pill2}</span>
-            </div>
-            <div className="bg-white p-5 rounded-2xl text-center shadow-xs border border-[#60C3F2]/20">
-              <span className="font-display font-extrabold text-xl text-[#954900] block">6.2g</span>
-              <span className="text-xs font-bold text-[#263238] block mt-1">{t.nutritionSnippet.pill3}</span>
-            </div>
-            <div className="bg-white p-5 rounded-2xl text-center shadow-xs border border-[#60C3F2]/20">
-              <span className="font-display font-extrabold text-xl text-[#006688] block">{language === 'fr' ? 'Enrichi' : 'Fortified'}</span>
-              <span className="text-xs font-bold text-[#263238] block mt-1">{t.nutritionSnippet.pill4}</span>
-            </div>
-          </div>
-
           <div className="p-4 bg-white/80 rounded-2xl text-xs text-[#263238]/70 text-center max-w-2xl mx-auto leading-relaxed border border-[#60C3F2]/20">
             {t.nutritionSnippet.guidelineNotice}
           </div>
@@ -743,41 +730,6 @@ export const HomePage: React.FC<HomePageProps> = ({
               <Calculator className="w-4 h-4" />
               <span>{t.nav.calculator}</span>
             </button>
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================================================
-          SECTION 8 — ORDER ZUNA'S CHOICE PROMO BANNER
-      ========================================================================= */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative overflow-hidden bg-gradient-to-r from-[#075B78] via-[#086675] to-[#06611a] rounded-3xl p-5 sm:p-14 text-white shadow-xl">
-          {/* Decorative Clouds */}
-          <div className="absolute top-0 right-10 w-48 h-14 bg-white/20 rounded-full blur-md" />
-          <div className="absolute bottom-0 left-10 w-64 h-16 bg-white/20 rounded-full blur-lg" />
-
-          <div className="relative z-10 max-w-2xl space-y-5">
-            <span className="inline-block px-3 py-1 bg-white/20 backdrop-blur-xs rounded-full text-xs font-bold uppercase tracking-wider text-white">
-              250g · 1,500 FCFA
-            </span>
-            <h2 className="font-display font-extrabold text-3xl sm:text-5xl text-white tracking-tight leading-tight">
-              {t.orderBanner.title}
-            </h2>
-            <p className="text-base sm:text-lg text-white/90 leading-relaxed font-normal">
-              {t.orderBanner.subtitle}
-            </p>
-            <div className="pt-2">
-              <button
-                onClick={() => onOpenOrder()}
-                className="px-8 py-4 bg-white hover:bg-[#EAF8FF] text-[#087C21] font-extrabold text-base rounded-full shadow-xl hover:shadow-2xl transition-all duration-200 hover:scale-105 active:scale-98 cursor-pointer flex items-center gap-3"
-              >
-                <MessageCircle className="w-5 h-5 fill-current" />
-                <span>{t.orderBanner.buttonText}</span>
-              </button>
-            </div>
-            <p className="text-xs text-white/80 font-medium">
-              {t.orderBanner.helpText}
-            </p>
           </div>
         </div>
       </section>

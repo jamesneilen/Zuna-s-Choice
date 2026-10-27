@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Language } from '../types';
 import { translations } from '../i18n/translations';
 import { BUSINESS_CONFIG } from '../data/productData';
@@ -31,6 +31,14 @@ export const ContactPage: React.FC<ContactPageProps> = ({ language }) => {
 
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+  const resultRef = useRef<HTMLHeadingElement>(null);
+  const nameRef = useRef<HTMLInputElement>(null);
+  useEffect(() => {
+    if (isSubmitted) {
+      resultRef.current?.focus();
+      resultRef.current?.scrollIntoView({ block: 'center' });
+    }
+  }, [isSubmitted]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -55,6 +63,13 @@ export const ContactPage: React.FC<ContactPageProps> = ({ language }) => {
       return;
     }
 
+    const normalizedPhone = phone.trim();
+    if (!/^[+\d\s().-]+$/.test(normalizedPhone) || normalizedPhone.replace(/\D/g, '').length < 7 || normalizedPhone.replace(/\D/g, '').length > 15) {
+      setErrorMessage(language === 'fr' ? 'Saisissez un numéro de téléphone valide (7 à 15 chiffres).' : 'Enter a valid phone number (7–15 digits).');
+      document.getElementById('field-ContactPage-3')?.focus();
+      return;
+    }
+    setPhone(normalizedPhone);
     setIsSubmitted(true);
   };
 
@@ -86,7 +101,7 @@ ${message}`;
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-16 space-y-8 md:space-y-16">
       {/* Breadcrumb */}
-      <nav className="flex items-center gap-2 text-xs font-bold text-[#263238]/80">
+      <nav aria-label={language === 'fr' ? 'Fil d’Ariane' : 'Breadcrumb'} className="flex items-center gap-2 text-xs font-bold text-[#263238]/80">
         <span>{commonT.nav.home}</span>
         <ChevronRight className="w-3.5 h-3.5" />
         <span className="text-[#810778]">{commonT.nav.contact}</span>
@@ -97,7 +112,7 @@ ${message}`;
         <span className="text-xs font-bold text-[#087C21] uppercase tracking-wider">
           {language === 'fr' ? 'Service client et partenariats' : 'Customer Care & Partnerships'}
         </span>
-        <h1 className="font-display font-extrabold text-3xl sm:text-5xl text-[#810778] tracking-tight">
+        <h1 tabIndex={-1} className="font-display font-extrabold text-3xl sm:text-5xl text-[#810778] tracking-tight">
           {t.heroTitle}
         </h1>
         <p className="text-base sm:text-lg text-[#263238]/85 font-normal">
@@ -113,9 +128,9 @@ ${message}`;
               <div className="w-16 h-16 rounded-full bg-[#087C21]/10 text-[#087C21] flex items-center justify-center mx-auto">
                 <CheckCircle2 className="w-8 h-8" />
               </div>
-              <h3 className="font-display font-extrabold text-2xl text-[#263238]">
+              <h2 ref={resultRef} tabIndex={-1} className="font-display font-extrabold text-2xl text-[#263238]">
                 {t.successTitle}
-              </h3>
+              </h2>
               <p className="text-sm text-[#263238]/80 leading-relaxed max-w-md mx-auto">
                 {t.successDesc}
               </p>
@@ -132,6 +147,7 @@ ${message}`;
                   type="button"
                   onClick={() => {
                     setIsSubmitted(false);
+                    requestAnimationFrame(() => nameRef.current?.focus());
                   }}
                   className="px-5 py-3 text-xs font-bold text-[#810778] hover:bg-[#EAF8FF] rounded-full transition-colors cursor-pointer"
                 >
@@ -146,7 +162,7 @@ ${message}`;
               </h2>
 
               {errorMessage && (
-                <div className="p-3 bg-red-50 text-red-700 rounded-xl text-xs flex items-center gap-2 font-semibold">
+                <div role="alert" className="p-3 bg-red-50 text-red-700 rounded-xl text-xs flex items-center gap-2 font-semibold">
                   <AlertCircle className="w-4 h-4 shrink-0" />
                   <span>{errorMessage}</span>
                 </div>
@@ -157,7 +173,7 @@ ${message}`;
                   <label htmlFor="field-ContactPage-1" className="block text-xs font-bold text-[#263238] mb-1">
                     {t.fullName}
                   </label>
-                  <input id="field-ContactPage-1"
+                  <input ref={nameRef} id="field-ContactPage-1"
                     type="text"
                     required
                     value={fullName}
@@ -260,7 +276,7 @@ ${message}`;
                     href={`https://wa.me/${BUSINESS_CONFIG.whatsappNumber}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-bold text-base text-[#087C21] hover:underline"
+                    className="inline-flex items-center min-h-11 font-bold text-base text-[#087C21] hover:underline"
                   >
                     {BUSINESS_CONFIG.displayPhone}
                   </a>
@@ -280,7 +296,7 @@ ${message}`;
                   </span>
                   <a
                     href={`mailto:${BUSINESS_CONFIG.email}`}
-                    className="font-bold text-sm text-[#263238] hover:text-[#087C21]"
+                    className="inline-flex items-center min-h-11 font-bold text-sm text-[#263238] hover:text-[#087C21]"
                   >
                     {BUSINESS_CONFIG.email}
                   </a>

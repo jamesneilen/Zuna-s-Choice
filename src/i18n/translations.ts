@@ -103,13 +103,13 @@ export const translations = {
       tag: 'Nutrition Spotlight',
       title: 'Nutrition Worth Understanding.',
       subtitle:
-        'Explore the blend’s ingredients and indicative nutrition information.',
+        'Discover the roles of wheat, soybeans and rice in our complementary cereal.',
       pill1: 'Plant-Based Protein',
       pill2: 'Essential Iron & Calcium',
       pill3: 'Natural Dietary Fibre',
       pill4: "Micronutrient Fortification",
       guidelineNotice:
-        'Nutrition figures shown here are indicative and await confirmation against approved product labeling. Complementary feeding begins around six months alongside continued milk feeding.',
+        'For full composition and confirmed nutrition values, consult the product label. Complementary feeding begins around six months alongside continued milk feeding.',
       viewTableBtn: 'See Full Nutritional Breakdown',
     },
     orderBanner: {
@@ -138,7 +138,7 @@ export const translations = {
       weight: '250g (Net Weight)',
       age: '6+ Months / Mois',
       galleryTag: 'Product & Ingredient Gallery',
-      zoomNotice: 'Click to zoom and view packaging details',
+      zoomNotice: 'Enlarge the image',
       orderBoxTitle: 'Place Direct Order',
       quantity: 'Quantity (Packs of 250g):',
       subtotal: 'Total Cost:',
@@ -166,7 +166,7 @@ export const translations = {
       threeGrainsIntro:
         'Weanimix is a time-honoured West and Central African complementary feeding formulation designed to optimize protein quality and energy density using local staple grains and legumes.',
       tableTitle: 'Nutritional Information Panel',
-      tableSubtitle: 'Indicative figures awaiting confirmation against approved product labeling. The 50g column is a comparison portion, not a feeding recommendation.',
+      tableSubtitle: 'Our blend combines wheat, soybeans and rice. Consult the product label for confirmed nutrient quantities and full composition.',
       nutrientCol: 'Nutrient / Component',
       per100gCol: 'Per 100g Cereal',
       per50gCol: 'Per 50g Serving',
@@ -393,7 +393,7 @@ export const translations = {
       pill2: 'Fer & Calcium Essentiels',
       pill3: 'Fibres Douces pour le Transit',
       pill4: "Enrichissement en micronutriments",
-      guidelineNotice: 'Les valeurs présentées sont indicatives et doivent être confirmées sur l’étiquette approuvée. La diversification commence vers six mois, en complément du lait.',
+      guidelineNotice: 'Consultez l’étiquette du produit pour sa composition et ses valeurs nutritionnelles confirmées. La diversification commence vers six mois, en complément du lait.',
       viewTableBtn: 'Consulter la Table Nutritionnelle Complète',
     },
     orderBanner: {
@@ -422,7 +422,7 @@ export const translations = {
       weight: '250g (Poids Net)',
       age: 'Dès 6 Mois (6+ Months / Mois)',
       galleryTag: 'Emballage Officiel Zuna\'s Choice',
-      zoomNotice: 'Cliquez pour agrandir et inspecter les détails du paquet',
+      zoomNotice: 'Agrandir l’image',
       orderBoxTitle: 'Commander Directement',
       quantity: 'Quantité (Paquets de 250g) :',
       subtotal: 'Montant Total :',
@@ -450,7 +450,7 @@ export const translations = {
       threeGrainsIntro:
         'Le Weanimix est une formulation d\'alimentation de complément réputée en Afrique de l\'Ouest et Centrale, conçue pour associer céréales et légumineuses afin d\'obtenir une excellente densité protéique et énergétique.',
       tableTitle: 'Tableau des Valeurs Nutritionnelles',
-      tableSubtitle: 'Valeurs indicatives à confirmer sur l’étiquette approuvée. La colonne de 50g sert à la comparaison, sans constituer une recommandation de portion.',
+      tableSubtitle: 'Notre recette associe le blé, le soja et le riz. Consultez l’étiquette pour les quantités de nutriments confirmées et la composition complète.',
       nutrientCol: 'Nutriment / Composant',
       per100gCol: 'Pour 100g',
       per50gCol: 'Par Portion 50g',

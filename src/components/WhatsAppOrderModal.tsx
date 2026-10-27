@@ -174,7 +174,7 @@ Thank you!`;
           </div>
 
           {/* Stepper & Total */}
-          <div className="flex items-center justify-between pt-2 border-t border-[#EAF8FF]">
+          <div className="grid grid-cols-1 min-[400px]:grid-cols-2 gap-4 items-center pt-2 border-t border-[#EAF8FF]">
             <div className="flex items-center gap-3">
               <span className="text-xs font-bold text-[#263238]">
                 {t.quantity}
@@ -202,11 +202,11 @@ Thank you!`;
               </div>
             </div>
 
-            <div className="text-right">
+            <div className="text-left min-[400px]:text-right">
               <span className="block text-[11px] font-semibold text-[#263238]/70">
                 {t.subtotal}
               </span>
-              <span className="font-display font-extrabold text-xl text-[#087C21]">
+              <span className="font-display font-extrabold text-xl text-[#087C21] whitespace-nowrap">
                 {formattedSubtotal}
               </span>
             </div>

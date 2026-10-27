@@ -3,7 +3,7 @@ import { useDialog } from '../hooks/useDialog';
 import React, { useState, useEffect } from 'react';
 import { Language } from '../types';
 import { translations } from '../i18n/translations';
-import { ASSETS, PRODUCT_INFO, NUTRITION_TABLE, FAQS_DATA } from '../data/productData';
+import { ASSETS, PRODUCT_INFO, FAQS_DATA, INGREDIENTS_DATA } from '../data/productData';
 import {
   ShieldCheck,
   ShoppingBag,
@@ -36,13 +36,12 @@ export const ProductPage: React.FC<ProductPageProps> = ({
   const commonT = translations[language];
 
   const [quantity, setQuantity] = useState(2);
-  const [selectedImage, setSelectedImage] = useState<string>(ASSETS.productBox);
+  const [selectedImage, setSelectedImage] = useState<string>(ASSETS.cerealBowl);
   const [showLightbox, setShowLightbox] = useState(false);
 
   const dialogRef = useDialog(showLightbox);
 
   const galleryImages = [
-    { src: ASSETS.productBox, label: language === 'fr' ? 'Illustration' : 'Illustration' },
     { src: ASSETS.cerealBowl, label: language === 'fr' ? 'Bol de Céréale' : 'Cereal Bowl' },
     { src: ASSETS.threeGrains, label: language === 'fr' ? '3 Céréales' : 'Three Grains' },
     { src: ASSETS.motherBaby, label: language === 'fr' ? 'Repas de Bébé' : 'Baby Feeding' },
@@ -65,7 +64,7 @@ export const ProductPage: React.FC<ProductPageProps> = ({
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-16 space-y-8 md:space-y-16">
       {/* Breadcrumb */}
-      <nav className="flex items-center gap-2 text-xs font-bold text-[#263238]/80">
+      <nav aria-label={language === 'fr' ? 'Fil d’Ariane' : 'Breadcrumb'} className="flex items-center gap-2 text-xs font-bold text-[#263238]/80">
         <span>{commonT.nav.home}</span>
         <ChevronRight className="w-3.5 h-3.5" />
         <span className="text-[#810778]">{commonT.nav.product}</span>
@@ -83,8 +82,9 @@ export const ProductPage: React.FC<ProductPageProps> = ({
             className="relative rounded-3xl overflow-hidden bg-white border-2 border-[#60C3F2]/30 shadow-xl cursor-zoom-in group aspect-square flex items-center justify-center p-4 hover:border-[#60C3F2] transition-colors"
           >
             <ResponsiveImage
+              sizes="(min-width: 1024px) 700px, 100vw"
               src={selectedImage}
-              alt={language === 'fr' ? "Zuna’s Choice — Céréales infantiles" : "Zuna's Choice Baby Cereal"}
+              alt={galleryImages.find(image => image.src === selectedImage)?.label || PRODUCT_INFO.name}
               className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
               loading="eager"
               referrerPolicy="no-referrer"
@@ -99,11 +99,11 @@ export const ProductPage: React.FC<ProductPageProps> = ({
           </button>
 
           <p className="text-xs text-[#263238]/80">
-            {language === 'fr' ? 'Illustration du produit. Le produit est conditionné en sachet refermable de 250g.' : 'Product illustration. Supplied in a resealable 250g pouch.'}
+            {language === 'fr' ? 'Suggestion de présentation. Produit vendu en sachet refermable de 250g.' : 'Serving suggestion. Supplied in a resealable 250g pouch.'}
           </p>
 
           {/* Gallery Thumbnails */}
-          <div className="grid grid-cols-4 gap-2 sm:gap-3">
+          <div className="grid grid-cols-3 gap-2 sm:gap-3">
             {galleryImages.map((img, i) => {
               const active = selectedImage === img.src;
               return (
@@ -124,7 +124,7 @@ export const ProductPage: React.FC<ProductPageProps> = ({
                   <ResponsiveImage
                     sizes="(min-width: 1024px) 160px, 25vw"
                     src={img.src}
-                    alt={img.label}
+                    alt=""
                     className="w-full h-12 sm:h-16 object-contain rounded-lg shrink-0"
                     referrerPolicy="no-referrer"
                   />
@@ -144,7 +144,7 @@ export const ProductPage: React.FC<ProductPageProps> = ({
               <ShieldCheck className="w-3.5 h-3.5" />
               <span>{t.labelBadge}</span>
             </div>
-            <h1 className="font-display font-extrabold text-3xl sm:text-4xl text-[#810778] tracking-tight">
+            <h1 tabIndex={-1} className="font-display font-extrabold text-3xl sm:text-4xl text-[#810778] tracking-tight">
               {t.title}
             </h1>
             <p className="text-sm text-[#263238]/80 leading-relaxed font-normal">
@@ -218,9 +218,9 @@ export const ProductPage: React.FC<ProductPageProps> = ({
 
           {/* Product Highlights List */}
           <div className="pt-4 border-t border-[#EAF8FF] space-y-3">
-            <h4 className="font-display font-bold text-sm text-[#263238]">
+            <h2 className="font-display font-bold text-sm text-[#263238]">
               {t.characteristicsTitle}
-            </h4>
+            </h2>
             <ul className="space-y-2 text-xs font-semibold text-[#263238]/85">
               <li className="flex items-start gap-2">
                 <CheckCircle2 className="w-4 h-4 text-[#087C21] shrink-0 mt-0.5" />
@@ -295,13 +295,11 @@ export const ProductPage: React.FC<ProductPageProps> = ({
           </button>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
-          {NUTRITION_TABLE.slice(0, 4).map((fact, idx) => (
-            <div key={idx} className="p-4 bg-[#F4FAFF] rounded-2xl border border-[#EAF8FF]">
-              <span className="text-xs font-semibold text-[#263238]/70 block">{fact.nutrient[language]}</span>
-              <span className="font-display font-bold text-base text-[#087C21] mt-1 block">{fact.per100g}</span>
-            </div>
-          ))}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          {INGREDIENTS_DATA.map(grain => <div key={grain.id} className="p-4 bg-[#F4FAFF] rounded-2xl">
+            <p className="font-bold text-[#087C21]">{grain.name[language]}</p>
+            <p className="text-sm">{grain.shortRole[language]}</p>
+          </div>)}
         </div>
       </div>
 
@@ -328,6 +326,7 @@ export const ProductPage: React.FC<ProductPageProps> = ({
             </button>
             <ResponsiveImage
               src={selectedImage}
+              sizes="90vw"
               alt={language === 'fr' ? "Aperçu de l’emballage" : "Packaging inspection view"}
               className="max-h-[80vh] w-auto object-contain rounded-2xl shadow-2xl bg-white p-2"
               referrerPolicy="no-referrer"

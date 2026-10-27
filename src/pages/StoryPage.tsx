@@ -33,7 +33,7 @@ export const StoryPage: React.FC<StoryPageProps> = ({
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-16 space-y-10 md:space-y-20">
       {/* Breadcrumb */}
-      <nav className="flex items-center gap-2 text-xs font-bold text-[#263238]/80">
+      <nav aria-label={language === 'fr' ? 'Fil d’Ariane' : 'Breadcrumb'} className="flex items-center gap-2 text-xs font-bold text-[#263238]/80">
         <span>{commonT.nav.home}</span>
         <ChevronRight className="w-3.5 h-3.5" />
         <span className="text-[#810778]">{commonT.nav.story}</span>
@@ -46,7 +46,7 @@ export const StoryPage: React.FC<StoryPageProps> = ({
             <ShieldCheck className="w-3.5 h-3.5" />
             <span>{language === 'fr' ? "Racines agricoles camerounaises" : "Cameroon Agricultural Roots"}</span>
           </div>
-          <h1 className="font-display font-extrabold text-3xl sm:text-5xl lg:text-6xl text-[#810778] tracking-tight leading-[1.12]">
+          <h1 tabIndex={-1} className="font-display font-extrabold text-3xl sm:text-5xl lg:text-6xl text-[#810778] tracking-tight leading-[1.12]">
             {t.heroTitle}
           </h1>
           <p className="text-base sm:text-lg text-[#263238]/85 leading-relaxed font-normal max-w-xl">
@@ -73,6 +73,7 @@ export const StoryPage: React.FC<StoryPageProps> = ({
         <div className="lg:col-span-5 relative">
           <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
             <ResponsiveImage
+              sizes="(min-width: 1024px) 520px, 100vw"
               src={ASSETS.motherBaby}
               alt={language === 'fr' ? "Mère camerounaise donnant à manger à son bébé" : "Cameroonian mother lovingly feeding her baby"}
               className="w-full h-80 sm:h-96 object-cover"
@@ -163,6 +164,7 @@ export const StoryPage: React.FC<StoryPageProps> = ({
       {/* Quote Banner with Cameroon Farms Backdrop */}
       <div className="relative rounded-3xl overflow-hidden shadow-xl border-4 border-white">
         <ResponsiveImage
+          sizes="(min-width: 1280px) 1216px, 100vw"
           src={ASSETS.cameroonFarms}
           alt={language === 'fr' ? "Terres agricoles du Cameroun" : "Farmlands of Cameroon"}
           className="w-full h-80 sm:h-96 object-cover"
