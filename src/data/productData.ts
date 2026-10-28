@@ -17,7 +17,7 @@ export const ASSETS = {
 export const PRODUCT_INFO: ProductInfo = {
   name: "Zuna's Choice",
   subname: 'Baby Cereal — Weanimix',
-  tagline: 'Little Tummies. Bright Futures.',
+  tagline: 'A well fed baby is a happy baby!',
   priceFcfa: 1500,
   weightGrams: 250,
   ageIndication: '6+ Months / Mois',
@@ -31,7 +31,7 @@ export const BUSINESS_CONFIG = {
   displayPhone: '+237 651 406 400',
   email: 'info@zunaschoice.cm',
   location: 'Douala & Yaoundé, Cameroon',
-  productionSite: 'Bafoussam & West Region Agricultural Basin, Cameroon',
+  productionSite: 'Bwadibo, Douala',
   hours: 'Mon – Sat: 8:00 AM – 6:00 PM (WAT)',
   facebookUrl: 'https://web.facebook.com/zunaschoice/',
   instagramUrl: 'https://www.instagram.com/zunaschoice',
@@ -178,8 +178,8 @@ export const FAQS_DATA: FAQItem[] = [
       fr: 'Où puis-je acheter Zuna\'s Choice ?',
     },
     answer: {
-      en: 'You can order directly via our official WhatsApp system right here on the website for fast home delivery across Douala, Yaoundé, Bafoussam, and other major Cameroonian cities. We are also expanding into community pharmacies, baby boutiques, and partner grocery stores.',
-      fr: 'Vous pouvez commander directement via notre service WhatsApp officiel sur ce site web avec livraison rapide à domicile à Douala, Yaoundé, Bafoussam et dans les principales villes du Cameroun. Nous sommes également présents dans un réseau grandissant de pharmacies partenaires et boutiques de puériculture.',
+      en: 'You can order directly via our official WhatsApp system right here on the website from anywhere in Cameroon and abroad. Our team will confirm availability, delivery options and charges for your destination.',
+      fr: 'Vous pouvez commander directement via notre service WhatsApp officiel sur ce site web depuis partout au Cameroun et à l’international. Notre équipe confirmera la disponibilité, les modalités et les frais de livraison pour votre destination.',
     },
   },
   {

@@ -102,7 +102,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, language, onOpenOrde
               <span>{language === 'fr' ? "Commandes sur WhatsApp" : "WhatsApp Orders"}</span>
             </div>
             <p className="text-xs text-[#263238]/90 leading-relaxed">
-              {language === 'fr' ? "Commandez vos paquets de 250g sur WhatsApp. Notre équipe confirmera les options et les frais de livraison." : "Order 250g packs via WhatsApp. Our team will confirm delivery options and charges."}
+              {language === 'fr' ? "Commandes acceptées partout au Cameroun et à l’international sur WhatsApp. Notre équipe confirmera les modalités et les frais de livraison." : "Orders welcome from anywhere in Cameroon and abroad via WhatsApp. Our team will confirm delivery options and charges."}
             </p>
             <button
               onClick={onOpenOrder}

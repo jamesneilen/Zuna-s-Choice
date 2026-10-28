@@ -10,8 +10,8 @@ export const translations = {
       calculator: 'Feeding Calculator',
     },
     hero: {
-      headlinePart1: 'Wholesome Goodness for',
-      headlinePart2: 'Every Little Beginning.',
+      headlinePart1: 'A well fed baby',
+      headlinePart2: 'is a happy baby!',
       subtitle:
         "Made from locally sourced wheat, soybeans and rice, Zuna’s Choice is an affordable complementary cereal for infants from 6 months and young children in Cameroon.",
       exploreBtn: 'Explore Our Cereal',
@@ -67,7 +67,7 @@ export const translations = {
       feature2: "Resealable 250g Pouch",
       feature3: 'Smooth Texture for Easy Swallowing',
       feature4: 'Cooks in ~5 Minutes on Stove',
-      fastDelivery: 'Fast delivery in Douala, Yaoundé & regional capitals',
+      fastDelivery: 'Orders welcome from Cameroon and abroad',
     },
     prep: {
       tag: 'Simple Preparation',
@@ -109,13 +109,13 @@ export const translations = {
       pill3: 'Natural Dietary Fibre',
       pill4: "Micronutrient Fortification",
       guidelineNotice:
-        'For full composition and confirmed nutrition values, consult the product label. Complementary feeding begins around six months alongside continued milk feeding.',
+        'For full composition and confirmed nutrition values, consult the product label. Complementary feeding begins around six months alongside continued breast milk feeding.',
       viewTableBtn: 'See Full Nutritional Breakdown',
     },
     orderBanner: {
       title: 'Little Tummies Deserve Thoughtful Nutrition.',
       subtitle:
-        'Bring Zuna\'s Choice home for just 1,500 FCFA per 250g pack. Fast local delivery right to your doorstep.',
+        'Bring Zuna\'s Choice home for just 1,500 FCFA per 250g pack. Orders are welcome from anywhere in Cameroon and abroad. Contact us to confirm delivery arrangements.',
       buttonText: 'Order via WhatsApp Now',
       helpText: 'Questions? Chat with our team anytime on WhatsApp.',
     },
@@ -183,7 +183,7 @@ export const translations = {
         "Zuna’s Choice connects locally grown grains with affordable complementary food for infants and young children, creating value for smallholder farmers in Cameroon.",
       missionTitle: 'Our Mission',
       missionText:
-        "To make locally produced, affordable complementary cereal accessible to families while supporting Cameroonian smallholder farmers. The first 1,000 days are an important context for our mission; our cereal is introduced from 6 months alongside continued milk feeding.",
+        "To make locally produced, affordable complementary cereal accessible to families while supporting Cameroonian smallholder farmers. The first 1,000 days are an important context for our mission; our cereal is introduced from 6 months alongside continued breast milk feeding.",
       visionTitle: 'Our Vision',
       visionText:
         "To support child nutrition through regional crops, reduce reliance on imported cereal and build a transparent local supply chain that creates value for farmers.",
@@ -234,7 +234,7 @@ export const translations = {
     },
     orderModal: {
       title: 'Order Zuna\'s Choice via WhatsApp',
-      subtitle: 'Complete your details below and we will prepare your pre-filled WhatsApp order message.',
+      subtitle: 'We accept orders from anywhere in Cameroon and abroad. Enter your details to prepare your WhatsApp order; our team will confirm delivery arrangements.',
       productLabel: 'Product:',
       productValue: 'Zuna\'s Choice Baby Cereal — Weanimix (250g)',
       pricePerPack: '1,500 FCFA per pack',
@@ -242,8 +242,8 @@ export const translations = {
       subtotal: 'Total Amount:',
       nameLabel: 'Your Full Name *',
       namePlaceholder: 'e.g. Danielle Nana',
-      locationLabel: 'Delivery City & Neighborhood *',
-      locationPlaceholder: 'e.g. Douala — Bonapriso or Akwa',
+      locationLabel: 'Delivery Country, City & Neighborhood *',
+      locationPlaceholder: 'e.g. Cameroon — Douala — Bonapriso, or your address abroad',
       phoneLabel: 'Contact Phone Number (Optional)',
       phonePlaceholder: 'e.g. +237 699 000 000',
       notesLabel: 'Special Instructions or Dietary Questions (Optional)',
@@ -274,14 +274,14 @@ export const translations = {
     },
     footer: {
       brandDesc:
-        'Zuna\'s Choice is Cameroon\'s dedicated baby cereal brand, producing nutritious, affordable, locally sourced Weanimix for little tummies and bright futures.',
+        'Zuna\'s Choice — A well fed baby is a happy baby! Locally sourced, affordable Weanimix cereal. Orders welcome from Cameroon and abroad.',
       quickLinks: 'Quick Links',
       nutritionLinks: 'Nutrition & Care',
       contactInfo: 'Get in Touch',
       cameroonBadge: 'Proudly Made in Cameroon with Local Grains',
       rights: 'All rights reserved.',
       disclaimer:
-        'Disclaimer: Complementary feeding should start at 6 months alongside continued milk feeding. Breast milk is best for babies. Consult your pediatrician or maternal health center for tailored infant feeding advice.',
+        'Disclaimer: Complementary feeding should start at 6 months alongside continued breast milk feeding. Breast milk is best for babies. Consult your pediatrician or maternal health center for tailored infant feeding advice.',
     },
   },
   fr: {
@@ -295,8 +295,8 @@ export const translations = {
       calculator: 'Calculateur Bouillie',
     },
     hero: {
-      headlinePart1: 'La Bonté Saine pour',
-      headlinePart2: 'Chaque Petit Départ.',
+      headlinePart1: 'Un bébé bien nourri',
+      headlinePart2: 'est un bébé heureux !',
       subtitle:
         "À base de blé, de soja et de riz locaux, Zuna’s Choice est une céréale de complément abordable pour les bébés dès 6 mois et les jeunes enfants au Cameroun.",
       exploreBtn: 'Découvrir la Céréale',
@@ -352,7 +352,7 @@ export const translations = {
       feature2: "Sachet refermable de 250g",
       feature3: 'Texture veloutée facilitant la déglutition',
       feature4: 'Cuisson rapide en 5 minutes sur feu doux',
-      fastDelivery: 'Livraison express à Douala, Yaoundé et villes régionales',
+      fastDelivery: 'Commandes acceptées au Cameroun et à l’international',
     },
     prep: {
       tag: 'Préparation Facile',
@@ -393,13 +393,13 @@ export const translations = {
       pill2: 'Fer & Calcium Essentiels',
       pill3: 'Fibres Douces pour le Transit',
       pill4: "Enrichissement en micronutriments",
-      guidelineNotice: 'Consultez l’étiquette du produit pour sa composition et ses valeurs nutritionnelles confirmées. La diversification commence vers six mois, en complément du lait.',
+      guidelineNotice: 'Consultez l’étiquette du produit pour sa composition et ses valeurs nutritionnelles confirmées. La diversification commence vers six mois, en complément de l’allaitement maternel.',
       viewTableBtn: 'Consulter la Table Nutritionnelle Complète',
     },
     orderBanner: {
       title: 'Les Petits Ventres Méritent le Meilleur.',
       subtitle:
-        'Offrez Zuna\'s Choice à votre enfant pour seulement 1 500 FCFA le paquet de 250g. Livraison rapide à domicile.',
+        'Offrez Zuna\'s Choice à votre enfant pour seulement 1 500 FCFA le paquet de 250g. Commandes acceptées partout au Cameroun et à l’international. Contactez-nous pour convenir des modalités de livraison.',
       buttonText: 'Commander sur WhatsApp Dès Maintenant',
       helpText: 'Une question ? Échangez directement avec notre équipe sur WhatsApp.',
     },
@@ -467,7 +467,7 @@ export const translations = {
         "Zuna’s Choice relie les cultures locales à une alimentation de complément abordable pour les bébés et les jeunes enfants, tout en créant de la valeur pour les petits producteurs du Cameroun.",
       missionTitle: 'Notre Mission',
       missionText:
-        "Rendre des céréales de complément locales et abordables accessibles aux familles tout en soutenant les petits producteurs camerounais. Les 1 000 premiers jours sont au cœur de notre mission ; nos céréales sont introduites dès 6 mois, en complément du lait.",
+        "Rendre des céréales de complément locales et abordables accessibles aux familles tout en soutenant les petits producteurs camerounais. Les 1 000 premiers jours sont au cœur de notre mission ; nos céréales sont introduites dès 6 mois, en complément de l’allaitement maternel.",
       visionTitle: 'Notre Vision',
       visionText:
         "Soutenir la nutrition des enfants grâce aux cultures régionales, réduire la dépendance aux céréales importées et bâtir une chaîne d’approvisionnement locale transparente qui valorise les agriculteurs.",
@@ -518,7 +518,7 @@ export const translations = {
     },
     orderModal: {
       title: 'Commander Zuna\'s Choice via WhatsApp',
-      subtitle: 'Renseignez vos coordonnées pour générer votre message de commande pré-rempli sur WhatsApp.',
+      subtitle: 'Nous acceptons les commandes partout au Cameroun et à l’international. Renseignez vos coordonnées pour préparer votre commande WhatsApp ; notre équipe confirmera les modalités de livraison.',
       productLabel: 'Produit :',
       productValue: 'Zuna\'s Choice Céréale Bébé — Weanimix (250g)',
       pricePerPack: '1 500 FCFA par paquet',
@@ -526,8 +526,8 @@ export const translations = {
       subtotal: 'Montant Total :',
       nameLabel: 'Votre Nom Complet *',
       namePlaceholder: 'ex. Danielle Nana',
-      locationLabel: 'Ville et Quartier de Livraison *',
-      locationPlaceholder: 'ex. Douala — Bonapriso ou Akwa',
+      locationLabel: 'Pays, Ville et Quartier de Livraison *',
+      locationPlaceholder: 'ex. Cameroun — Douala — Bonapriso, ou votre adresse à l’international',
       phoneLabel: 'Numéro de Téléphone (Optionnel)',
       phonePlaceholder: 'ex. +237 699 000 000',
       notesLabel: 'Instructions Particulières (Optionnel)',
@@ -558,7 +558,7 @@ export const translations = {
     },
     footer: {
       brandDesc:
-        'Zuna\'s Choice est la marque camerounaise de céréales infantiles formulée pour apporter aux tout-petits une bouillie Weanimix saine, locale et accessible à tous les foyers.',
+        'Zuna\'s Choice — Un bébé bien nourri est un bébé heureux ! Une bouillie Weanimix locale et abordable. Commandes acceptées au Cameroun et à l’international.',
       quickLinks: 'Navigation Rapide',
       nutritionLinks: 'Nutrition & Santé',
       contactInfo: 'Contactez-nous',
