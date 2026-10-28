@@ -1,4 +1,5 @@
 import { PageLink } from './PageLink';
+import { pages } from '../routing';
 import React from 'react';
 import { Language, PageId } from '../types';
 import { translations } from '../i18n/translations';
@@ -7,12 +8,13 @@ import { MessageCircle, Mail, MapPin, Clock, Heart, ShieldCheck } from 'lucide-r
 import { SocialLinks } from './SocialLinks';
 
 interface FooterProps {
+  currentPage: PageId;
   onNavigate: (page: PageId) => void;
   language: Language;
   onOpenOrder: () => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onNavigate, language, onOpenOrder }) => {
+export const Footer: React.FC<FooterProps> = ({ currentPage, onNavigate, language, onOpenOrder }) => {
   const t = translations[language];
 
   return (
@@ -39,28 +41,26 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, language, onOpenOrde
           </div>
 
           {/* Column 2: Quick Links */}
-          <div className="space-y-4">
+          <nav aria-label={t.footer.quickLinks} className="space-y-4">
             <h2 className="font-display font-bold text-base text-[#810778]">
               {t.footer.quickLinks}
             </h2>
             <ul className="space-y-2.5 text-sm font-semibold">
-              <li>
-                <PageLink page="home" language={language} onNavigate={onNavigate} className="hover:text-[#087C21] transition-colors cursor-pointer text-[#263238]/80 inline-flex items-center min-h-11">{t.nav.home}</PageLink>
-              </li>
-              <li>
-                <PageLink page="product" language={language} onNavigate={onNavigate} className="hover:text-[#087C21] transition-colors cursor-pointer text-[#263238]/80 inline-flex items-center min-h-11">{t.nav.product}</PageLink>
-              </li>
-              <li>
-                <PageLink page="nutrition" language={language} onNavigate={onNavigate} className="hover:text-[#087C21] transition-colors cursor-pointer text-[#263238]/80 inline-flex items-center min-h-11">{t.nav.nutrition}</PageLink>
-              </li>
-              <li>
-                <PageLink page="story" language={language} onNavigate={onNavigate} className="hover:text-[#087C21] transition-colors cursor-pointer text-[#263238]/80 inline-flex items-center min-h-11">{t.nav.story}</PageLink>
-              </li>
-              <li>
-                <PageLink page="contact" language={language} onNavigate={onNavigate} className="hover:text-[#087C21] transition-colors cursor-pointer text-[#263238]/80 inline-flex items-center min-h-11">{t.nav.contact}</PageLink>
-              </li>
+              {pages.map(page => (
+                <li key={page}>
+                  <PageLink
+                    page={page}
+                    language={language}
+                    onNavigate={onNavigate}
+                    aria-current={currentPage === page ? 'page' : undefined}
+                    className={`inline-flex min-h-11 items-center rounded-sm transition-colors hover:text-[#087C21] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#810778] ${currentPage === page ? 'text-[#810778] underline underline-offset-4' : 'text-[#263238]/80'}`}
+                  >
+                    {t.nav[page]}
+                  </PageLink>
+                </li>
+              ))}
             </ul>
-          </div>
+          </nav>
 
           {/* Column 3: Contact Channels */}
           <div className="space-y-4">

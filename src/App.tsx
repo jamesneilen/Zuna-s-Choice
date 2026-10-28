@@ -39,7 +39,7 @@ export default function App({ initialPage = 'home', initialLanguage = 'en' }: { 
       setIsOrderModalOpen(route.order);
       const path = pagePath(page, locale) + (route.order ? '#order' : '');
       if (window.location.pathname + window.location.hash !== path) history.replaceState(null, '', path);
-      if (!initial) { window.scrollTo({ top: 0 }); focusPage(); }
+      if (!initial) { window.scrollTo({ top: 0, behavior: 'instant' }); focusPage(); }
       initial = false;
     };
     syncLocation();
@@ -102,7 +102,7 @@ export default function App({ initialPage = 'home', initialLanguage = 'en' }: { 
     setCurrentPage(page);
     setLanguage(locale);
     setIsOrderModalOpen(false);
-    window.scrollTo({ top: 0 });
+    window.scrollTo({ top: 0, behavior: 'instant' });
     focusPage();
   };
 
@@ -165,6 +165,7 @@ export default function App({ initialPage = 'home', initialLanguage = 'en' }: { 
 
       {/* Footer */}
       <Footer
+        currentPage={currentPage}
         onNavigate={handleNavigate}
         language={language}
         onOpenOrder={() => handleOpenOrder(2)}
