@@ -144,17 +144,17 @@ export const HomePage: React.FC<HomePageProps> = ({
               </div>
             </div>
 
-            {/* Right Column: Serving Suggestion & Product Details */}
+            {/* Right Column: Child Feeding & Product Details */}
             <div className="hero-visual order-3 lg:order-none lg:col-span-5 relative flex justify-center py-3 lg:py-0">
               {/* Sunbeam Halo & Sky Circle */}
               <div className="absolute inset-0 bg-gradient-to-tr from-[#60C3F2]/30 to-[#810778]/10 rounded-full blur-2xl transform scale-90 -z-10" />
 
               <div className="hero-image-wrap relative max-w-[230px] sm:max-w-md w-full animate-gentle-float">
-                {/* Illustrative Serving Image */}
+                {/* Child Feeding Photograph */}
                 <div className="relative rounded-3xl p-3 bg-white/90 backdrop-blur-xs shadow-2xl border-2 border-white">
                   <ResponsiveImage
-                    src={ASSETS.cerealBowl}
-                    alt={language === 'fr' ? "Suggestion de présentation de bouillie" : "Cereal serving suggestion"}
+                    src={ASSETS.motherBaby}
+                    alt={language === 'fr' ? "Une mère donne à manger à son enfant" : "A mother feeding her child"}
                     className="w-full h-auto object-cover rounded-2xl shadow-inner select-none"
                     loading="eager"
                     referrerPolicy="no-referrer"
@@ -180,7 +180,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                     6+ Months / Mois
                   </div>
                 </div>
-                  <p className="mt-8 text-center text-xs text-[#263238]">{language === 'fr' ? 'Suggestion de présentation — sachet refermable de 250g.' : 'Serving suggestion — resealable 250g pouch.'}</p>
+                  <p className="mt-8 text-center text-xs text-[#263238]">{language === 'fr' ? 'De l’attention à chaque cuillerée.' : 'Care in every spoonful.'}</p>
               </div>
             </div>
           </div>
@@ -592,17 +592,14 @@ export const HomePage: React.FC<HomePageProps> = ({
             </div>
           </div>
 
-          {/* Right: Visual Baby Cereal Bowl Image */}
+          {/* Step-specific preparation illustration; the cereal photo appears only in the product section. */}
           <div className="lg:col-span-5 flex justify-center">
-            <div className="relative rounded-3xl overflow-hidden shadow-xl border-4 border-white max-w-sm w-full">
-              <ResponsiveImage
-                sizes="(min-width: 1024px) 600px, 100vw"
-                src={ASSETS.cerealBowl}
-                alt={language === 'fr' ? "Bol de bouillie et cuillère en bois" : "Nutritious warm baby cereal porridge bowl with wooden spoon"}
-                className="w-full h-80 sm:h-96 object-cover"
-                loading="lazy"
-                referrerPolicy="no-referrer"
-              />
+            <div className="relative rounded-3xl overflow-hidden shadow-xl border-4 border-white max-w-sm w-full h-80 sm:h-96 bg-gradient-to-br from-[#EAF8FF] to-white flex items-center justify-center" aria-live="polite">
+              <div className="rounded-full bg-white p-8 shadow-sm border border-[#60C3F2]/30" aria-hidden="true">
+                {activePrepStep === 1 && <Utensils className="w-20 h-20 text-[#087C21]" />}
+                {activePrepStep === 2 && <Flame className="w-20 h-20 text-[#810778]" />}
+                {activePrepStep === 3 && <Heart className="w-20 h-20 text-[#954900]" />}
+              </div>
               <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-xs px-3.5 py-1.5 rounded-full text-xs font-extrabold text-[#810778] shadow-sm border border-[#EAF8FF]">
                 {activePrepStep === 1 && (language === 'fr' ? 'Étape 1 : Hygiène & Eau Propre' : 'Step 1: Clean Utensils & Safe Water')}
                 {activePrepStep === 2 && (language === 'fr' ? 'Étape 2 : Cuisson Douce ~5 min' : 'Step 2: Gentle Simmer ~5 min')}
