@@ -1,8 +1,9 @@
+import { BrandMascot } from './BrandMascot';
 import { useDialog } from '../hooks/useDialog';
 import React, { useState, useEffect } from 'react';
 import { Language } from '../types';
 import { translations } from '../i18n/translations';
-import { ASSETS, PRODUCT_INFO } from '../data/productData';
+import { PRODUCT_INFO } from '../data/productData';
 import { X, Calculator, Plus, Minus, Check, Calendar, ShoppingBag, Sparkles } from 'lucide-react';
 
 interface DailyCalculatorModalProps {
@@ -78,16 +79,12 @@ export const DailyCalculatorModal: React.FC<DailyCalculatorModalProps> = ({
 
         {/* Title */}
         <div className="space-y-1.5 pr-8">
-          <div className="flex items-center justify-between">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#EAF8FF] rounded-full text-xs font-bold text-[#810778]">
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#EAF8FF] rounded-full text-[11px] sm:text-xs font-bold text-[#810778]">
               <Calculator className="w-3.5 h-3.5" />
-              <span>{language === 'fr' ? 'Calculateur de bouillie' : 'Infant Weaning Calculator'}</span>
+              <span>{language === 'fr' ? 'Calculateur' : 'Feeding calculator'}</span>
             </div>
-            <img
-              src={ASSETS.logo}
-              alt="Zuna's Choice"
-              className="h-10 w-auto object-contain"
-            />
+            <BrandMascot className="w-14 h-20 shrink-0" loading="eager" />
           </div>
           <h3 id="DailyCalculatorModal-title" className="font-display font-extrabold text-2xl text-[#810778] tracking-tight">
             {t.title}

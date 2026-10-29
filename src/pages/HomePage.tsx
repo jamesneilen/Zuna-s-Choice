@@ -1,3 +1,4 @@
+import { BrandMascot } from '../components/BrandMascot';
 import { ResponsiveImage } from '../components/ResponsiveImage';
 import React, { useState } from 'react';
 import { Language, PageId } from '../types';
@@ -586,9 +587,12 @@ export const HomePage: React.FC<HomePageProps> = ({
             </div>
 
             {/* Caregiver note */}
-            <div className="p-4 bg-[#EAF8FF] rounded-2xl border border-[#60C3F2]/40 text-xs text-[#006688] font-medium leading-relaxed">
-              <span className="font-bold text-[#810778]">{t.prep.prepTipTitle}: </span>
-              {t.prep.prepTipDesc}
+            <div className="p-4 bg-[#EAF8FF] rounded-2xl border border-[#60C3F2]/40 text-xs text-[#006688] font-medium leading-relaxed flex items-center gap-4">
+              <BrandMascot className="w-16 h-20 sm:w-20 sm:h-24 shrink-0" />
+              <p className="min-w-0">
+                <span className="font-bold text-[#810778]">{t.prep.prepTipTitle}: </span>
+                {t.prep.prepTipDesc}
+              </p>
             </div>
           </div>
 

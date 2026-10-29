@@ -1,3 +1,4 @@
+import { BrandMascot } from '../components/BrandMascot';
 import React, { useState, useEffect, useRef } from 'react';
 import { Language } from '../types';
 import { translations } from '../i18n/translations';
@@ -126,9 +127,7 @@ ${message}`;
         <div className="lg:col-span-7 bg-white p-5 sm:p-10 rounded-3xl border border-[#EAF8FF] shadow-lg">
           {isSubmitted ? (
             <div className="p-8 text-center space-y-5 animate-in fade-in">
-              <div className="w-16 h-16 rounded-full bg-[#087C21]/10 text-[#087C21] flex items-center justify-center mx-auto">
-                <CheckCircle2 className="w-8 h-8" />
-              </div>
+              <BrandMascot className="w-24 h-32 mx-auto" loading="eager" />
               <h2 ref={resultRef} tabIndex={-1} className="font-display font-extrabold text-2xl text-[#263238]">
                 {t.successTitle}
               </h2>
