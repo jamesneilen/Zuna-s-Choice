@@ -592,14 +592,17 @@ export const HomePage: React.FC<HomePageProps> = ({
             </div>
           </div>
 
-          {/* Step-specific preparation illustration; the cereal photo appears only in the product section. */}
+          {/* Preparation photo with step-specific guidance. */}
           <div className="lg:col-span-5 flex justify-center">
-            <div className="relative rounded-3xl overflow-hidden shadow-xl border-4 border-white max-w-sm w-full h-80 sm:h-96 bg-gradient-to-br from-[#EAF8FF] to-white flex items-center justify-center" aria-live="polite">
-              <div className="rounded-full bg-white p-8 shadow-sm border border-[#60C3F2]/30" aria-hidden="true">
-                {activePrepStep === 1 && <Utensils className="w-20 h-20 text-[#087C21]" />}
-                {activePrepStep === 2 && <Flame className="w-20 h-20 text-[#810778]" />}
-                {activePrepStep === 3 && <Heart className="w-20 h-20 text-[#954900]" />}
-              </div>
+            <div className="relative rounded-3xl overflow-hidden shadow-xl border-4 border-white max-w-sm w-full" aria-live="polite">
+              <ResponsiveImage
+                sizes="(min-width: 1024px) 600px, 100vw"
+                src={ASSETS.cerealBowl}
+                alt={language === 'fr' ? 'Bol de bouillie et cuillère en bois' : 'Cereal bowl with a wooden spoon'}
+                className="w-full h-80 sm:h-96 object-cover"
+                loading="lazy"
+                referrerPolicy="no-referrer"
+              />
               <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-xs px-3.5 py-1.5 rounded-full text-xs font-extrabold text-[#810778] shadow-sm border border-[#EAF8FF]">
                 {activePrepStep === 1 && (language === 'fr' ? 'Étape 1 : Hygiène & Eau Propre' : 'Step 1: Clean Utensils & Safe Water')}
                 {activePrepStep === 2 && (language === 'fr' ? 'Étape 2 : Cuisson Douce ~5 min' : 'Step 2: Gentle Simmer ~5 min')}

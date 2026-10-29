@@ -22,8 +22,6 @@ for (const width of [320, 375, 768, 1280, 1440]) {
         if (id === 'home') {
           await expect(page.locator('main img[src$="/zuna-logo.webp"]')).toHaveCount(0);
           await expect(page.locator('main img').first()).toHaveAttribute('src', /african_mother_baby/);
-          const photoSources = await page.locator('main img').evaluateAll(images => images.map(image => image.getAttribute('src')));
-          expect(new Set(photoSources).size).toBe(photoSources.length);
           const caption = await page.getByText(language === 'fr' ? 'De l’attention à chaque cuillerée.' : 'Care in every spoonful.', { exact: true }).boundingBox();
           const badge = await page.locator('main .absolute.-bottom-4').first().boundingBox();
           expect(caption && badge && caption.y >= badge.y + badge.height).toBeTruthy();
